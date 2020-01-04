@@ -44,10 +44,26 @@ class NewDog extends React.Component {
             </div>
             <br />
             <div className="form-row d-flex justify-content-center">
-              <Option handleChange={this.handleChange} name={"size"} />
-              <Option handleChange={this.handleChange} name={"energy"} />
-              <Option handleChange={this.handleChange} name={"health"} />
-              <Option handleChange={this.handleChange} name={"age"} />
+              <Option
+                handleChange={this.handleChange}
+                name={"size"}
+                maxNum={5}
+              />
+              <Option
+                handleChange={this.handleChange}
+                name={"energy"}
+                maxNum={5}
+              />
+              <Option
+                handleChange={this.handleChange}
+                name={"health"}
+                maxNum={5}
+              />
+              <Option
+                handleChange={this.handleChange}
+                name={"age"}
+                maxNum={15}
+              />
             </div>
 
             <div className="form-row"></div>

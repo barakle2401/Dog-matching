@@ -1,4 +1,5 @@
 import React from "react";
+import _ from "lodash";
 import {
   MDBContainer,
   MDBRow,
@@ -9,6 +10,7 @@ import {
 } from "mdbreact";
 
 function Option(props) {
+  let i;
   return (
     <div>
       <div className="col">
@@ -18,16 +20,14 @@ function Option(props) {
       </div>
       <div className="col">
         <select
-          type="text"
-          onChange={props.handleChange}
           className="form-control"
+          type="text"
           name={props.name}
+          onChange={props.handleChange}
         >
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
+          {_.range(1, props.maxNum + 1).map(value => (
+            <option value={value}>{value}</option>
+          ))}
         </select>
       </div>
     </div>
