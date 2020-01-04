@@ -1,43 +1,60 @@
 import React from "react";
-import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn } from "mdbreact";
+import firebase from "../firebase";
 
+import {
+  MDBContainer,
+  MDBRow,
+  MDBCol,
+  MDBInput,
+  MDBBtn,
+  MDBIcon
+} from "mdbreact";
+import "./newDog.css";
+import Option from "./option";
+import Input from "./input";
 class NewDog extends React.Component {
   constructor() {
     super();
+    this.state = {};
   }
-
+  handleChange = e => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
+  handleSubmit = e => {
+    e.preventDefault();
+    console.log(this.state);
+    firebase
+      .database()
+      .ref("Dogs/")
+      .set(this.state);
+  };
   render() {
+    console.log(this.state);
     return (
       <div>
-        <MDBContainer>
-          <MDBRow>
-            <MDBCol md="6">
-              <form>
-                <p className="h5 text-center mb-4">Sign in</p>
-                <div className="grey-text">
-                  <MDBInput
-                    label="Type your email"
-                    icon="envelope"
-                    group
-                    type="email"
-                    validate
-                    error="wrong"
-                    success="right"
-                  />
-                  <MDBInput
-                    label="Type your password"
-                    icon="lock"
-                    group
-                    type="password"
-                    validate
-                  />
-                </div>
-                <div className="text-center">
-                  <MDBBtn>Login</MDBBtn>
-                </div>
-              </form>
-            </MDBCol>
-          </MDBRow>
+        <MDBContainer className="container">
+          <form className="text-center mt-5 p-5 ">
+            <p className="h5 text-center mb-4">Offer New Dog</p>
+            <div className="form-row d-flex justify-content-center">
+              <Input
+                handleChange={this.handleChange}
+                value={this.state.name}
+                name={"name"}
+              />
+            </div>
+            <br />
+            <div className="form-row d-flex justify-content-center">
+              <Option handleChange={this.handleChange} name={"size"} />
+              <Option handleChange={this.handleChange} name={"energy"} />
+              <Option handleChange={this.handleChange} name={"health"} />
+              <Option handleChange={this.handleChange} name={"age"} />
+            </div>
+
+            <div className="form-row"></div>
+            <div className="text-center">
+              <MDBBtn type="submit">Submit</MDBBtn>
+            </div>
+          </form>
         </MDBContainer>
       </div>
     );

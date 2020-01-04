@@ -12,9 +12,4 @@ var firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
-/*
-  firebase
-      .database()
-      .ref("recipes/" + this.state.category + "/" + this.state.recipeName)
-      .set(this.state);
-*/
+export default firebase;
