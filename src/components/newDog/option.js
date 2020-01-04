@@ -10,7 +10,6 @@ import {
 } from "mdbreact";
 
 function Option(props) {
-  let i;
   return (
     <div>
       <div className="col">

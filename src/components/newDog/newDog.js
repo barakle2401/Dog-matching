@@ -1,5 +1,5 @@
 import React from "react";
-import firebase from "../firebase";
+import firebase from "../../firebase";
 
 import {
   MDBContainer,
@@ -19,22 +19,22 @@ class NewDog extends React.Component {
   }
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value });
+    //console.log(this.state);
   };
   handleSubmit = e => {
-    e.preventDefault();
-    console.log(this.state);
+    e.preventDefault(); // <- prevent form submit from reloading the page
     firebase
       .database()
-      .ref("Dogs/")
+      .ref("/DogsInfo/" + this.state.name)
       .set(this.state);
+    console.log("DATA SAVED");
   };
   render() {
-    console.log(this.state);
     return (
       <div>
-        <MDBContainer className="container">
-          <form className="text-center mt-5 p-5 ">
-            <p className="h5 text-center mb-4">Offer New Dog</p>
+        <MDBContainer className="container new-dog-container">
+          <form className="text-center mt-5 p-5 " onSubmit={this.handleSubmit}>
+            <p className="h5 text-center mb-4 text-secondary">Offer New Dog</p>
             <div className="form-row d-flex justify-content-center">
               <Input
                 handleChange={this.handleChange}

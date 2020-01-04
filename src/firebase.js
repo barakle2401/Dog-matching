@@ -1,6 +1,6 @@
 import * as firebase from "firebase";
 // web app's\ Firebase configuration
-var firebaseConfig = {
+const firebaseConfig = {
   apiKey: "AIzaSyDD7OOLUrDY9FIhRRC5r4QyMS77dpNWeiM",
   authDomain: "dog-matching.firebaseapp.com",
   databaseURL: "https://dog-matching.firebaseio.com",
