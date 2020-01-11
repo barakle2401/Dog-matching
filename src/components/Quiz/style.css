@@ -1,0 +1,52 @@
+body {
+  background-image: url("../images/dogs2.jpg");
+
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.question {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  border-radius: 3px;
+  color: #333233;
+}
+
+.question button {
+  width: 125px !important;
+  height: 46 !important;
+}
+
+@media (min-width: 769px) {
+  .question {
+    margin: 2.5rem auto;
+  }
+}
+
+.quiz-content {
+  margin: auto;
+  justify-content: center;
+  margin-top: 1rem;
+}
+.quiz-card {
+  background-color: #c9c9c9;
+}
+.btn-next-prev:hover {
+  background-color: #6a7180 !important;
+}
+.progress-bar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  background-color: #ff00b3;
+  transition: width 0.6s ease;
+}

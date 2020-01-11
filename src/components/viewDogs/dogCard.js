@@ -1,4 +1,5 @@
 import React from "react";
+import "./dogCard.css";
 import {
   MDBBtn,
   MDBCard,
@@ -22,7 +23,7 @@ class DogCard extends React.Component {
   }
   render() {
     return (
-      <MDBCol className="m-2 py-4">
+      <MDBCol className="m-2 py-4 ">
         <MDBCard border="light">
           <MDBCardImage
             className="img-fluid"
