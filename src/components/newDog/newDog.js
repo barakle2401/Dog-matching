@@ -34,41 +34,41 @@ class NewDog extends React.Component {
       <div>
         <MDBContainer className="container new-dog-container">
           <form className="text-center mt-5 p-5 " onSubmit={this.handleSubmit}>
-            <p className="h5 text-center mb-4 text-secondary">Offer New Dog</p>
+            <p className="h5 text-center mb-4 text-secondary">טופס כלב חדש</p>
             <div className="form-row d-flex justify-content-center">
               <Input
                 handleChange={this.handleChange}
                 value={this.state.name}
-                name={"name"}
+                name={"שם"}
               />
             </div>
             <br />
             <div className="form-row d-flex justify-content-center">
               <Option
                 handleChange={this.handleChange}
-                name={"size"}
+                name={"גודל"}
                 maxNum={5}
               />
               <Option
                 handleChange={this.handleChange}
-                name={"energy"}
+                name={"אנרגיה"}
                 maxNum={5}
               />
               <Option
                 handleChange={this.handleChange}
-                name={"health"}
+                name={"בריאות"}
                 maxNum={5}
               />
               <Option
                 handleChange={this.handleChange}
-                name={"age"}
+                name={"גיל"}
                 maxNum={15}
               />
             </div>
 
             <div className="form-row"></div>
             <div className="text-center">
-              <MDBBtn type="submit">Submit</MDBBtn>
+              <MDBBtn type="submit">שלח</MDBBtn>
             </div>
           </form>
         </MDBContainer>

@@ -21,7 +21,8 @@ class Quiz extends React.Component {
       showPrevBtn: false,
       showNextBtn: true,
       totalQuestion: 0,
-      progress: 0
+      progress: 0,
+      answers: {}
     };
   }
   loadQuiz = () => {
@@ -44,7 +45,6 @@ class Quiz extends React.Component {
         currentQuestion: this.state.currentQuestion + 1,
         showPrevBtn: true,
         showNextBtn: false,
-
         progress: 100
       });
     } else {
@@ -53,7 +53,7 @@ class Quiz extends React.Component {
         showPrevBtn: true,
         showNextBtn: true,
 
-        progress: this.state.progress + 25
+        progress: this.state.progress + 6
       });
     }
 
@@ -71,20 +71,30 @@ class Quiz extends React.Component {
 
       showPrevBtn = true;
     }
+
     await this.setState({
       currentQuestion: prevQuestion,
       showPrevBtn: showPrevBtn,
       showNextBtn: true,
-      progress: this.state.progress - 25
+      progress: this.state.progress - 6
     });
     await this.loadQuiz();
   };
-  handleOption = e => {
-    console.log(e.target);
+  handleAnswer = async answer => {
+    const currentQuestion = this.state.currentQuestion;
+    const answers = this.state.answers;
+
+    answers[currentQuestion] = answer;
+
+    // this.setState(previousState => ({
+    //   answers: [answers]
+    // }));
+    await this.setState({ answers: answers });
+    await this.nextQuestion();
+    await console.log(this.state);
   };
   render() {
     const { question, options, showPrevBtn, totalQuestion } = this.state;
-
     return (
       <div className="main">
         <MDBContainer>
@@ -93,18 +103,36 @@ class Quiz extends React.Component {
               <MDBCard className="quiz-card">
                 <MDBCardBody>
                   <MDBProgress value={this.state.progress} className="my-2" />
-                  <p className="h4 text-center py-4 question">{question}</p>
 
-                  {options.map(option => (
-                    <MDBBtn
-                      className="mt-1 btn btn-block btn-grey text-light option-btn"
-                      type="button"
-                      onClick={this.handleOption}
-                    >
-                      {option}
-                      <MDBIcon far className="ml-2" />
-                    </MDBBtn>
-                  ))}
+                  <p className="h4 text-center py-4 question">
+                    {this.state.progress == 100 ? (
+                      <div className="spinner-border  " role="status">
+                        <span className="sr-only">Loading...</span>
+                      </div>
+                    ) : (
+                      question
+                    )}
+                  </p>
+                  <MDBBtn
+                    className="mt-1 btn btn-block btn-grey text-light option-btn"
+                    type="button"
+                    onClick={() => {
+                      this.handleAnswer("first");
+                    }}
+                  >
+                    {options.first}
+                    <MDBIcon far className="ml-2" />
+                  </MDBBtn>
+                  <MDBBtn
+                    className="mt-1 btn btn-block btn-grey text-light option-btn"
+                    type="button"
+                    onClick={() => {
+                      this.handleAnswer("second");
+                    }}
+                  >
+                    {options.second}
+                    <MDBIcon far className="ml-2" />
+                  </MDBBtn>
 
                   <div className="text-center py-4 mt-3">
                     <MDBBtn

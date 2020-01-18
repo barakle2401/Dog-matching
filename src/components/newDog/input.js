@@ -12,7 +12,7 @@ function Input(props) {
   return (
     <div>
       <div className="col">
-        <i>Name</i>
+        <i>שם</i>
         <input
           value={props.val}
           name={props.name}

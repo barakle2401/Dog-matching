@@ -2,3 +2,6 @@
   background-color: #4b515d;
   color: white;
 }
+.new-dog-container {
+  max-width: 600px;
+}
