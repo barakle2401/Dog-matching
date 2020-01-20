@@ -32,11 +32,8 @@ class DogCard extends React.Component {
             hover
           />
           <MDBCardBody>
-            <MDBCardTitle>Card title</MDBCardTitle>
-            <MDBCardText>
-              Some quick example text to build on the card title and make up the
-              bulk of the card&apos;s content.
-            </MDBCardText>
+            <MDBCardTitle>{this.props.name}</MDBCardTitle>
+            <MDBCardText>{this.props.description}</MDBCardText>
             <MDBRow className="d-flex justify-content-center">
               <MDBBtn id="card-btn" size="sm">
                 <MDBIcon icon="info" />

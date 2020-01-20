@@ -31,10 +31,13 @@ class NewDog extends React.Component {
   };
   render() {
     return (
-      <div>
-        <MDBContainer className="container new-dog-container">
-          <form className="text-center mt-5 p-5 " onSubmit={this.handleSubmit}>
-            <p className="h5 text-center mb-4 text-secondary">טופס כלב חדש</p>
+      <div className="main-new-dog py-5 ">
+        <MDBContainer className="container new-dog-container ">
+          <form
+            className="text-center mt-5 p-5 form-content "
+            onSubmit={this.handleSubmit}
+          >
+            <p className="h3 text-center mb-4 text-light">טופס כלב חדש</p>
             <div className="form-row d-flex justify-content-center">
               <Input
                 handleChange={this.handleChange}

@@ -1,7 +1,22 @@
-.new-dog-container {
-  background-color: #4b515d;
-  color: white;
+.main-new-dog {
+  background-image: url("../images/dogs2.jpg");
+
+  /* Full height */
+  height: 600px;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
+
 .new-dog-container {
   max-width: 600px;
+  zoom: 1;
+  background-color: rgb(23, 21, 24);
+  opacity: 0.5;
+}
+
+.form-content {
+  color: rgb(255, 255, 255);
 }

@@ -1,0 +1,53 @@
+.main-page {
+  background-image: url("../images/dogs2.jpg");
+
+  /* Full height */
+  height: 600px;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.main-content {
+  margin: auto;
+  justify-content: center;
+  margin-top: 1rem;
+}
+.main-card {
+  background-color: #c9c9c9;
+}
+
+.quiz-button-start:hover,
+.quiz-button-form:hover {
+  background-color: #6a7180 !important;
+}
+.quiz-button-start {
+  width: 125px !important;
+
+  float: left;
+
+  font-size: 13px;
+  border-radius: 40px;
+}
+.quiz-button-form {
+  background-color: #ff00b3 !important;
+  width: 125px !important;
+
+  float: right;
+
+  font-size: 13px;
+  border-radius: 40px;
+}
+.login-button {
+  background-color: #008085 !important;
+  width: 125px !important;
+
+  float: right;
+
+  font-size: 13px;
+  border-radius: 83% 17% 84% 16% / 74% 13% 87% 26%;
+}
+.login-button:hover {
+  background-color: #034d50 !important;
+}

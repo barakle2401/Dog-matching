@@ -1,5 +1,4 @@
 import React from "react";
-
 import "./style.css";
 import QuizData from "./quiz_data";
 import {
@@ -25,6 +24,7 @@ class Quiz extends React.Component {
       answers: {}
     };
   }
+  //fetch the next question
   loadQuiz = () => {
     const { currentQuestion } = this.state;
     this.setState(() => {
@@ -38,6 +38,7 @@ class Quiz extends React.Component {
   componentDidMount() {
     this.loadQuiz();
   }
+  //display the next button, progress, load quiz
   nextQuestion = async () => {
     let { currentQuestion, totalQuestion } = this.state;
     if (currentQuestion == totalQuestion - 2) {
@@ -59,6 +60,7 @@ class Quiz extends React.Component {
 
     this.loadQuiz();
   };
+  //display back btn, move back, fetch the previous question, load quiz
   previousQuestion = async () => {
     let prevQuestion;
     let showPrevBtn;
@@ -96,8 +98,8 @@ class Quiz extends React.Component {
   render() {
     const { question, options, showPrevBtn, totalQuestion } = this.state;
     return (
-      <div className="main">
-        <MDBContainer>
+      <div className="main-quiz">
+        <MDBContainer className=" py-5">
           <MDBRow className="quiz-content">
             <MDBCol md="6">
               <MDBCard className="quiz-card">
