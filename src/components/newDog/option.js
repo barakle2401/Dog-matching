@@ -19,6 +19,7 @@ function Option(props) {
       </div>
       <div className="col">
         <select
+          id={props.id}
           className="form-control"
           type="text"
           name={props.name}

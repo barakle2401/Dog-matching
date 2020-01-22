@@ -48,6 +48,7 @@ class Quiz extends React.Component {
         showNextBtn: false,
         progress: 100
       });
+      window.location.pathname = "Login";
     } else {
       await this.setState({
         currentQuestion: this.state.currentQuestion + 1,
@@ -150,7 +151,7 @@ class Quiz extends React.Component {
                     </MDBBtn>
                     <MDBBtn
                       onClick={this.nextQuestion}
-                      className="btn btn-default text-capitalize btn-next-prev"
+                      className="btn btn-default text-capitalize btn-next-prev d-none"
                       type="button"
                       style={{
                         display: this.state.showNextBtn ? "inline" : "none"

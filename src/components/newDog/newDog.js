@@ -18,9 +18,12 @@ class NewDog extends React.Component {
     this.state = {};
   }
   handleChange = e => {
-    this.setState({ [e.target.name]: e.target.value });
-    //console.log(this.state);
+    this.setState({ [e.target.id]: e.target.value });
   };
+  // handleCategory = e => {
+  //   this.setState({ [e.target.id]: e.target.value });
+  //   //console.log(e.target.id);
+  // };
   handleSubmit = e => {
     e.preventDefault(); // <- prevent form submit from reloading the page
     firebase
@@ -30,9 +33,10 @@ class NewDog extends React.Component {
     console.log("DATA SAVED");
   };
   render() {
+    console.log(this.state);
     return (
       <div className="main-new-dog py-5 ">
-        <MDBContainer className="container new-dog-container ">
+        <MDBContainer className="container new-dog-container">
           <form
             className="text-center mt-5 p-5 form-content "
             onSubmit={this.handleSubmit}
@@ -42,6 +46,7 @@ class NewDog extends React.Component {
               <Input
                 handleChange={this.handleChange}
                 value={this.state.name}
+                id="name"
                 name={"שם"}
               />
             </div>
@@ -49,28 +54,33 @@ class NewDog extends React.Component {
             <div className="form-row d-flex justify-content-center">
               <Option
                 handleChange={this.handleChange}
-                name={"גודל"}
-                maxNum={5}
+                id="focus"
+                name={"מיקוד"}
+                maxNum={10}
               />
               <Option
                 handleChange={this.handleChange}
-                name={"אנרגיה"}
-                maxNum={5}
+                id="confidence"
+                name={"ביטחון עצמי"}
+                maxNum={10}
               />
               <Option
                 handleChange={this.handleChange}
-                name={"בריאות"}
-                maxNum={5}
+                id="independence"
+                name="עצמאות"
+                maxNum={10}
               />
+
               <Option
                 handleChange={this.handleChange}
-                name={"גיל"}
-                maxNum={15}
+                id={"energy"}
+                name="אנרגיה"
+                maxNum={10}
               />
             </div>
 
             <div className="form-row"></div>
-            <div className="text-center">
+            <div className="text-center mt-4">
               <MDBBtn type="submit">שלח</MDBBtn>
             </div>
           </form>

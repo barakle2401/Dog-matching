@@ -15,6 +15,7 @@ function Input(props) {
         <i>שם</i>
         <input
           value={props.val}
+          id={props.id}
           name={props.name}
           onChange={props.handleChange}
           type="text"

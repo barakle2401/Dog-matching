@@ -18,7 +18,7 @@ const Login = () => {
           <MDBCol md="6">
             <MDBCard className="login-card">
               <MDBCardBody>
-                <form>
+                <form action="/AllDogs">
                   <p className="h3 text-center text-light mb-4">Login in</p>
                   <div className="white-text">
                     <MDBInput
@@ -39,7 +39,7 @@ const Login = () => {
                     />
                   </div>
                   <div className="text-center">
-                    <MDBBtn>Login</MDBBtn>
+                    <MDBBtn type="submit">Login</MDBBtn>
                   </div>
                 </form>
               </MDBCardBody>

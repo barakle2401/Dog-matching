@@ -11,10 +11,9 @@
 }
 
 .new-dog-container {
-  max-width: 600px;
-  zoom: 1;
-  background-color: rgb(23, 21, 24);
-  opacity: 0.5;
+  max-width: 550px;
+
+  background-color: rgb(143, 143, 143);
 }
 
 .form-content {

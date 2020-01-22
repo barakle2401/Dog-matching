@@ -33,6 +33,9 @@ class DogCard extends React.Component {
           />
           <MDBCardBody>
             <MDBCardTitle>{this.props.name}</MDBCardTitle>
+            <mdb-badge pill color="indigo">
+              Indigo
+            </mdb-badge>
             <MDBCardText>{this.props.description}</MDBCardText>
             <MDBRow className="d-flex justify-content-center">
               <MDBBtn id="card-btn" size="sm">
