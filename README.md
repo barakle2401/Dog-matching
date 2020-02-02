@@ -1,3 +1,2 @@
-# Dog Matching
+# Match Me A Friend
 
-## FIND YOUR IDEAL PET
