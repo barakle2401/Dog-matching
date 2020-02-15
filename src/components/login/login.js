@@ -7,10 +7,11 @@ import {
   MDBInput,
   MDBBtn,
   MDBCard,
-  MDBCardBody
+  MDBCardBody,
+  MDBIcon
 } from "mdbreact";
 
-const Login = () => {
+const Login = props => {
   return (
     <div className="main-login">
       <MDBContainer className=" py-5">
@@ -19,27 +20,15 @@ const Login = () => {
             <MDBCard className="login-card">
               <MDBCardBody>
                 <form action="/AllDogs">
-                  <p className="h3 text-center text-light mb-4">Login in</p>
-                  <div className="white-text">
-                    <MDBInput
-                      label="Type your email"
-                      icon="envelope"
-                      group
-                      type="email"
-                      validate
-                      error="wrong"
-                      success="right"
-                    />
-                    <MDBInput
-                      label="Type your password"
-                      icon="lock"
-                      group
-                      type="password"
-                      validate
-                    />
-                  </div>
+                  <p className="h3 text-center text-light mb-4">
+                    Sign in with Google
+                  </p>
+
                   <div className="text-center">
-                    <MDBBtn type="submit">Login</MDBBtn>
+                    <MDBBtn onClick={props.signIn}>
+                      {" "}
+                      <MDBIcon fab icon="google" /> Sign In
+                    </MDBBtn>
                   </div>
                 </form>
               </MDBCardBody>

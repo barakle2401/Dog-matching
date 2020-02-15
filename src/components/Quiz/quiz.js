@@ -1,6 +1,7 @@
 import React from "react";
 import "./style.css";
 import QuizData from "./quiz_data";
+import DogsGallery from "../viewDogs/dogsGallery";
 import {
   MDBBtn,
   MDBCard,
@@ -11,9 +12,11 @@ import {
   MDBIcon,
   MDBContainer
 } from "mdbreact";
+
 class Quiz extends React.Component {
   constructor() {
     super();
+
     this.state = {
       currentQuestion: 0,
       options: [],
@@ -21,7 +24,8 @@ class Quiz extends React.Component {
       showNextBtn: true,
       totalQuestion: 0,
       progress: 0,
-      answers: {}
+      answers: {},
+      quizIsDone: false
     };
   }
   //fetch the next question
@@ -46,9 +50,10 @@ class Quiz extends React.Component {
         currentQuestion: this.state.currentQuestion + 1,
         showPrevBtn: true,
         showNextBtn: false,
-        progress: 100
+        progress: 100,
+        quizIsDone: true
       });
-      window.location.pathname = "Login";
+      // window.location.pathname = "Login";
     } else {
       await this.setState({
         currentQuestion: this.state.currentQuestion + 1,
@@ -89,83 +94,111 @@ class Quiz extends React.Component {
 
     answers[currentQuestion] = answer;
 
-    // this.setState(previousState => ({
-    //   answers: [answers]
-    // }));
     await this.setState({ answers: answers });
     await this.nextQuestion();
-    await console.log(this.state);
   };
   render() {
-    const { question, options, showPrevBtn, totalQuestion } = this.state;
+    const {
+      question,
+      options,
+      showPrevBtn,
+      totalQuestion,
+      currentQuestion
+    } = this.state;
+    console.log(this.state.answers[this.state.currentQuestion]);
+    let firstColor = "",
+      secColor = "",
+      displayNext = false;
+    if (this.state.answers[this.state.currentQuestion] == "first") {
+      firstColor = "red";
+      secColor = "";
+      displayNext = true;
+    } else if (this.state.answers[this.state.currentQuestion] == "second") {
+      firstColor = "";
+      secColor = "red";
+      displayNext = true;
+    }
     return (
-      <div className="main-quiz">
-        <MDBContainer className=" py-5">
-          <MDBRow className="quiz-content">
-            <MDBCol md="6">
-              <MDBCard className="quiz-card">
-                <MDBCardBody>
-                  <MDBProgress value={this.state.progress} className="my-2" />
+      <div>
+        {!this.state.quizIsDone ? (
+          <div className="main-quiz">
+            <MDBContainer className=" py-5">
+              <MDBRow className="quiz-content">
+                <MDBCol md="6">
+                  <MDBCard className="quiz-card">
+                    <MDBCardBody>
+                      <MDBProgress
+                        value={this.state.progress}
+                        className="my-2"
+                      />
 
-                  <p className="h4 text-center py-4 question">
-                    {this.state.progress == 100 ? (
-                      <div className="spinner-border  " role="status">
-                        <span className="sr-only">Loading...</span>
+                      <p className="h4 text-center py-4 question">
+                        {this.state.progress == 100 ? (
+                          <div className="spinner-border  " role="status">
+                            <span className="sr-only">Loading...</span>
+                          </div>
+                        ) : (
+                          question
+                        )}
+                      </p>
+                      <MDBBtn
+                        className="mt-1 btn btn-block btn-grey option-btn"
+                        type="button"
+                        onClick={() => {
+                          this.handleAnswer("first");
+                        }}
+                        style={{ color: firstColor }}
+                      >
+                        {options.first}
+                        <MDBIcon far className="ml-2" />
+                      </MDBBtn>
+                      <MDBBtn
+                        className="mt-1 btn btn-block btn-grey option-btn"
+                        type="button"
+                        onClick={() => {
+                          this.handleAnswer("second");
+                        }}
+                        style={{
+                          color: secColor
+                        }}
+                      >
+                        {options.second}
+                        <MDBIcon far className="ml-2" />
+                      </MDBBtn>
+
+                      <div className="text-center py-4 mt-3">
+                        <MDBBtn
+                          onClick={this.previousQuestion}
+                          color="pink"
+                          className="text-capitalize btn-next-prev "
+                          style={{
+                            display: this.state.showPrevBtn ? "inline" : "none"
+                          }}
+                        >
+                          <MDBIcon className="mr-1" icon="arrow-left" />
+                          Back
+                        </MDBBtn>
+                        <MDBBtn
+                          onClick={this.nextQuestion}
+                          className="btn btn-default text-capitalize btn-next-prev "
+                          type="button"
+                          style={{
+                            display: displayNext ? "inline" : "none"
+                          }}
+                        >
+                          Next
+                          <MDBIcon className="ml-1" icon="arrow-right" />
+                        </MDBBtn>
                       </div>
-                    ) : (
-                      question
-                    )}
-                  </p>
-                  <MDBBtn
-                    className="mt-1 btn btn-block btn-grey text-light option-btn"
-                    type="button"
-                    onClick={() => {
-                      this.handleAnswer("first");
-                    }}
-                  >
-                    {options.first}
-                    <MDBIcon far className="ml-2" />
-                  </MDBBtn>
-                  <MDBBtn
-                    className="mt-1 btn btn-block btn-grey text-light option-btn"
-                    type="button"
-                    onClick={() => {
-                      this.handleAnswer("second");
-                    }}
-                  >
-                    {options.second}
-                    <MDBIcon far className="ml-2" />
-                  </MDBBtn>
-
-                  <div className="text-center py-4 mt-3">
-                    <MDBBtn
-                      onClick={this.previousQuestion}
-                      color="pink"
-                      className="text-capitalize btn-next-prev "
-                      style={{
-                        display: this.state.showPrevBtn ? "inline" : "none"
-                      }}
-                    >
-                      <MDBIcon className="mr-1" icon="arrow-left" />
-                      Back
-                    </MDBBtn>
-                    <MDBBtn
-                      onClick={this.nextQuestion}
-                      className="btn btn-default text-capitalize btn-next-prev d-none"
-                      type="button"
-                      style={{
-                        display: this.state.showNextBtn ? "inline" : "none"
-                      }}
-                    >
-                      Next
-                      <MDBIcon className="ml-1" icon="arrow-right" />
-                    </MDBBtn>
-                  </div>
-                </MDBCardBody>
-              </MDBCard>
-            </MDBCol>
-          </MDBRow>
-        </MDBContainer>
+                    </MDBCardBody>
+                  </MDBCard>
+                </MDBCol>
+              </MDBRow>
+            </MDBContainer>
+          </div>
+        ) : (
+          <DogsGallery answers={this.state.answers} />
+        )}
       </div>
     );
   }
