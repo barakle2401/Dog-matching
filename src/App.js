@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import withFirebaseAuth from "react-with-firebase-auth";
-import * as firebase from "firebase/app";
-import "firebase/auth";
-import firebaseConfig from "./firebase";
+// import withFirebaseAuth from "react-with-firebase-auth";
+// import * as firebase from "firebase/app";
+// import "firebase/auth";
+// import firebaseConfig from "./firebase";
 import "./App.css";
 import NewDog from "./components/newDog/newDog";
 import DogsGallery from "./components/viewDogs/dogsGallery";

@@ -14,6 +14,7 @@ function Input(props) {
       <div className="col">
         <i>שם</i>
         <input
+          autocomplete="off"
           value={props.val}
           id={props.id}
           name={props.name}

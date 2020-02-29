@@ -2,19 +2,28 @@ import React from "react";
 import { MDBContainer, MDBRow, MDBCol } from "mdbreact";
 import DogCard from "./dogCard";
 import "./dogsGallery.css";
-import withFirebaseAuth from "react-with-firebase-auth";
-import * as firebase from "firebase/app";
-import "firebase/auth";
-import firebaseConfig from "../../firebase";
+import firebase from "../../firebase";
 import Login from "../login/login";
-const firebaseApp = firebase.initializeApp(firebaseConfig);
+import withFirebaseAuth from "react-with-firebase-auth";
+// import * as firebase from "firebase/app";
+import "firebase/auth";
+// import firebaseApp from "../../firebase";
+//const firebaseApp = firebase.initializeApp(firebaseConfig);
 class DogsGallery extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {};
   }
-  componentDidMount() {}
+  componentDidMount() {
+    let myUserId;
+    if (firebase.auth().currentUser) {
+      myUserId = firebase.auth().currentUser.uid;
+      console.log(myUserId);
+      this.writeUserAnswers(myUserId);
+      console.log(this.props.answers);
+    }
+  }
   writeUserAnswers = myUserId => {
     firebase
       .database()
@@ -30,15 +39,8 @@ class DogsGallery extends React.Component {
   };
 
   render() {
-    let myUserId;
-    if (firebase.auth().currentUser) {
-      myUserId = firebase.auth().currentUser.uid;
-      //console.log(myUserId);
-      this.writeUserAnswers(myUserId);
-      // console.log(this.props.answers);
-    }
-
     const { user, signOut, signInWithGoogle } = this.props;
+    console.log("user:", user);
     return (
       <div>
         {user ? (
@@ -138,7 +140,7 @@ class DogsGallery extends React.Component {
     );
   }
 }
-const firebaseAppAuth = firebaseApp.auth();
+const firebaseAppAuth = firebase.auth();
 
 const providers = {
   googleProvider: new firebase.auth.GoogleAuthProvider()
@@ -148,3 +150,4 @@ export default withFirebaseAuth({
   providers,
   firebaseAppAuth
 })(DogsGallery);
+//export default DogsGallery;
