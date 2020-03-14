@@ -17,10 +17,10 @@ class NewDog extends React.Component {
     super();
     this.state = {
       categoriesInfo: {
-        energy: "1",
-        independence: "1",
-        confidence: "1",
-        focus: "1"
+        energy: 1,
+        independence: 1,
+        confidence: 1,
+        focus: 1
       },
       showAlert: false
     };
@@ -36,7 +36,7 @@ class NewDog extends React.Component {
     await firebase
       .database()
       .ref("/DogsInfo/" + this.state.categoriesInfo.name)
-      .set(this.state, function(error) {
+      .set(this.state.categoriesInfo, function(error) {
         if (error) {
           console.log("The write failed...");
         } else {

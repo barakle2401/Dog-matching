@@ -21,9 +21,11 @@ const Login = props => {
               <MDBCardBody>
                 <form action="/AllDogs">
                   <p className="h3 text-center text-light mb-4">
-                    Sign in with Google
+                    על מנת להציג עבורך את תוצאות השאלון
                   </p>
-
+                  <p className="h3 text-center text-light mb-4">
+                    נצטרך שתבצע התחברות קלה למערכת{" "}
+                  </p>
                   <div className="text-center">
                     <MDBBtn onClick={props.signIn}>
                       {" "}

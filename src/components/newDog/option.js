@@ -1,13 +1,6 @@
 import React from "react";
 import _ from "lodash";
-import {
-  MDBContainer,
-  MDBRow,
-  MDBCol,
-  MDBInput,
-  MDBBtn,
-  MDBIcon
-} from "mdbreact";
+import { MDBIcon } from "mdbreact";
 
 function Option(props) {
   return (
@@ -21,7 +14,7 @@ function Option(props) {
         <select
           id={props.id}
           className="form-control"
-          type="text"
+          type="number"
           name={props.name}
           onChange={props.handleChange}
         >

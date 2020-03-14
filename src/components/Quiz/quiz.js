@@ -25,6 +25,7 @@ class Quiz extends React.Component {
       totalQuestion: 0,
       progress: 0,
       answers: {},
+      categories: {},
       quizIsDone: false
     };
   }
@@ -34,6 +35,7 @@ class Quiz extends React.Component {
     this.setState(() => {
       return {
         question: QuizData[currentQuestion].question,
+        currentCategory: QuizData[currentQuestion].category,
         options: QuizData[currentQuestion].options,
         totalQuestion: QuizData.length
       };
@@ -46,13 +48,7 @@ class Quiz extends React.Component {
   nextQuestion = async () => {
     let { currentQuestion, totalQuestion } = this.state;
     if (currentQuestion == totalQuestion - 2) {
-      await this.setState({
-        currentQuestion: this.state.currentQuestion + 1,
-        showPrevBtn: true,
-        showNextBtn: false,
-        progress: 100,
-        quizIsDone: true
-      });
+      await this.calculateUserAnswers();
       // window.location.pathname = "Login";
     } else {
       await this.setState({
@@ -65,6 +61,18 @@ class Quiz extends React.Component {
     }
 
     this.loadQuiz();
+  };
+  calculateUserAnswers = () => {
+    const { answers, categories } = this.state;
+    console.log(categories);
+    console.log(answers);
+    // this.setState({
+    //   currentQuestion: this.state.currentQuestion + 1,
+    //   showPrevBtn: true,
+    //   showNextBtn: false,
+    //   progress: 100,
+    //   quizIsDone: true
+    // });
   };
   //display back btn, move back, fetch the previous question, load quiz
   previousQuestion = async () => {
@@ -91,10 +99,10 @@ class Quiz extends React.Component {
   handleAnswer = async answer => {
     const currentQuestion = this.state.currentQuestion;
     const answers = this.state.answers;
-
+    const categories = this.state.categories;
     answers[currentQuestion] = answer;
-
-    await this.setState({ answers: answers });
+    categories[currentQuestion] = this.state.currentCategory;
+    await this.setState({ answers: answers, categories: categories });
     await this.nextQuestion();
   };
   render() {
@@ -105,7 +113,7 @@ class Quiz extends React.Component {
       totalQuestion,
       currentQuestion
     } = this.state;
-    console.log(this.state.answers[this.state.currentQuestion]);
+    // console.log(this.state.answers[this.state.currentQuestion]);
     let firstColor = "",
       secColor = "",
       displayNext = false;
