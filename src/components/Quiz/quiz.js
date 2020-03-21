@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.css";
 import QuizData from "./quiz_data";
-import DogsGallery from "../viewDogs/dogsGallery";
+import Login from "../login/login";
 import {
   MDBBtn,
   MDBCard,
@@ -31,15 +31,17 @@ class Quiz extends React.Component {
   }
   //fetch the next question
   loadQuiz = () => {
-    const { currentQuestion } = this.state;
-    this.setState(() => {
-      return {
-        question: QuizData[currentQuestion].question,
-        currentCategory: QuizData[currentQuestion].category,
-        options: QuizData[currentQuestion].options,
-        totalQuestion: QuizData.length
-      };
-    });
+    if (!this.state.quizIsDone) {
+      this.setState(() => {
+        const { currentQuestion } = this.state;
+        return {
+          question: QuizData[currentQuestion].question,
+          currentCategory: QuizData[currentQuestion].category,
+          options: QuizData[currentQuestion].options,
+          totalQuestion: QuizData.length
+        };
+      });
+    }
   };
   componentDidMount() {
     this.loadQuiz();
@@ -47,7 +49,8 @@ class Quiz extends React.Component {
   //display the next button, progress, load quiz
   nextQuestion = async () => {
     let { currentQuestion, totalQuestion } = this.state;
-    if (currentQuestion == totalQuestion - 2) {
+    console.log(currentQuestion, ":", totalQuestion - 1);
+    if (currentQuestion == totalQuestion - 1) {
       await this.calculateUserAnswers();
       // window.location.pathname = "Login";
     } else {
@@ -56,7 +59,7 @@ class Quiz extends React.Component {
         showPrevBtn: true,
         showNextBtn: true,
 
-        progress: this.state.progress + 6
+        progress: this.state.progress + 4.3
       });
     }
 
@@ -64,8 +67,27 @@ class Quiz extends React.Component {
   };
   calculateUserAnswers = () => {
     const { answers, categories } = this.state;
-    console.log(categories);
-    console.log(answers);
+    let finalCategoriesAnswers = {
+      energy: 0,
+      independence: 0,
+      confidence: 0,
+      focus: 0
+    };
+
+    for (const i in answers) {
+      //console.log(`${answers[i]} : ${categories[i]}`);
+      if (answers[i] === "first") {
+        finalCategoriesAnswers[categories[i]] += 1;
+      }
+    }
+
+    finalCategoriesAnswers["energy"] = finalCategoriesAnswers["energy"] / 11;
+    finalCategoriesAnswers["confidence"] =
+      finalCategoriesAnswers["confidence"] / 5;
+    finalCategoriesAnswers["independence"] =
+      finalCategoriesAnswers["independence"] / 5;
+    finalCategoriesAnswers["focus"] = finalCategoriesAnswers["focus"] / 2;
+    // console.log(finalCategoriesAnswers);
     // this.setState({
     //   currentQuestion: this.state.currentQuestion + 1,
     //   showPrevBtn: true,
@@ -73,6 +95,13 @@ class Quiz extends React.Component {
     //   progress: 100,
     //   quizIsDone: true
     // });
+    this.setState({
+      finalCategoriesAnswers: finalCategoriesAnswers,
+      showPrevBtn: true,
+      showNextBtn: false,
+      progress: 100,
+      quizIsDone: true
+    });
   };
   //display back btn, move back, fetch the previous question, load quiz
   previousQuestion = async () => {
@@ -92,7 +121,7 @@ class Quiz extends React.Component {
       currentQuestion: prevQuestion,
       showPrevBtn: showPrevBtn,
       showNextBtn: true,
-      progress: this.state.progress - 6
+      progress: this.state.progress - 4.3
     });
     await this.loadQuiz();
   };
@@ -106,14 +135,8 @@ class Quiz extends React.Component {
     await this.nextQuestion();
   };
   render() {
-    const {
-      question,
-      options,
-      showPrevBtn,
-      totalQuestion,
-      currentQuestion
-    } = this.state;
-    // console.log(this.state.answers[this.state.currentQuestion]);
+    const { question, options } = this.state;
+
     let firstColor = "",
       secColor = "",
       displayNext = false;
@@ -205,7 +228,7 @@ class Quiz extends React.Component {
             </MDBContainer>
           </div>
         ) : (
-          <DogsGallery answers={this.state.answers} />
+          <Login finalCategoriesAnswers={this.state.finalCategoriesAnswers} />
         )}
       </div>
     );

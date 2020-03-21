@@ -23,7 +23,7 @@ class MainPage extends React.Component {
         <MDBContainer className="py-5">
           <MDBRow className="main-content">
             <MDBCol md="6 d-flex justify-content-center">
-              <MDBRow className="mt-5">
+              <MDBRow className="buttons-div">
                 <Link to="/Quiz">
                   <MDBBtn className="quiz-button-start mt-5">
                     שאלון התאמה

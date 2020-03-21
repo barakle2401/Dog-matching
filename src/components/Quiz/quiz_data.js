@@ -51,7 +51,7 @@ const QuizData = [
   {
     id: 8,
     question: `חברי מגדירים אותי כאדם ששם לב לפרטים קטנים`,
-    options: { first: `לא מסכים`, second: `מסכים` },
+    options: { first: `מסכים`, second: `לא מסכים` },
     category: "confidence"
   },
   {
@@ -101,15 +101,45 @@ const QuizData = [
   },
   {
     id: 16,
-    question: `מעדיף למלא הוראות מאשר לתת אותם `,
+    question: `מעדיף למלא הוראות מאשר לתת אותם`,
     options: { first: `נכון`, second: ` לא נכון` },
     category: "focus"
   },
   {
     id: 17,
-    question: `אני מעדיף כלב שילקק אותי ויתכרבל איתי `,
+    question: `אני מעדיף כלב שילקק אותי ויתכרבל איתי`,
     options: { first: `לא מסכים`, second: ` מסכים` },
-    category: "energy"
+    category: "independence"
+  },
+  {
+    id: 18,
+    question: `מה מתאר אותך יותר טוב`,
+    options: { first: `זורם`, second: ` חסר סבלנות` },
+    category: "confidence"
+  },
+  {
+    id: 19,
+    question: `מה מתאר אותך יותר טוב`,
+    options: { first: `רגיש`, second: `קשוח` },
+    category: "confidence"
+  },
+  {
+    id: 20,
+    question: `חזרת תשוש מהעבודה, והכלב בא עם כדור כדי שתשחק איתו`,
+    options: { first: `בטח שאשחק איתו`, second: `לא כרגע` },
+    category: "independence"
+  },
+  {
+    id: 21,
+    question: `אעדיף כלב שאוהב לקבל יחס מאשר כלב שיודע לדאוג לעצמו`,
+    options: { first: `מסכים`, second: `לא מסכים` },
+    category: "independence"
+  },
+  {
+    id: 22,
+    question: `חשוב לי מאוד שהכלב ישמע לפקודות שלי`,
+    options: { first: `נכון`, second: ` לא נכון` },
+    category: "focus"
   }
 ];
 export default QuizData;

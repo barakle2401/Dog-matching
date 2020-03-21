@@ -1,9 +1,9 @@
-.main-page {
+body {
   background-image: url("../images/dogs2.jpg");
 
   /* Full height */
-  height: 600px;
-
+  height: 1000px;
+  opacity: 0.9;
   /* Center and scale the image nicely */
   background-position: center;
   background-repeat: no-repeat;
@@ -50,4 +50,7 @@
 }
 .login-button:hover {
   background-color: #034d50 !important;
+}
+.buttons-div {
+  margin-top: 100px !important;
 }

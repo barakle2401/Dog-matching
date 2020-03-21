@@ -5,10 +5,11 @@ import React, { Component } from "react";
 // import firebaseConfig from "./firebase";
 import "./App.css";
 import NewDog from "./components/newDog/newDog";
-import DogsGallery from "./components/viewDogs/dogsGallery";
+import Login from "./components/login/login";
 import Quiz from "./components/Quiz/quiz";
 import MainPage from "./components/main/mainPage";
-import Login from "./components/login/login";
+import LoginForm from "./components/login/loginForm";
+import DogsGallery from "./components/viewDogs/dogsGallery";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 //const firebaseApp = firebase.initializeApp(firebaseConfig);
@@ -24,8 +25,9 @@ class App extends Component {
                 <Route path="/" exact component={MainPage} />
                 <Route path="/Quiz" exact component={Quiz} />
                 <Route path="/NewDog" exact component={NewDog} />
-                <Route path="/AllDogs" exact component={DogsGallery} />
                 <Route path="/Login" exact component={Login} />
+                <Route path="/LoginForm" exact component={LoginForm} />
+                <Route path="/DogsGallery" exact component={DogsGallery} />
               </Switch>
             </Router>
           </div>

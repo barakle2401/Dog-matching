@@ -1,0 +1,25 @@
+.main-login {
+  background-image: url("../images/dogs2.jpg");
+
+  /* Full height */
+  height: 600px;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.login-card {
+  background-color: transparent;
+}
+.md-form label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 2rem;
+  color: #ffffff;
+  cursor: text;
+  transition: transform 0.2s ease-out, color 0.2s ease-out;
+  transform: translateY(12px);
+  transform-origin: 0% 100%;
+}
