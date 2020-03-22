@@ -1,31 +1,43 @@
 import React from "react";
 import firebase from "../../firebase";
+import Main from "./gallery";
 class DogsGallery extends React.Component {
-  constructor() {
-    super();
-    this.state = {};
-  }
-  componentDidMount() {
+  constructor(props) {
+    super(props);
+
+    this.state = { uid: props.location.state.uid };
     this.getUserData();
+    this.getDogsData();
   }
+  componentDidMount() {}
   componentDidUpdate(prevProps, prevState) {
     // check on previous state
-    // only write when it's different with the new state
     if (prevState !== this.state) {
-      console.log(this.state);
+      console.log("ready to match");
+      this.displayMatch();
     }
   }
   getUserData = () => {
-    console.log(this.props.uid);
-    let ref = firebase.database().ref("users/" + this.props.uid);
+    let ref = firebase.database().ref("users/" + this.state.uid);
     ref.on("value", snapshot => {
       const state = snapshot.val();
-      this.setState(state);
+      this.setState({ userData: state });
     });
   };
+  getDogsData = () => {
+    let ref = firebase.database().ref("DogsInfo");
+    ref.on("value", snapshot => {
+      const state = snapshot.val();
+      this.setState({ dogsData: state });
+    });
+  };
+  displayMatch = () => {
+    setTimeout(() => {
+      console.log(this.state);
+    }, 500);
+  };
   render() {
-    console.log(this.state);
-    return <h1>{this.props.userName}</h1>;
+    return <Main />;
   }
 }
 export default DogsGallery;

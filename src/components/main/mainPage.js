@@ -1,4 +1,5 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 import {
   MDBContainer,
@@ -11,12 +12,13 @@ import {
   MDBFooter
 } from "mdbreact";
 import "./mainPage.css";
-
+import "firebase/auth";
+import firebase from "../../firebase";
+import LoginForm from "../login/loginForm";
 class MainPage extends React.Component {
   constructor() {
     super();
   }
-
   render() {
     return (
       <div className="main-page">
@@ -24,12 +26,13 @@ class MainPage extends React.Component {
           <MDBRow className="main-content">
             <MDBCol md="6 d-flex justify-content-center">
               <MDBRow className="buttons-div">
-                <Link to="/Quiz">
+                <Link to="/login-form">
                   <MDBBtn className="quiz-button-start mt-5">
                     שאלון התאמה
                   </MDBBtn>
                 </Link>
-                <Link to="/NewDog">
+
+                <Link to="/new-dog">
                   <MDBBtn className="quiz-button-form mt-5">
                     טופס הוספת כלב
                   </MDBBtn>
@@ -51,12 +54,12 @@ class MainPage extends React.Component {
           <MDBCol md="6 d-flex justify-content-center">
             <MDBRow className="mt-5">
               <a>
-                <Link to="/Login">
+                <Link to="/login">
                   <MDBBtn className="login-button mt-5">היית פה? התחבר</MDBBtn>
                 </Link>
               </a>
               <a>
-                <Link to="/AllDogs">
+                <Link to="/dogs-gallery">
                   <MDBBtn className="login-button mt-5">צפייה בכלבים</MDBBtn>
                 </Link>
               </a>
