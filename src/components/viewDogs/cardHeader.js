@@ -7,8 +7,8 @@ class CardHeader extends React.Component {
       backgroundImage: "url(" + image + ")"
     };
     return (
-      <header style={style} className="card-header">
-        <h4 className="card-header--title">{category}</h4>
+      <header style={style} className="card-dog-header">
+        <h4 className="card-dog-header--title">{category}</h4>
       </header>
     );
   }

@@ -4,7 +4,7 @@ import "./gallery.css";
 class CardBody extends React.Component {
   render() {
     return (
-      <div className="card-body">
+      <div className="card-dog-body">
         <p className="date">March 21 2015</p>
 
         <h2>{this.props.title}</h2>

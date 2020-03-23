@@ -1,18 +1,17 @@
 /* Design inspiration:  https://dribbble.com/shots/1978243-Latest-News */
-body,
-html {
-  font-family: "Montserrat", sans-serif;
-  background-color: #341cac;
+
+.dog-card {
+  box-shadow: 10px 5px 40px 20px #271580;
 }
 
-.card {
+.card-dog {
   width: 280px;
   display: block;
-  margin: 60px auto;
+  margin: auto;
   box-shadow: 10px 5px 40px 20px #2d1896;
   transition: 0.25s;
 }
-.card:hover {
+.card-dog:hover {
   box-shadow: 10px 5px 40px 20px #271580;
   cursor: pointer;
 }
@@ -20,7 +19,7 @@ html {
   transform: translate(10px, 0);
 }
 
-.card-header {
+.card-dog-header {
   height: 150px;
   width: 100%;
   padding: 15px;
@@ -29,12 +28,12 @@ html {
   color: #fff;
 }
 
-.card-header--title {
+.card-dog-header-title {
   text-transform: uppercase;
   margin: 0;
 }
 
-.card-body {
+.card-dog-body {
   padding: 15px;
   background-color: #fff;
   width: 100%;
@@ -74,10 +73,6 @@ html {
 }
 
 /* Designer credit: https://dribbble.com/shots/1978243-Latest-News */
-body,
-html {
-  overflow-x: hidden;
-}
 
 .app-header {
   display: block;
@@ -123,21 +118,21 @@ html {
   }
 }
 
-.app-card-list::-webkit-scrollbar {
+.app-card-dog-list::-webkit-scrollbar {
   display: none;
 }
 @media (min-width: 768px) {
-  .app-card-list {
+  .app-card-dog-list {
     width: 80%;
     white-space: nowrap;
     margin-top: 0;
   }
 }
-.app-card-list .card {
+.app-card-list .card-dog {
   margin: 60px 30px;
   display: inline-block;
 }
-.app-card-list .card .card-body {
+.app-card-dog-list .card-dog .card-dog-body {
   white-space: normal;
 }
 
