@@ -8,9 +8,7 @@ import withFirebaseAuth from "react-with-firebase-auth";
 import "firebase/auth";
 import { Link } from "react-router-dom";
 import { Redirect } from "react-router";
-// import * as firebase from "firebase/app";
-// import firebaseApp from "../../firebase";
-//const firebaseApp = firebase.initializeApp(firebaseConfig);
+import Loader from 'react-loader-spinner'
 class Login extends React.Component {
   constructor(props) {
     super(props);
@@ -38,7 +36,7 @@ class Login extends React.Component {
     firebase
       .database()
       .ref("users/" + uid)
-      .set(this.props.finalCategoriesAnswers, function(error) {
+      .set(this.props.finalCategoriesAnswers, function (error) {
         if (error) {
           console.log("The write failed...");
         } else {
@@ -52,23 +50,48 @@ class Login extends React.Component {
   };
 
   render() {
-    const { user, signOut, signInWithGoogle } = this.props;
+
 
     return (
       <div>
         {this.state.endOfLogin ? (
           <Redirect
-            to={{ pathname: "/dogs-gallery", state: { uid: this.state.uid } }}
+            to={{ pathname: "/dogs-gallery", state: { uid: this.state.uid, userName: this.state.userName } }}
           />
         ) : (
-          <h1 style={{ color: "red" }}>Loading...</h1>
-        )}
+            <MDBContainer className="py-5">
+              <MDBRow className="main-content">
+                <MDBCol md="6 d-flex justify-content-center">
+                  <MDBRow className="buttons-div">
+                    <h2>  מיד תוכל לצפות בתוצאות בהתאמות עבורך</h2>
+
+                  </MDBRow>
+                </MDBCol>
+
+              </MDBRow>
+              <MDBRow className="main-content">
+                <MDBCol md="6 d-flex justify-content-center">
+                  <MDBRow className="buttons-div">
+
+                    <Loader
+                      type="BallTriangle"
+                      color="#000000"
+                      height={150}
+                      width={150}
+
+
+                    />
+
+                  </MDBRow>
+                </MDBCol>
+
+              </MDBRow>
+            </MDBContainer>
+          )}
       </div>
     );
   }
 }
 
 export default Login;
-{
-  /* <DogsGallery userName={this.state.userName} uid={this.state.uid} /> */
-}
+

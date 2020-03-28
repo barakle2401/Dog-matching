@@ -2,70 +2,69 @@ import React from "react";
 import "./loginForm.css";
 import "firebase/auth";
 import firebase from "../../firebase";
-import withFirebaseAuth from "react-with-firebase-auth";
+import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import { Redirect } from "react-router";
-import { Link } from "react-router-dom";
 import {
   MDBContainer,
   MDBRow,
   MDBCol,
-  MDBBtn,
   MDBCard,
-  MDBCardBody,
-  MDBIcon
+  MDBCardBody
 } from "mdbreact";
 
 class LoginForm extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
+  state = { isSignedIn: false };
+  uiConfig = {
+    // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
+    signInFlow: 'popup',
+    signInOptions: [
+      // Leave the lines as is for the providers you want to offer your users.
+      firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+      firebase.auth.FacebookAuthProvider.PROVIDER_ID
+    ],
+    callbacks: {
+      signInSuccess: () => false
+    }
 
+  }
+  componentDidMount = () => {
+    firebase.auth().onAuthStateChanged(user => {
+      this.setState({ isSignedIn: !!user })
+    })
+
+  }
   render() {
-    const { user, signOut, signInWithGoogle } = this.props;
     return (
       <div>
-        {user ? (
+        {this.state.isSignedIn ? (
           <Redirect to="/quiz" />
         ) : (
-          <div className="main-login">
-            <MDBContainer className=" py-5">
-              <MDBRow>
-                <MDBCol md="6">
-                  <MDBCard className="login-card">
-                    <MDBCardBody>
-                      <form action="/AllDogs">
-                        <p className="h3 text-center text-light mb-4">
-                          על מנת שנוכל להתחיל בשאלון
+            <div className="main-login">
+              <MDBContainer className=" py-5">
+                <MDBRow>
+                  <MDBCol md="6">
+                    <MDBCard className="login-card">
+                      <MDBCardBody>
+                        <form action="/AllDogs">
+                          <p className="h3 text-center text-light mb-4">
+                            על מנת שנוכל להתחיל בשאלון
                         </p>
-                        <p className="h3 text-center text-light mb-4">
-                          נצטרך שתבצע התחברות קלה למערכת{" "}
-                        </p>
-                        <div className="text-center">
-                          <MDBBtn onClick={signInWithGoogle}>
-                            {" "}
-                            <MDBIcon fab icon="google" /> Sign In
-                          </MDBBtn>
-                        </div>
-                      </form>
-                    </MDBCardBody>
-                  </MDBCard>
-                </MDBCol>
-              </MDBRow>
-            </MDBContainer>
-          </div>
-        )}
+                          <p className="h3 text-center text-light mb-4">
+                            נצטרך שתבצע התחברות קלה למערכת{" "}
+                          </p>
+                          <div className="text-center">
+                            <StyledFirebaseAuth uiConfig={this.uiConfig} firebaseAuth={firebase.auth()} />
+                          </div>
+                        </form>
+                      </MDBCardBody>
+                    </MDBCard>
+                  </MDBCol>
+                </MDBRow>
+              </MDBContainer>
+            </div>
+          )}
       </div>
     );
   }
 }
-const firebaseAppAuth = firebase.auth();
-
-const providers = {
-  googleProvider: new firebase.auth.GoogleAuthProvider()
-};
-
-export default withFirebaseAuth({
-  providers,
-  firebaseAppAuth
-})(LoginForm);
+export default LoginForm;

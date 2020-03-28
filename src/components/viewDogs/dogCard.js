@@ -16,7 +16,7 @@ class DogCard extends React.Component {
     super();
     this.state = {};
   }
-  componentDidMount() {}
+  componentDidMount() { }
   render() {
     return (
       <MDBCol className="m-5 ">
@@ -28,13 +28,14 @@ class DogCard extends React.Component {
             waves
           />
           <MDBCardBody>
-            <MDBCardTitle>{this.props.details.category}</MDBCardTitle>
+            <MDBCardTitle>{this.props.details.name}</MDBCardTitle>
+            <MDBCardTitle>{this.props.details.matchPercent} - אחוז התאמה </MDBCardTitle>
             <MDBCardText>
-              {this.props.details.title}
-              {this.props.details.text}
+              {this.props.details.desc}
+
             </MDBCardText>
             <button className="button button-primary">
-              <i className="fa fa-chevron-right"></i> Find out more
+              <i className="fa fa-chevron-right"></i> לעוד פרטים
             </button>
           </MDBCardBody>
         </MDBCard>

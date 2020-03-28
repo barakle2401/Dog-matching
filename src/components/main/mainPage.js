@@ -1,6 +1,6 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
+import "./mainPage.css"
 import {
   MDBContainer,
   MDBRow,
@@ -13,8 +13,7 @@ import {
 } from "mdbreact";
 import "./mainPage.css";
 import "firebase/auth";
-import firebase from "../../firebase";
-import LoginForm from "../login/loginForm";
+
 class MainPage extends React.Component {
   constructor() {
     super();

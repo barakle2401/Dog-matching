@@ -2,6 +2,7 @@
 
 .dog-card {
   box-shadow: 10px 5px 40px 20px #271580;
+  width: 17rem !important;
 }
 
 .card-dog {

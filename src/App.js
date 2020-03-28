@@ -12,7 +12,7 @@ import LoginForm from "./components/login/loginForm";
 import DogsGallery from "./components/viewDogs/dogsGallery";
 import * as ROUTES from "./constants/routes";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-
+import "./App.css"
 //const firebaseApp = firebase.initializeApp(firebaseConfig);
 
 class App extends Component {
