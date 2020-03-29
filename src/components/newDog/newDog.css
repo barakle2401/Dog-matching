@@ -19,3 +19,10 @@
 .form-content {
   color: rgb(255, 255, 255);
 }
+.loader{
+  margin: auto;
+  
+}
+.delete-btn{
+  background-color: red !important;
+}

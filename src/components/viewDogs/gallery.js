@@ -18,7 +18,10 @@ class Gallery extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="justify-content-center">
+        <h1 className="h1-responsive font-weight-bold my-5 text-center white-text bg-dark">
+          ההתאמות עבורך
+        </h1>
         <MDBRow className="mt-5">
           {Object.keys(this.state.dogsData).map(key => (
             <DogCard details={this.state.dogsData[key]} />
