@@ -1,0 +1,15 @@
+.form-new-dog{
+    direction: rtl !important;
+}
+.form-main-div {
+    background-image: url("../images/dogs2.jpg");
+    opacity: 0.9;
+    /* Full height */
+    height: 100% !important;
+    margin-top: 0em;
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  

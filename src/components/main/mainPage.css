@@ -1,4 +1,65 @@
+@media(min-width : 600px){
+  
+.main-page{
+  background-image: url("../images/dogs2.jpg");
 
+  /* Full height */
+  height: 1000px;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.login-button {
+  background-color: #0bc0c7 !important;
+  width: 125px !important;
+  color: #ffffff;
+  font-weight: bold;
+  float: right;
+  
+
+  font-size: 13px;
+  border-radius: 83% 17% 84% 16% / 74% 13% 87% 26%;
+}
+.buttons-div {
+  margin-top: 160px !important;
+}
+
+}
+
+@media (max-width : 600px){
+  .main-page{
+    background-image: url("../images/black-dog.jpg");
+    
+    /* Full height */
+    height: auto;
+  
+    /* Center and scale the image nicely */
+    background-position:center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .how-it-works{
+    color: #6a7180;
+  }
+  .bottom-buttons-section{
+
+    margin-top: 15rem;
+  }
+  .login-button {
+    background-color: #3d3131 !important;
+    width: 125px !important;
+    color: #ffffff;
+    font-weight: bold;
+    float: right;
+    
+  
+    font-size: 13px;
+    border-radius: 83% 17% 84% 16% / 74% 13% 87% 26%;
+  }
+
+}
 .main-content {
   margin: auto;
   justify-content: center;
@@ -33,22 +94,9 @@
   border-radius: 40px;
 }
 
-.login-button {
-  background-color: #0bc0c7 !important;
-  width: 125px !important;
-  color: #ffffff;
-  font-weight: bold;
-  float: right;
-  
 
-  font-size: 13px;
-  border-radius: 83% 17% 84% 16% / 74% 13% 87% 26%;
-}
 
 .login-button:hover {
   background-color: #034d50 !important;
 }
 
-.buttons-div {
-  margin-top: 100px !important;
-}

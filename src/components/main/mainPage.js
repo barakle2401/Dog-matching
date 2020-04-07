@@ -11,7 +11,7 @@ import {
   MDBIcon,
   MDBFooter
 } from "mdbreact";
-import "./mainPage.css";
+
 import "firebase/auth";
 
 class MainPage extends React.Component {
@@ -31,7 +31,7 @@ class MainPage extends React.Component {
                   </MDBBtn>
                 </Link>
 
-                <Link to="/new-dog">
+                <Link to="/new-dog-form">
                   <MDBBtn className="quiz-button-form mt-5">
                     טופס הוספת כלב
                   </MDBBtn>
@@ -42,7 +42,7 @@ class MainPage extends React.Component {
         </MDBContainer>
         <MDBFooter>
           <MDBCol md="6 d-flex justify-content-center">
-            <MDBRow className="mt-5">
+            <MDBRow className="mt-5 how-it-works">
               <a>
                 <MDBIcon className="info-icon" icon="info-circle">
                   איך זה עובד{"    "}
@@ -50,7 +50,7 @@ class MainPage extends React.Component {
               </a>
             </MDBRow>
           </MDBCol>
-          <MDBCol md="6 d-flex justify-content-center">
+          <MDBCol md="6 d-flex justify-content-center bottom-buttons-section">
             <MDBRow className="mt-5">
               <a>
                 <Link to="/login">

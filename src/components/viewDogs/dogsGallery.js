@@ -3,49 +3,12 @@ import firebase from "../../firebase";
 import Gallery from "./gallery";
 import { MDBRow, MDBContainer } from "mdbreact";
 import Loader from 'react-loader-spinner'
+import "./gallery.css"
 class DogsGallery extends React.Component {
   constructor(props) {
     super(props);
     this.state = { readyToDisplay: false }
-    // this.state = {
-    //   // uid: props.location.state.uid, userName: props.location.state.userName,
-    //   dogsData: [
-    //     {
-    //       name: "באלו",
-    //       matchPercent: "70%",
-    //       desc: "באלו כלב שובב וחמוד שזקוק להרבה אהבה וחופש",
-    //       image:
-    //         "https://www.washingtonpost.com/wp-apps/imrs.php?src=https://arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/HB4AT3D3IMI6TMPTWIZ74WAR54.jpg&w=1440"
-    //     }
-    //   ],
-    //   dogsInfo: [
-    //     {
-    //       image:
-    //         "https://www.washingtonpost.com/wp-apps/imrs.php?src=https://arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/HB4AT3D3IMI6TMPTWIZ74WAR54.jpg&w=1440",
-    //       "confidence": "50",
-    //       "energy": "90",
-    //       "focus": "60",
-    //       "independence": "40",
-    //       "name": "באלו"
-    //     },
-    //     {
-    //       image:
-    //         "https://www.washingtonpost.com/wp-apps/imrs.php?src=https://arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/HB4AT3D3IMI6TMPTWIZ74WAR54.jpg&w=1440",
-    //       "confidence": "80",
-    //       "energy": "80",
-    //       "focus": "40",
-    //       "independence": "30",
-    //       "name": "יוחנן"
-    //     }
-    //   ],
-    //   userData: {
-    //     "confidence": 100,
-    //     "energy": 90,
-    //     "focus": 60,
-    //     "independence": 70
-    //   }
-    //};
-    // this.getUserData();
+
     //this.getDogsData();
 
   }
@@ -90,7 +53,7 @@ class DogsGallery extends React.Component {
     for (let i = 0; i < Object.keys(dogsInfo).length; i++) {
 
       let totalMatchPercent = this.matchAlgorith(dogsInfo[i].confidence, dogsInfo[i].energy, dogsInfo[i].focus, dogsInfo[i].independence, userData);
-      dogsInfo[i].totalMatchPercent = totalMatchPercent;
+      dogsInfo[i].totalMatchPercent = totalMatchPercent.toFixed(0);
     }
 
     return dogsInfo;
@@ -112,7 +75,7 @@ class DogsGallery extends React.Component {
     return (
       <div>
         {this.state.readyToDisplay ? (
-          <Gallery dogsData={this.state.dogsInfo} />
+          <Gallery dogsData={this.state.dogsInfo} className="dogs-gallery" />
 
 
         ) : (<MDBRow className="text-center justify-content-center">

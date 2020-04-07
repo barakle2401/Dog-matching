@@ -170,8 +170,8 @@ class Quiz extends React.Component {
                             <span className="sr-only">Loading...</span>
                           </div>
                         ) : (
-                          question
-                        )}
+                            question
+                          )}
                       </p>
                       <MDBBtn
                         className="mt-1 btn btn-block btn-grey option-btn"
@@ -229,8 +229,8 @@ class Quiz extends React.Component {
             </MDBContainer>
           </div>
         ) : (
-          <Login finalCategoriesAnswers={this.state.finalCategoriesAnswers} />
-        )}
+            <Login finalCategoriesAnswers={this.state.finalCategoriesAnswers} />
+          )}
       </div>
     );
   }

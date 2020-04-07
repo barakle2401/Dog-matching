@@ -1,7 +1,9 @@
 /* Design inspiration:  https://dribbble.com/shots/1978243-Latest-News */
-
+.dogs-gallery{
+  direction: rtl !important;
+}
 .dog-card {
-  box-shadow: 10px 5px 40px 20px #271580;
+  box-shadow: 10px 5px 20px 10px #f3f1ff;
   width: 17rem !important;
 }
 

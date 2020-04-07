@@ -14,6 +14,7 @@
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
     "react-bootstrap": "^1.0.0",
+    "react-canvas-js": "^1.0.1",
     "react-dom": "^16.12.0",
     "react-firebaseui": "^4.1.0",
     "react-images-upload": "^1.2.8",

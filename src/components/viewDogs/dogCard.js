@@ -1,7 +1,6 @@
 import React from "react";
 import "./dogCard.css";
-import CardHeader from "./cardHeader";
-import CardBody from "./cardBody";
+
 import {
   MDBBtn,
   MDBCard,

@@ -1,8 +1,8 @@
-body {
+.main-quiz {
   background-image: url("../images/dogs2.jpg");
 
   /* Full height */
-  height: 100%;
+  height: 1000px;
 
   /* Center and scale the image nicely */
   background-position: center;
