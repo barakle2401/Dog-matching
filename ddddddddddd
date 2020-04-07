@@ -1,0 +1,144 @@
+[33mcommit 12ca2c429c80a8fcb5a50485448b38abed7de94d[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;32mform-validation[m[33m)[m
+Author: barak <barakreutlevy@gmail.com>
+Date:   Tue Apr 7 13:06:51 2020 +0300
+
+    add dog profile.js
+
+[33mcommit 316b64f463646c0985113e4fa03f85689d8574af[m
+Author: barak <barakreutlevy@gmail.com>
+Date:   Sun Mar 29 10:24:04 2020 +0300
+
+    image upload and match algho
+
+[33mcommit 3c63715c5354def4dfbe8b93cec00e944e9e7ec0[m
+Author: barak <barakreutlevy@gmail.com>
+Date:   Sat Mar 28 15:40:08 2020 +0300
+
+    add facebook auth
+
+[33mcommit f0d534820ad875ad3c9e7f9336d41e9895799fbc[m
+Author: barak <barakreutlevy@gmail.com>
+Date:   Mon Mar 23 10:58:45 2020 +0200
+
+    add dogs gallery
+
+[33mcommit 7442dcd0733b344c9e322422a74af93ca85a581c[m
+Author: barak <barakreutlevy@gmail.com>
+Date:   Sun Mar 22 21:55:11 2020 +0200
+
+    new gallery
+
+[33mcommit 15167951b3d1f4ad63f039222c85e8fd8c982c7e[m
+Author: barak <barakreutlevy@gmail.com>
+Date:   Sat Mar 21 19:04:17 2020 +0200
+
+    calculate user answers and save it
+
+[33mcommit abef11abc33eb19dff62e3cc4f0aed6fc289c37a[m
+Author: barak <barakreutlevy@gmail.com>
+Date:   Sat Mar 14 16:16:58 2020 +0200
+
+    update quiz
+
+[33mcommit 474c15976b9cf8317c3952077cae6a34d8040219[m
+Author: barak <barakreutlevy@gmail.com>
+Date:   Sat Feb 29 15:20:52 2020 +0200
+
+    fix storing data on DB
+
+[33mcommit 5c28e747016f0662f7c471563e9aebc8a005f453[m
+Author: barak <barakreutlevy@gmail.com>
+Date:   Sat Feb 15 21:42:07 2020 +0200
+
+    storing user answers, finish Auth
+
+[33mcommit d26d64d34a4a6ecbce1c69266bcce6c470711d9b[m
+Merge: c88b0f9 4aee8cc
+Author: barak <barakreutlevy@gmail.com>
+Date:   Sun Feb 2 10:18:15 2020 +0200
+
+    Merge branch 'master' of https://github.com/barakle2401/Dog-matching
+
+[33mcommit c88b0f978cee6b2ea639a768c776fd4538034fc3[m
+Author: barak <barakreutlevy@gmail.com>
+Date:   Sun Jan 26 10:18:01 2020 +0200
+
+    added auth
+
+[33mcommit 4aee8ccc9522cd933ae3804c41f4ea6b8001f739[m
+Author: Barak Levy <50266679+barakle2401@users.noreply.github.com>
+Date:   Sat Jan 25 15:02:47 2020 +0200
+
+    Update README.md
+
+[33mcommit 1ecaf894c53d2cc5651d2c1778227b13a5f53315[m
+Author: barak <barakreutlevy@gmail.com>
+Date:   Wed Jan 22 13:35:03 2020 +0200
+
+    fixing bugs on saving data on database
+
+[33mcommit d541129574b0607eba6b1eb55973fdf4bf76d8d0[m
+Author: barak <barakreutlevy@gmail.com>
+Date:   Mon Jan 20 11:49:33 2020 +0200
+
+    added login page and main page
+
+[33mcommit a36b135326387b57c4e09c4e31ee7f8a59eccde2[m
+Author: barak <barakreutlevy@gmail.com>
+Date:   Sat Jan 18 11:56:55 2020 +0200
+
+    added real  questions data and collect user answers
+
+[33mcommit 2a4501f88f14dc90bc6face752dd0328086cca33[m
+Author: barak <barakreutlevy@gmail.com>
+Date:   Sat Jan 11 18:35:47 2020 +0200
+
+    update readme
+
+[33mcommit 1f44f478beca83eb8bc18d52ed71c97f120c1e3c[m
+Author: barak <barakreutlevy@gmail.com>
+Date:   Sat Jan 11 18:33:37 2020 +0200
+
+    update readme
+
+[33mcommit 6528b0d27f8540102b0d9174de0d680445b67c0d[m
+Author: barak <barakreutlevy@gmail.com>
+Date:   Sat Jan 11 18:21:28 2020 +0200
+
+    add quiz files and mock questions
+
+[33mcommit 1bd68c687280a633bb91f0cdf3871815073be050[m
+Author: barak <barakreutlevy@gmail.com>
+Date:   Sat Jan 4 18:53:17 2020 +0200
+
+    added new pages - new dog, dog card and dogs gallery, connect to the data base , and set up firebase
+
+[33mcommit 63f07d97c3fb0ded66e24cf5e2869417e8a4c635[m
+Author: barak <barakreutlevy@gmail.com>
+Date:   Sat Jan 4 12:52:53 2020 +0200
+
+    option page added with react lodash
+
+[33mcommit 14c9ebf3ab16e28ad5a83543fa4ed45feb7c4d89[m
+Author: barak <barakreutlevy@gmail.com>
+Date:   Sat Jan 4 12:37:06 2020 +0200
+
+    new files
+
+[33mcommit fe92461009222340c89c5308ef90ac17ce37c70c[m
+Author: barak <barakreutlevy@gmail.com>
+Date:   Mon Dec 23 12:27:38 2019 +0200
+
+    creating New dog file
+
+[33mcommit 9fffa679ff4d0f9530326458570168cde8f4f69e[m
+Author: barak <barakreutlevy@gmail.com>
+Date:   Mon Dec 23 11:31:18 2019 +0200
+
+    first commit
+
+[33mcommit c0b98849e5355ff9509b6d6c1b8aec09c4780a68[m
+Author: barak <barakreutlevy@gmail.com>
+Date:   Mon Dec 23 11:29:50 2019 +0200
+
+    Initial commit from Create React App

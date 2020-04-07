@@ -6,7 +6,8 @@ import {
 import SweetAlert from "sweetalert2-react";
 import Loader from "react-loader-spinner";
 import _ from "lodash";
-
+import { confirmAlert } from 'react-confirm-alert'; // Import
+import 'react-confirm-alert/src/react-confirm-alert.css';
 import { MDBContainer, MDBRow, MDBCol, MDBBtn, MDBCard, MDBCardBody, MDBIcon, MDBFormInline, MDBInput } from 'mdbreact';
 import "./new_dog_form.css"
 class NewDogForm extends React.Component {
@@ -78,10 +79,15 @@ class NewDogForm extends React.Component {
     );
   };
   handleSubmit = async e => {
-    //Add validation here
-    this.setState({ submitting: true });
-    console.log(this.state);
     e.preventDefault(); // <- prevent form submit from reloading the page
+    e.target.className += " was-validated";
+    //Add validation here
+
+
+    this.setState({ submitting: true });
+    //console.log(this.state);
+
+
 
 
     await firebase
@@ -91,17 +97,42 @@ class NewDogForm extends React.Component {
         if (error) {
           console.log("The write failed...");
         } else {
-          // Data saved successfully!
+          // Data saved successfully!!!
           console.log("Data saved successfully!");
+          confirmAlert({
+            title: 'הכלב עלה בהצלחה לאתר',
+            message: 'תודה',
+            buttons: [
+              {
+                label: 'OK',
+                onClick: () => window.location = "/"
+              }
+            ]
+          });
+
+
         }
       });
 
     this.setState({ submitting: false });
 
   };
+  isFormValid = () => {
+
+    const { name, age, contactPhone, contactName, energy, independence, focus, confidence, dogDesc } = this.state;
+
+    if (!name) {
+
+    }
+
+
+    return false;
+
+  }
   render() {
 
     return (
+
       <div className="form-main-div">
         {this.state.submitting ? (<div className="main-page">
           <MDBContainer className="py-5">
@@ -124,7 +155,7 @@ class NewDogForm extends React.Component {
             <MDBCol xs="12" md="10">
               <MDBCard>
                 <MDBCardBody>
-                  <form onSubmit={this.handleSubmit} className="form-new-dog">
+                  <form onSubmit={this.handleSubmit} className="form-new-dog needs-validation" noValidate>
                     <p className="h4 text-center py-4">טופס כלב חדש</p>
                     <MDBRow className="justify-content-center">
 
@@ -141,8 +172,11 @@ class NewDogForm extends React.Component {
                           type="text"
                           id="name"
                           className="form-control"
+                          required
                         />
-
+                        <div className="invalid-feedback">
+                          אנא הזן את שם הכלב
+                        </div>
                       </MDBCol>
                       <MDBCol xs="12" md="5" className="text-center">
                         <label
@@ -157,8 +191,11 @@ class NewDogForm extends React.Component {
                           type="number"
                           id="age"
                           className="form-control"
+                          required
                         />
-
+                        <div className="invalid-feedback">
+                          אנא הזן את גיל הכלב
+                        </div>
                       </MDBCol>
                     </MDBRow>
                     <MDBRow className="justify-content-center mt-3">
@@ -175,8 +212,11 @@ class NewDogForm extends React.Component {
                           type="text"
                           id="contactName"
                           className="form-control"
+                          required
                         />
-
+                        <div className="invalid-feedback">
+                          אנא הזן איש קשר
+                        </div>
                       </MDBCol>
                       <MDBCol xs="12" md="5" className="text-center">
                         <label
@@ -191,8 +231,11 @@ class NewDogForm extends React.Component {
                           type="tel"
                           id="contactPhone"
                           className="form-control"
+                          required
                         />
-
+                        <div className="invalid-feedback">
+                          אנא הזן טלפון
+                        </div>
                       </MDBCol>
 
                     </MDBRow>
@@ -208,12 +251,15 @@ class NewDogForm extends React.Component {
                         >
                           עצמאות
                                       </label>
-                        <select value={this.state.independence} onChange={this.handleChange} className="browser-default custom-select" id="independence" >
-                          <option disabled selected>בחר</option>
+                        <select required value={this.state.independence} onChange={this.handleChange} className="browser-default custom-select" id="independence" >
+                          <option value="" disabled selected>בחר</option>
                           {_.range(1, 11).map(value => (
                             <option value={value}>{value}</option>
                           ))}
                         </select>
+                        <div className="invalid-feedback">
+                          אנא בחר את רמת העצמאות של הכלב
+                        </div>
                       </MDBCol>
                       <MDBCol xs="12" md="5" className=" text-center">
                         <label
@@ -222,12 +268,15 @@ class NewDogForm extends React.Component {
                         >
                           אנרגיה
                                       </label>
-                        <select value={this.state.energy} onChange={this.handleChange} className="browser-default custom-select" id="energy" >
-                          <option disabled selected>בחר</option>
+                        <select required value={this.state.energy} onChange={this.handleChange} className="browser-default custom-select" id="energy" >
+                          <option value="" disabled selected>בחר</option>
                           {_.range(1, 11).map(value => (
                             <option value={value}>{value}</option>
                           ))}
                         </select>
+                        <div className="invalid-feedback">
+                          אנא בחר את רמת האנרגיה של הכלב
+                        </div>
                       </MDBCol>
                     </MDBRow>
                     <MDBRow className="justify-content-center mt-3">
@@ -238,12 +287,15 @@ class NewDogForm extends React.Component {
                         >
                           מסוגלות למלא פקודות
                                       </label>
-                        <select value={this.state.focus} onChange={this.handleChange} className="browser-default custom-select" id="focus" >
-                          <option disabled selected>בחר</option>
+                        <select required value={this.state.focus} onChange={this.handleChange} className="browser-default custom-select" id="focus" >
+                          <option value="" disabled selected>בחר</option>
                           {_.range(1, 11).map(value => (
                             <option value={value}>{value}</option>
                           ))}
                         </select>
+                        <div className="invalid-feedback">
+                          אנא הזן את רמת היכולת של הכלב למלא פקודות
+                         </div>
                       </MDBCol>
                       <MDBCol xs="12" md="5" className="text-center">
                         <label
@@ -252,12 +304,15 @@ class NewDogForm extends React.Component {
                         >
                           ביטחון עצמי
                                       </label>
-                        <select value={this.state.confidence} onChange={this.handleChange} className="browser-default custom-select" id="confidence" >
-                          <option disabled selected>בחר</option>
+                        <select required value={this.state.confidence} onChange={this.handleChange} className="browser-default custom-select" id="confidence" >
+                          <option value="" disabled selected>בחר</option>
                           {_.range(1, 11).map(value => (
                             <option value={value}>{value}</option>
                           ))}
                         </select>
+                        <div className="invalid-feedback">
+                          אנא בחר את רמת הביטחון העצמי של הכלב
+                         </div>
                       </MDBCol>
                     </MDBRow>
                     <MDBRow className="justify-content-center mt-3">
