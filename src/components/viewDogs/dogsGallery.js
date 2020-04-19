@@ -7,20 +7,22 @@ import "./gallery.css"
 class DogsGallery extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { readyToDisplay: false }
+    this.state = { readyToDisplay: false, uid: props.location.state.uid }
+    //this.state = { readyToDisplay: false, uid: "ZZg6TPfBJzOvmW67z9kDziPgL5x1" }
 
     //this.getDogsData();
 
   }
   componentDidMount() {
+
     this.getUserData();
     this.getDogsData();
   }
   componentDidUpdate(prevProps, prevState) {
     // check on previous state
     if (prevState !== this.state) {
-      console.log("ready to match");
-      //this.displayMatch();\
+
+
       if (this.state.dogsInfo && this.state.userData && !this.state.readyToDisplay) {
 
         let dogsInfo = this.calculateMatch();
@@ -29,7 +31,9 @@ class DogsGallery extends React.Component {
     }
   }
   getUserData = () => {
-    let ref = firebase.database().ref("users/" + "15As3LB0g1WrH82bljU3outBV4t1");
+    //fix here to real user id
+    let ref = firebase.database().ref("users/" + this.state.uid);
+
     ref.on("value", snapshot => {
       const state = snapshot.val();
       this.setState({ userData: state });
@@ -42,29 +46,28 @@ class DogsGallery extends React.Component {
       this.setState({ dogsInfo: state });
     });
   };
-  displayMatch = () => {
-    setTimeout(() => {
-      console.log(this.state);
-    }, 500);
-  };
+  // displayMatch = () => {
+  //   setTimeout(() => {
+  //     console.log(this.state);
+  //   }, 500);
+  // };
   calculateMatch = () => {
     let { dogsInfo, userData } = this.state;
 
     for (let i = 0; i < Object.keys(dogsInfo).length; i++) {
 
       let totalMatchPercent = this.matchAlgorith(dogsInfo[i].confidence, dogsInfo[i].energy, dogsInfo[i].focus, dogsInfo[i].independence, userData);
-      dogsInfo[i].totalMatchPercent = totalMatchPercent.toFixed(0);
+      console.log(totalMatchPercent);
+      dogsInfo[i].totalMatchPercent = (Math.round(totalMatchPercent * 100));
     }
 
     return dogsInfo;
   }
   matchAlgorith(confidence, energy, focus, independence, userData) {
-
-    let confidencePercent = (100 - Math.abs(parseFloat(confidence) - parseFloat(userData["confidence"])));
-    let energyPercent = 1.5 * (100 - Math.abs(parseFloat(energy) - parseFloat(userData["energy"])));
-    let independencePercent = (100 - Math.abs(parseFloat(independence) - parseFloat(userData["independence"])));
-    let focusPercent = 0.5 * (100 - Math.abs(parseFloat(focus) - parseFloat(userData["focus"])));
-
+    let confidencePercent = (1 - Math.abs(parseFloat(confidence) - parseFloat(userData["confidence"])).toFixed(2));
+    let energyPercent = 1.5 * (1 - Math.abs(parseFloat(energy) - parseFloat(userData["energy"])).toFixed(2));
+    let independencePercent = (1 - Math.abs(parseFloat(independence) - parseFloat(userData["independence"])).toFixed(2));
+    let focusPercent = 0.5 * (1 - Math.abs(parseFloat(focus) - parseFloat(userData["focus"])).toFixed(2));
     let totalPercent = (confidencePercent + energyPercent + independencePercent + focusPercent) / 4;
 
 
@@ -73,9 +76,9 @@ class DogsGallery extends React.Component {
   render() {
     console.log(this.state);
     return (
-      <div>
+      <div className="dogs-gallery">
         {this.state.readyToDisplay ? (
-          <Gallery dogsData={this.state.dogsInfo} className="dogs-gallery" />
+          <Gallery dogsData={this.state.dogsInfo} />
 
 
         ) : (<MDBRow className="text-center justify-content-center">

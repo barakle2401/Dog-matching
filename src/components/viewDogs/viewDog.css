@@ -1,8 +1,51 @@
-.card-img-top{
-    height: 50%;
-    margin: auto;
-}
+
 .dog-profile{
     direction: rtl !important;
     margin-top: 5rem;
+    
+}
+.dog-image{
+  width: 100%;
+  height: 500px;
+  
+}
+
+.dog-name{
+  border-radius: 0.7rem;
+  padding: 0.5rem;
+  color: rgb(255, 255, 255);
+  background-color: rgb(87, 87, 87);
+  padding: 10px 10px 15px;
+  margin: 7px;
+}
+dl dt {
+  
+  float: right;
+  font-weight: normal;
+  line-height: 20px;
+  font-size: 15px;
+  margin-right: 10px;
+  clear: right;
+}
+dd {
+  float: right;
+  overflow: hidden;
+  font-weight: 700;
+  line-height: 20px;
+  font-size: 15px;
+  position: relative;
+  top: 1px;
+
+  height: 25px;
+  margin-inline-start: 10px !important;
+}
+
+.attribute{
+   
+ 
+  font-weight: 700;
+  line-height: 20px;
+  font-size: 15px;
+
+
 }

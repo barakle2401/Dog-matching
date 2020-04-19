@@ -100,3 +100,47 @@
   background-color: #034d50 !important;
 }
 
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1040;
+  width: 100vw;
+  height: 100vh;
+  background-color: transparent !important;
+}
+.modal-content{
+
+  background-image: url("../images/dosg-info3.jpg");
+
+
+  
+  /* Center and scale the image nicely */
+  background-position: center;
+ 
+  background-size: cover;
+}
+.quarter{
+  color: #eee;
+  background-color: #0e0e0e;
+  opacity: 0.75;
+  margin: 20px;
+  height: 220px;
+
+  text-align: center;
+  border: 2px solid rgb(10, 10, 10);
+  border-radius: 5px;
+  font-size: 15px;
+}
+
+.quarter-title{
+  margin: 10px 0px;
+  font-size: larger;
+  font-weight: bolder;
+  font-family: 'Times New Roman', Times, serif;
+}
+.sub-title{
+  font-weight: bolder;
+  font-size: larger;
+  color: rgb(212, 255, 239);
+}

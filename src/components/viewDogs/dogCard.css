@@ -1,0 +1,18 @@
+.card-container{
+
+    direction: rtl !important;
+     
+} 
+.button-primary{
+    float: right;
+}
+.card-body-dog{
+    background-color: azure;
+    font-size: x-small !important;
+}
+.name-text{
+    font-size: 20px;
+}
+.percent-text{
+    font-size: 18px;
+}
