@@ -1,3 +1,6 @@
+//===============================================================================
+//Main page component redirect to quiz, new dog form, view dogs
+//===============================================================================
 import React from "react";
 import { Link } from "react-router-dom";
 import firebase from "../../firebase";
@@ -36,8 +39,8 @@ class MainPage extends React.Component {
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         console.log('user logged');
-        console.log(user.uid)
-         this.setState({uid:user.uid});
+        console.log(user.photoURL);
+         this.setState({uid:user.uid,userImageUrl:user.photoURL});
         
       }
    });
@@ -114,9 +117,17 @@ class MainPage extends React.Component {
 
           </MDBModal>
         </MDBContainer>) :( <MDBContainer className="py-5">
-         <MDBRow className="main-content">
-           <MDBCol md="6 d-flex justify-content-center">
-             <MDBRow className="buttons-div">
+  
+
+     
+           <MDBRow className="title-row justify-content-center text-center mb-3">
+ 
+             <h1 id="title">התאם לי חבר</h1>
+        
+             </MDBRow>
+         
+             <MDBRow className="buttons-div justify-content-center">
+            
                <Link to="/login-form">
                  <MDBBtn className="quiz-button-start mt-5">
                <span className="d-block d-sm-none">  {" התחל "}</span>  שאלון התאמה
@@ -129,8 +140,8 @@ class MainPage extends React.Component {
                  </MDBBtn>
                </Link>
              </MDBRow>{" "}
-           </MDBCol>
-         </MDBRow>
+    
+   
          <MDBFooter>
            <MDBCol md="6 d-flex justify-content-center">
              <MDBRow className="mt-5 how-it-works">
@@ -149,11 +160,12 @@ class MainPage extends React.Component {
                    <MDBBtn className="login-button mt-5">היית פה? התחבר</MDBBtn>
                  </Link>
                </a>
+               <div className="mt-5">
                {(this.state.uid) ? ( <Link   to={{ pathname: "/dogs-gallery", state: { uid: this.state.uid, userName: this.state.userName } }} > <a>
                
-               <MDBBtn className="login-button mt-5" onClick={this.redirectToGallery}>צפייה בכלבים</MDBBtn>
+               <MDBBtn className="login-button" onClick={this.redirectToGallery}>צפייה בכלבים</MDBBtn>
           
-           </a></Link>):(<></>)}
+           </a></Link>):(<></>)}</div>
              
              </MDBRow>
            </MDBCol>

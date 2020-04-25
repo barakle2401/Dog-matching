@@ -31,17 +31,17 @@ class DogCard extends React.Component {
   }
   render() {
     return (
-      <MDBCol className="m-1 card-container">
+      <MDBCol className="m-1 mt-4 mb-4 card-container ">
         <MDBCard className="dog-card rounded mb-0" >
           <MDBCardImage
             style={{ height: "18rem", width: "100%" }}
-            className="img-fluid"
+            className="img-fluid dog-image"
             src={this.props.details.imgUrl}
             waves
           />
-          <MDBCardBody className="card-body-dog">
-            <MDBCardTitle className="text-right name-text">{this.props.details.name}, בן  {this.props.details.age} </MDBCardTitle>
-            <MDBCardTitle className="text-right percent-text"> <MDBBadge pill className="mb-1 ml-1" color="default"> {this.props.details.totalMatchPercent + "%"} </MDBBadge> <span className=""> אחוז התאמה </span> </MDBCardTitle>
+          <MDBCardBody className="card-body-dog ">
+            <MDBCardTitle className="text-right name-text"><span className="text-secondary font-weight-bold"> {this.props.details.name} , בן  {this.props.details.age}</span> </MDBCardTitle>
+            <MDBCardTitle className="text-right percent-text"> <MDBBadge pill className="mb-1 ml-1" color="default"> {this.props.details.totalMatchPercent + "%"} </MDBBadge> <span className=""> אחוזי התאמה </span> </MDBCardTitle>
             <MDBCardText>
               {this.props.details.desc}
 

@@ -18,13 +18,12 @@ class Gallery extends React.Component {
 
   render() {
     return (
-      <div className="justify-content-center gallery-container">
-        <MDBRow >  <MDBCol></MDBCol> <MDBCol className="col-xl-6 col-sm-12" sm="12" > <h1 class="heading">
+      <div className="justify-content-center gallery-container ">
 
-          -  ההתאמות עבורך -
-        </h1> </MDBCol>
+        <MDBRow className="match-title text-center mb-3 ">
 
-          <MDBCol></MDBCol>
+          <h1 id="title" className="mt-5">ההתאמות עבורך</h1>
+
         </MDBRow>
 
         <MDBRow >

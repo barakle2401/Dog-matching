@@ -7,7 +7,7 @@
     float: right;
 }
 .card-body-dog{
-    background-color: azure;
+    background-color: #ffffff;
     font-size: x-small !important;
 }
 .name-text{
@@ -15,4 +15,7 @@
 }
 .percent-text{
     font-size: 18px;
+}
+.dog-image{
+    border-radius: 2%;
 }

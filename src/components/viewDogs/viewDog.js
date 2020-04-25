@@ -57,10 +57,10 @@ class ViewDog extends React.Component {
         const { energy, focus, confidence, independence } = this.state.dogDetails;
         let totalMatch = {};
 
-        totalMatch["energy"] = 100 * (1 - Math.abs(parseFloat(energy) - parseFloat(this.state.userMatchPercents["energy"])).toFixed(2));
-        totalMatch["focus"] = 100 * (1 - Math.abs(parseFloat(focus) - parseFloat(this.state.userMatchPercents["focus"])).toFixed(2));
-        totalMatch["confidence"] = 100 * (1 - Math.abs(parseFloat(confidence) - parseFloat(this.state.userMatchPercents["confidence"])).toFixed(2));
-        totalMatch["independence"] = 100 * (1 - Math.abs(parseFloat(independence) - parseFloat(this.state.userMatchPercents["independence"])).toFixed(2));
+        totalMatch["energy"] = parseInt(100 * (1 - Math.abs(parseFloat(energy) - parseFloat(this.state.userMatchPercents["energy"])).toFixed(2)));
+        totalMatch["focus"] = parseInt(100 * (1 - Math.abs(parseFloat(focus) - parseFloat(this.state.userMatchPercents["focus"])).toFixed(2)));
+        totalMatch["confidence"] = parseInt(100 * (1 - Math.abs(parseFloat(confidence) - parseFloat(this.state.userMatchPercents["confidence"])).toFixed(2)));
+        totalMatch["independence"] = parseInt(100 * (1 - Math.abs(parseFloat(independence) - parseFloat(this.state.userMatchPercents["independence"])).toFixed(2)));
 
         console.log(totalMatch);
         this.setState({ totalMatch: totalMatch, readyToDisplay: true });
@@ -74,7 +74,7 @@ class ViewDog extends React.Component {
                             <MDBCol md="2"><h3 className="dog-name text-right" >{this.state.dogDetails.name} </h3></MDBCol>
                         </MDBRow>
                         <MDBRow className="mb-1 justify-content-start mt-1">
-                            <MDBCol md="3">
+                            <MDBCol md="4">
                                 <h5 className='text-right mr-2 mt-2 '>
                                     אחוז התאמה כולל : <span className='green-text font-weight-bold'> {this.state.dogDetails.totalMatchPercent + "%"} </span>
                                 </h5>
@@ -100,7 +100,7 @@ class ViewDog extends React.Component {
                                     </dl>
                                 </div>
                             </MDBCol>
-                            <MDBCol md="4">
+                            <MDBCol md="3">
                                 <h5 className='text-right  mr-2 mt-2'>
                                     על    {this.state.dogDetails.name}:
                                 </h5>
@@ -125,7 +125,7 @@ class ViewDog extends React.Component {
 
                             <MDBRow className="mt-1">
                                 <MDBCol className="text-right font-weight-bold">
-                                    <h5> התאמה לפי קטגוריות :</h5>
+                                    <h5> אחוז התאמה לפי קטגוריות :</h5>
                                     <hr style={{ width: "20%", float: "right" }} />
                                 </MDBCol>
                             </MDBRow>
@@ -148,7 +148,7 @@ class ViewDog extends React.Component {
                                 </MDBRow>
                                 <MDBRow className="mt-2">
                                     <MDBCol className="text-center">
-                                        <span className="font-weight-bold" >ביטחון עצמי</span>
+                                        <span className="font-weight-bold " >ביטחון  <br className="d-block d-sm-none" />עצמי</span>
                                         <MDBProgress material value={this.state.totalMatch.confidence} height="20px">
                                             %  {this.state.totalMatch.confidence}
                                         </MDBProgress>
