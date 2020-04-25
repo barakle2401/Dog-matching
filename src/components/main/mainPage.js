@@ -119,7 +119,7 @@ class MainPage extends React.Component {
              <MDBRow className="buttons-div">
                <Link to="/login-form">
                  <MDBBtn className="quiz-button-start mt-5">
-                   שאלון התאמה
+               <span className="d-block d-sm-none">  {" התחל "}</span>  שאלון התאמה
                  </MDBBtn>
                </Link>
 

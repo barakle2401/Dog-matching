@@ -30,9 +30,24 @@ class NewDogForm extends React.Component {
       size:"",
       breed:"",
       preferences: "",
-      sex:""
+      sex:"",
+      width: window.innerWidth
     }
   }
+
+  componentWillMount() {
+    window.addEventListener('resize', this.handleWindowSizeChange);
+  }
+  
+  // make sure to remove the listener
+  // when the component is not mounted anymore
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.handleWindowSizeChange);
+  }
+  
+  handleWindowSizeChange = () => {
+    this.setState({ width: window.innerWidth });
+  };
   toggle = () => {
     this.setState({
       modal: !this.state.modal
@@ -113,17 +128,30 @@ class NewDogForm extends React.Component {
     );
   };
   handleSubmit = async e => {
-    e.preventDefault(); // <- prevent form submit from reloading the page
-    e.target.className += " was-validated";
-    //Add validation here
-
-    console.log(e.target.className);
+     e.preventDefault(); // <- prevent form submit from reloading the page
+     const { width } = this.state;
+     const isMobile = width <= 500;
+     //MDB validation works only on desktop display 
+     if(!isMobile){
+      e.target.className += " was-validated";
+     }
     if (!this.isFormValid()) {
+      
+      if(isMobile){
+        confirmAlert({
+          title: 'אנא מלא את כל השדות בבקשה',
+          message: 'תודה',
+          buttons: [
+            {
+              label: 'OK',
+            
+            }
+          ]
+        });
+        
+      }
       return;
-
     }
-    else {
-
       this.setState({ submitting: true });
       await firebase
         .database()
@@ -150,15 +178,7 @@ class NewDogForm extends React.Component {
         });
 
       this.setState({ submitting: false });
-    }
-
-    //console.log(this.state);
-
-
-
-
-
-
+    
   };
   isFormValid = () => {
 
