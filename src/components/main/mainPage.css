@@ -58,6 +58,11 @@
     font-size: 13px;
     border-radius: 83% 17% 84% 16% / 74% 13% 87% 26%;
   }
+  .quarter{
+
+    min-width: 350px !important;
+    margin: 0px !important;
+  }
 
 }
 .main-content {
@@ -143,4 +148,20 @@
   font-weight: bolder;
   font-size: larger;
   color: rgb(212, 255, 239);
+}.close {
+  float: right;
+  font-size: 2.5rem;
+  font-weight: 900;
+  line-height: 1;
+  color: #000;
+  text-shadow: 0 1px 0 #fff;
+  opacity: .5;
+}
+.close:hover{
+  color: red;
+}
+.info-icon:hover 
+{
+  color: #ff00b3 ;
+  font-size: larger;
 }

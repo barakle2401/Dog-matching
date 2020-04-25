@@ -54,12 +54,24 @@ class NewDogForm extends React.Component {
   handleFireBaseUpload = e => {
     let { image } = this.state;
 
-    //start upload
-    this.setState({ submitting: true });
+
     // async magic goes here...
     if (image === "") {
       console.error(`not an image, the image file is a ${typeof image}`);
+      confirmAlert({
+        title: 'אנא בחר תמונה',
+      
+        buttons: [
+          {
+            label: 'OK',
+      
+          }
+        ]
+      });
+      return;
     }
+    //start upload
+    this.setState({ submitting: true });
     const uploadTask = storage.ref(`/images/${image.name}`).put(image);
     //initiates the firebase side uploading
     uploadTask.on(
@@ -71,6 +83,17 @@ class NewDogForm extends React.Component {
       err => {
         //catches the errors
         console.log(err);
+        confirmAlert({
+          title: 'התרחשה שגיאה אנא נסה שוב',
+        
+          buttons: [
+            {
+              label: 'OK',
+            
+            }
+          ]
+        });
+        this.setState({submitting:false});
       },
       () => {
         // gets the functions from storage references the image storage in firebase by the children
@@ -305,6 +328,7 @@ class NewDogForm extends React.Component {
                                 value={this.state.contactPhone}
                                 onChange={this.handleChange}
                                 type="tel"
+                                maxLength="12"
                                 id="contactPhone"
                                 className="form-control"
                                 required
@@ -517,7 +541,7 @@ class NewDogForm extends React.Component {
                                       onChange={this.fileSelectedHandler}
                                     />
                                     <MDBBtn
-
+                                      className="btn-md"
                                       onClick={this.handleFireBaseUpload}
                                     >
                                       שמור תמונה
@@ -530,7 +554,7 @@ class NewDogForm extends React.Component {
                           <div className="text-center py-4 mt-3">
                             <MDBBtn className="btn btn-outline-purple" type="submit">
                               שלח
-                                          <MDBIcon far icon="paper-plane" className="ml-2" />
+                                          <MDBIcon far icon="paper-plane" className="mr-2" />
                             </MDBBtn>
                           </div>
                         </form>

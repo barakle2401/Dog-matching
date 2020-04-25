@@ -8,7 +8,7 @@ import {
   MDBCol,
   MDBCard,
   MDBCardBody,
-  MDBBtn,
+  MDBBtn,MDBCloseIcon,
   MDBIcon,
   MDBFooter, MDBModal, MDBModalBody, MDBModalHeader, MDBModalFooter
 } from "mdbreact";
@@ -22,19 +22,28 @@ class MainPage extends React.Component {
    
   }  
   componentDidMount() {
-    var user = firebase.auth().currentUser;
-    if (user) {
-      var name, email, photoUrl, uid, emailVerified;
-      name = user.displayName;
-      email = user.email;
-      photoUrl = user.photoURL;
-      emailVerified = user.emailVerified;
-      uid = user.uid;
-     this.setState({uid:uid});
-     console.log("hi");
-    }
+    // var user = firebase.auth().currentUser;
+    // if (user) {
+    //   var name, email, photoUrl, uid, emailVerified;
+    //   name = user.displayName;
+    //   email = user.email;
+    //   photoUrl = user.photoURL;
+    //   emailVerified = user.emailVerified;
+    //   uid = user.uid;
+    //  this.setState({uid:uid});
+    //  console.log("hi");
+    // }
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        console.log('user logged');
+        console.log(user.uid)
+         this.setState({uid:user.uid});
+        
+      }
+   });
  
   }
+
   redirectToGallery = () =>{
     console.log(this.state);
 
@@ -47,6 +56,7 @@ class MainPage extends React.Component {
     });
   }
   render() {
+    //console.log(this.state.user);
     return (
       <div className="main-page">
        {
@@ -54,17 +64,19 @@ class MainPage extends React.Component {
          this.state.modal ? ( <MDBContainer>
 
           <MDBModal size="lg" isOpen={this.state.modal} toggle={this.toggle}>
-
+      
             <MDBModalBody className="modal-explain">
+            <MDBCloseIcon onClick={this.toggle} />
               <div className="mb-5">
               <h3 className="text-center main-title"> כיצד המערכת עובדת? </h3>
               <h6 className="text-center sub-title"> מערכת ההתאמה מתחשבת ב 4 מאפיינים עיקריים של הכלב </h6>
               <hr />
+              
             </div>
             
               <div>
                 <MDBRow>
-                  <MDBCol    className="quarter">
+                  <MDBCol className="quarter " >
 
                     <p className="quarter-title"> עצמאות  </p>
                     <p className="text-justify">מדד זה מתייחס לרמת העצמאות שמפגין הכלב בביתו ולמידה בה הוא זקוק להבעות חיבה מצד בעליו. כלב בעל רמת עצמאות גבוהה, יהיה מסוגל להסתדר זמן ממושך בבית, אינו תלוי בהבעות חיבה של בעליו ומסתפק במעט ליטופים. לעומת זאת כלב בעל רמת עצמאות נמוכה זקוק להפגנות חיבה, ליטופים, התכרבלות ומגע פיזי רב מצד בעליו. 
@@ -123,9 +135,10 @@ class MainPage extends React.Component {
            <MDBCol md="6 d-flex justify-content-center">
              <MDBRow className="mt-5 how-it-works">
                <a onClick={this.toggle}>
-                 <MDBIcon className="info-icon" icon="info-circle">
-                   איך זה עובד{"    "}
-                 </MDBIcon>
+                 <MDBIcon className="info-icon mr-2" icon="info-circle">
+               
+                 </MDBIcon>      
+                 <small>איך זה עובד{"    "} </small>   
                </a>
              </MDBRow>
            </MDBCol>
@@ -138,7 +151,7 @@ class MainPage extends React.Component {
                </a>
                {(this.state.uid) ? ( <Link   to={{ pathname: "/dogs-gallery", state: { uid: this.state.uid, userName: this.state.userName } }} > <a>
                
-               <MDBBtn className="login-button mt-5" onClick={this.redirectToGallery}>שחזור שאלון</MDBBtn>
+               <MDBBtn className="login-button mt-5" onClick={this.redirectToGallery}>צפייה בכלבים</MDBBtn>
           
            </a></Link>):(<></>)}
              

@@ -89,7 +89,7 @@ const QuizData = [
   },
   {
     id: 14,
-    question: ` ? אם היית צריך לבחור בין שני הכלבים הבאים במי היית בוחר`,
+    question: ` ? אם היית צריך/ה לבחור בין שני הכלבים הבאים במי היית בוחר`,
     options: { first: `אחד שיבוא איתי לכל מקום`, second: `חבר נאמן עבורי` },
     category: "energy"
   },
@@ -101,13 +101,13 @@ const QuizData = [
   },
   {
     id: 16,
-    question: `מעדיף למלא הוראות מאשר לתת אותם`,
+    question: `אעדיף למלא הוראות מאשר לתת אותם`,
     options: { first: `נכון`, second: ` לא נכון` },
     category: "focus"
   },
   {
     id: 17,
-    question: `אני מעדיף כלב שילקק אותי ויתכרבל איתי`,
+    question: `אעדיף כלב שילקק אותי ויתכרבל איתי`,
     options: { first: `לא מסכים`, second: ` מסכים` },
     category: "independence"
   },
