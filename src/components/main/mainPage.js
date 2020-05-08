@@ -11,6 +11,7 @@ import {
   MDBCol,
   MDBCard,
   MDBCardBody,
+  MDBBadge,
   MDBBtn,MDBCloseIcon,
   MDBIcon,
   MDBFooter, MDBModal, MDBModalBody, MDBModalHeader, MDBModalFooter
@@ -130,13 +131,13 @@ class MainPage extends React.Component {
             
                <Link to="/login-form">
                  <MDBBtn className="quiz-button-start mt-5">
-               <span className="d-block d-sm-none">  {" התחל "}</span>  שאלון התאמה
-                 </MDBBtn>
+             שאלון <br/> התאמה
+                  </MDBBtn>
                </Link>
 
                <Link to="/new-dog-form">
                  <MDBBtn className="quiz-button-form mt-5">
-                   טופס הוספת כלב
+                 הוספת  <br/>כלב
                  </MDBBtn>
                </Link>
              </MDBRow>{" "}
@@ -146,10 +147,11 @@ class MainPage extends React.Component {
            <MDBCol md="6 d-flex justify-content-center">
              <MDBRow className="mt-5 how-it-works">
                <a onClick={this.toggle}>
-                 <MDBIcon className="info-icon mr-2" icon="info-circle">
+                
+              <h4 > <MDBBadge pill color="Light"> <MDBIcon className="info-icon mr-2" icon="info-circle">
                
-                 </MDBIcon>      
-                 <small>איך זה עובד{"    "} </small>   
+               </MDBIcon>  איך זה עובד{"    "}   </MDBBadge> </h4>  
+           
                </a>
              </MDBRow>
            </MDBCol>
@@ -160,7 +162,7 @@ class MainPage extends React.Component {
                    <MDBBtn className="login-button mt-5">היית פה? התחבר</MDBBtn>
                  </Link>
                </a>
-               <div className="mt-5">
+               <div >
                {(this.state.uid) ? ( <Link   to={{ pathname: "/dogs-gallery", state: { uid: this.state.uid, userName: this.state.userName } }} > <a>
                
                <MDBBtn className="login-button" onClick={this.redirectToGallery}>צפייה בכלבים</MDBBtn>

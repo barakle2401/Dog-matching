@@ -17,7 +17,7 @@
 
 }
 .form-main-div {
-    background-image: url("../images/dogs2.jpg");
+    background-image: url("../images/compress/dogs2-min.jpg");
     opacity: 0.9;
     /* Full height */
     height: 100% !important;
@@ -74,7 +74,7 @@
 }
 .modal-content{
 
-  background-image: url("../images/dosg-info3.jpg");
+  background-image: url("../images/compress/dosg-info3-min.jpg");
 
 
   

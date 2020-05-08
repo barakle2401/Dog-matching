@@ -41,15 +41,15 @@ class LoginForm extends React.Component {
         ) : (
             <div className="main-login">
               <MDBContainer className=" py-5">
-                <MDBRow>
+                <MDBRow className="justify-content-center">
                   <MDBCol md="6">
                     <MDBCard className="login-card">
                       <MDBCardBody>
                         <form action="/AllDogs">
-                          <p className="h3 text-center text-light mb-4">
+                          <p className="h3 text-center text-dark mb-4">
                             על מנת שנוכל להתחיל בשאלון
                         </p>
-                          <p className="h3 text-center text-light mb-4">
+                          <p className="h3 text-center text-dark mb-4">
                             נצטרך שתבצע התחברות קלה למערכת{" "}
                           </p>
                           <div className="text-center">
