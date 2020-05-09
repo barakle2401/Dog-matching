@@ -154,7 +154,7 @@ class ViewDog extends React.Component {
                                         </MDBProgress>
                                     </MDBCol>
                                     <MDBCol className="text-center">
-                                        <span className="font-weight-bold" >מסוגלות למלא פקודות</span>
+                                        <span className="font-weight-bold" >מסוגלות <br /> למלא פקודות</span>
                                         <MDBProgress material value={this.state.totalMatch.focus} height="20px">
                                             %  {this.state.totalMatch.focus}
                                         </MDBProgress>

@@ -24,6 +24,7 @@ class Gallery extends React.Component {
 
           <h1 id="title" className="mt-5">ההתאמות עבורך</h1>
 
+
         </MDBRow>
 
         <MDBRow >

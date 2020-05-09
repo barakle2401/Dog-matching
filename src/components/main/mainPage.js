@@ -148,7 +148,7 @@ class MainPage extends React.Component {
              <MDBRow className="mt-5 how-it-works">
                <a onClick={this.toggle}>
                 
-              <h4 > <MDBBadge pill color="Light"> <MDBIcon className="info-icon mr-2" icon="info-circle">
+              <h4 > <MDBBadge pill className="badge-how-it-works" color="Light"> <MDBIcon className="info-icon mr-2" icon="info-circle">
                
                </MDBIcon>  איך זה עובד{"    "}   </MDBBadge> </h4>  
            

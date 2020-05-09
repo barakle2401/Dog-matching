@@ -55,8 +55,11 @@
     background-repeat: no-repeat;
     background-size: cover;
   }
-  .badge {
-    color: black !important;
+  .badge-how-it-works {
+    color: rgb(255, 255, 255) !important;
+    background-color: #4e342e;
+    opacity: 0.4;
+    
   }
   .how-it-works{
     color: #6a7180;
