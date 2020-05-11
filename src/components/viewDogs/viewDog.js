@@ -42,7 +42,6 @@ class ViewDog extends React.Component {
         // check on previous state
         if (prevState !== this.state) {
 
-
             console.log(this.state);
             if (!this.state.readyToDisplay) {
 
@@ -148,7 +147,7 @@ class ViewDog extends React.Component {
                                 </MDBRow>
                                 <MDBRow className="mt-2">
                                     <MDBCol className="text-center">
-                                        <span className="font-weight-bold " >ביטחון  <br className="d-block d-sm-none" />עצמי</span>
+                                        <span className="font-weight-bold " >ביטחון  <br />עצמי</span>
                                         <MDBProgress material value={this.state.totalMatch.confidence} height="20px">
                                             %  {this.state.totalMatch.confidence}
                                         </MDBProgress>

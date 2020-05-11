@@ -29,19 +29,16 @@
 
 }
 /*end of min width */
-#title{
-  font-size: 90px;
+#title-main{
+  font-size: 61px;
+  color: #fff6fd !important;
+}
 
-}
-@keyframes mymove {
-  from {color:rgb(132, 0, 240);}
-  to {color: rgba(127, 0, 211, 0.562);}
-}
 .title-row {
-   animation: mymove 5s infinite;
+   /* animation: mymove 5s infinite; */
    font-family: "Comic Sans MS", cursive, sans-serif;
    text-shadow: #FFF 0px 0px 52px, #FFF 0px 0px 10px, rgb(20, 20, 20) 0px 0px 15px, #FF2D95 0px 0px 20px;
-   
+ 
 }
 @media (max-width : 600px){
   .main-page{

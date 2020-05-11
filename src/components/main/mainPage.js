@@ -123,7 +123,7 @@ class MainPage extends React.Component {
      
            <MDBRow className="title-row justify-content-center text-center mb-3">
  
-             <h1 id="title">התאם לי חבר</h1>
+             <h1 id="title-main">Match Me a Friend </h1>
         
              </MDBRow>
          

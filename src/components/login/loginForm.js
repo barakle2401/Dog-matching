@@ -20,7 +20,7 @@ class LoginForm extends React.Component {
     signInOptions: [
       // Leave the lines as is for the providers you want to offer your users.
       firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-      firebase.auth.FacebookAuthProvider.PROVIDER_ID
+      // firebase.auth.FacebookAuthProvider.PROVIDER_ID
     ],
     callbacks: {
       signInSuccess: () => false
@@ -50,7 +50,7 @@ class LoginForm extends React.Component {
                             על מנת שנוכל להתחיל בשאלון
                         </p>
                           <p className="h3 text-center text-dark mb-4">
-                            נצטרך שתבצע התחברות קלה למערכת{" "}
+                            נצטרך שתבצע הרשמה למערכת{" "}
                           </p>
                           <div className="text-center">
                             <StyledFirebaseAuth uiConfig={this.uiConfig} firebaseAuth={firebase.auth()} />
