@@ -26,6 +26,7 @@ class DogsGallery extends React.Component {
       if (this.state.dogsInfo && this.state.userData && !this.state.readyToDisplay) {
 
         let dogsInfo = this.calculateMatch();
+
         this.setState({ dogsInfo: dogsInfo, readyToDisplay: true });
       }
     }
@@ -61,7 +62,23 @@ class DogsGallery extends React.Component {
       dogsInfo[i].totalMatchPercent = (Math.round(totalMatchPercent * 100));
     }
 
-    return dogsInfo;
+
+    return dogsInfo.sort(this.compare);
+  }
+  compare = (dogA, dogB) => {
+    let dogAMatchPercent = parseFloat(dogA.totalMatchPercent);
+    let dogBMatchPercent = parseFloat(dogB.totalMatchPercent);
+
+    if (dogAMatchPercent < dogBMatchPercent) {
+
+      return -1;
+    }
+    if (dogAMatchPercent > dogBMatchPercent) {
+
+      return 1;
+    }
+    return 0;
+
   }
   matchAlgorithm(confidence, energy, focus, independence, userData) {
     let confidencePercent = (1 - Math.abs(parseFloat(confidence) - parseFloat(userData["confidence"])).toFixed(2));

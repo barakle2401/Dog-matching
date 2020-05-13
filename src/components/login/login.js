@@ -28,10 +28,7 @@ class Login extends React.Component {
       this.writeUserAnswers(uid, name);
     }
   }
-  componentDidUpdate(prevProps, prevState) {
-    if (prevState !== this.state) {
-    }
-  }
+
   writeUserAnswers = (uid, userName) => {
     firebase
       .database()

@@ -17,13 +17,6 @@ class ViewDog extends React.Component {
 
     }
 
-    // componentDidUpdate(prevProps, prevState) {
-    //     // check on previous state
-    //     if (prevState !== this.state) {
-    //         console.log(this.state);
-    //     }
-    // }
-
     componentDidMount() {
         if (this.props.location.state.uid) {
             const ref = firebase.database().ref("users/" + this.props.location.state.uid);
