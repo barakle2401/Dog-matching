@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import firebase from "../../firebase";
-import {
-    storage
-} from "../../firebase";
+
+// import {
+//     storage
+// } from "../../firebase";
+
 // import Loader from "react-loader-spinner";
 import "./viewDog.css"
 import { MDBBtn, MDBProgress, MDBCard, MDBCardBody, MDBCardImage, MDBCardText, MDBRow, MDBCol } from 'mdbreact';

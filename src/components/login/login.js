@@ -2,11 +2,11 @@ import React from "react";
 import { MDBContainer, MDBRow, MDBCol } from "mdbreact";
 import "./login.css";
 import firebase from "../../firebase";
-import LoginForm from "./loginForm";
-import DogsGallery from "../viewDogs/dogsGallery";
-import withFirebaseAuth from "react-with-firebase-auth";
+// import LoginForm from "./loginForm";
+// import DogsGallery from "../viewDogs/dogsGallery";
+// import withFirebaseAuth from "react-with-firebase-auth";
+// import { Link } from "react-router-dom";
 import "firebase/auth";
-import { Link } from "react-router-dom";
 import { Redirect } from "react-router";
 import Loader from 'react-loader-spinner'
 class Login extends React.Component {

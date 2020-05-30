@@ -60,7 +60,7 @@ class Quiz extends React.Component {
         showPrevBtn: true,
         showNextBtn: true,
 
-        progress: this.state.progress + 4.4
+        progress: this.state.progress + 4.3
       });
     }
 
@@ -82,18 +82,11 @@ class Quiz extends React.Component {
       }
     }
 
-    finalCategoriesAnswers["energy"] = finalCategoriesAnswers["energy"] / 10;
-    finalCategoriesAnswers["confidence"] = finalCategoriesAnswers["confidence"] / 6;
-    finalCategoriesAnswers["independence"] = finalCategoriesAnswers["independence"] / 5;
-    finalCategoriesAnswers["focus"] = finalCategoriesAnswers["focus"] / 3;
-    // console.log(finalCategoriesAnswers);
-    // this.setState({
-    //   currentQuestion: this.state.currentQuestion + 1,
-    //   showPrevBtn: true,
-    //   showNextBtn: false,
-    //   progress: 100,
-    //   quizIsDone: true
-    // });
+    finalCategoriesAnswers["energy"] = (finalCategoriesAnswers["energy"] / 10).toFixed(2);
+    finalCategoriesAnswers["confidence"] = (finalCategoriesAnswers["confidence"] / 6).toFixed(2);
+    finalCategoriesAnswers["independence"] = (finalCategoriesAnswers["independence"] / 5).toFixed(2);
+    finalCategoriesAnswers["focus"] = (finalCategoriesAnswers["focus"] / 3).toFixed(2);
+
     this.setState({
       finalCategoriesAnswers: finalCategoriesAnswers,
       showPrevBtn: true,
@@ -120,7 +113,7 @@ class Quiz extends React.Component {
       currentQuestion: prevQuestion,
       showPrevBtn: showPrevBtn,
       showNextBtn: true,
-      progress: this.state.progress - 4.4
+      progress: this.state.progress - 4.3
     });
     await this.loadQuiz();
   };

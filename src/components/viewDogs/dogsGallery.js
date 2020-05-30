@@ -91,7 +91,7 @@ class DogsGallery extends React.Component {
     return totalPercent;
   }
   render() {
-    console.log(this.state);
+    // console.log(this.state);
     return (
       <div className="dogs-gallery">
         {this.state.readyToDisplay ? (
