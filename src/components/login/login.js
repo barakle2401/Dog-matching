@@ -17,6 +17,7 @@ class Login extends React.Component {
     };
   }
   componentDidMount() {
+    // wait until the user has been registered in and save the data for the current user 
     var user = firebase.auth().currentUser;
     if (user) {
       var name, email, photoUrl, uid, emailVerified;
@@ -25,15 +26,21 @@ class Login extends React.Component {
       photoUrl = user.photoURL;
       emailVerified = user.emailVerified;
       uid = user.uid;
-      this.writeUserAnswers(uid, name);
+      this.writeUserAnswers(uid, name, email);
     }
   }
 
-  writeUserAnswers = (uid, userName) => {
+  writeUserAnswers = (uid, userName, email) => {
+    //Store for each user, quiz percents and login email
+    let userMailAndAnswers = {
+      'mail': email,
+      'answers': this.props.finalCategoriesAnswers
+    };
+
     firebase
       .database()
       .ref("users/" + uid)
-      .set(this.props.finalCategoriesAnswers, function (error) {
+      .set(userMailAndAnswers, function (error) {
         if (error) {
           console.log("The write failed...");
         } else {

@@ -33,7 +33,7 @@ class DogsGallery extends React.Component {
   }
   getUserData = () => {
     //fix here to real user id
-    let ref = firebase.database().ref("users/" + this.state.uid);
+    let ref = firebase.database().ref("users/" + this.state.uid + "/answers");
 
     ref.on("value", snapshot => {
       const state = snapshot.val();

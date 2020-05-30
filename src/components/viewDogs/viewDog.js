@@ -3,9 +3,9 @@ import firebase from "../../firebase";
 import {
     storage
 } from "../../firebase";
-import Loader from "react-loader-spinner";
+// import Loader from "react-loader-spinner";
 import "./viewDog.css"
-import { MDBBtn, MDBProgress, MDBCard, MDBCardBody, MDBCardImage, MDBCardTitle, MDBCardText, MDBRow, MDBCol, MDBView, MDBIcon } from 'mdbreact';
+import { MDBBtn, MDBProgress, MDBCard, MDBCardBody, MDBCardImage, MDBCardText, MDBRow, MDBCol } from 'mdbreact';
 
 class ViewDog extends React.Component {
 
@@ -19,7 +19,7 @@ class ViewDog extends React.Component {
 
     componentDidMount() {
         if (this.props.location.state.uid) {
-            const ref = firebase.database().ref("users/" + this.props.location.state.uid);
+            const ref = firebase.database().ref("users/" + this.props.location.state.uid + "/answers");
             ref.on("value", snapshot => {
                 const data = snapshot.val();
                 console.log(data);
