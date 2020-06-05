@@ -3,11 +3,13 @@
 .gallery-container{
 
   min-height: 100vh;
-	background-color: #d8d8d8;
+	 background-image: url("../images/3718337.jpg");
 
 	margin: 0px;
 	padding: 0 2rem 2rem;
-    
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
 
 }
 /* #b579d2 */
@@ -30,26 +32,33 @@
   direction: rtl !important;
 }
 .dog-card {
-  box-shadow: 0px 0px 10px 10px #ffffff ;
+ 
   width: 17rem !important;
   margin: auto !important;
+  background-color: transparent !important;
 }
 
 .card-dog {
   width: 280px;
   display: block;
   margin: auto;
-  box-shadow: 10px 5px 40px 20px #2d1896;
+  
   transition: 0.25s;
+  background-color: transparent !important;
 }
 .card-dog:hover {
-  box-shadow: 10px 5px 40px 20px #271580;
+
   cursor: pointer;
 }
-.card:hover .button-primary {
+.button-primary:hover {
   transform: translate(10px, 0);
+  color: #a6c;
 }
-
+.card-body-dog {
+  color: white !important;
+  background-color:   rgba(10, 10, 10, 0.8) !important;
+  font-size: x-small !important;
+}
 .card-dog-header {
   height: 150px;
   width: 100%;
@@ -174,14 +183,15 @@
 .match-title {
   
   
-  font-family: "Comic Sans MS", cursive, sans-serif;
   color: #FFFFFF;
+  
 
 }
 #title{
-  
-  font-size: 45px !important;
-  margin: auto;
 
-  color: #a6c ;
+  margin: auto;
+  color: rgb(5, 5, 5,0.8) ;
+  font-size: 4rem!important;
+  font-family: "Comic Sans MS", cursive, sans-serif !important;
+
 }

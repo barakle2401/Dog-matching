@@ -17,7 +17,7 @@
 
 }
 .form-main-div {
-    background-image: url("../images/compress/dogs2-min.jpg");
+    background-image: url("../images/compress/2758.jpg");
     opacity: 0.9;
     /* Full height */
     height: 100% !important;
@@ -59,9 +59,10 @@
     cursor: pointer;
 }
 .main-title{
-  color: rgb(236, 236, 236);
-  margin-bottom: 1rem;
+  color: rgb(20, 20, 20);
+  margin-bottom: 1.5rem;
   font-weight: bold;
+  background-color: rgba(238, 238, 238, 0.5);
   
 }.modal-backdrop {
   position: fixed;
@@ -74,19 +75,18 @@
 }
 .modal-content{
 
-  background-image: url("../images/compress/dosg-info3-min.jpg");
+  background-image: url("../images/41957.jpg");
 
 
   
   /* Center and scale the image nicely */
-  background-position: center;
+  background-position:top;
  
-  background-size: cover;
 }
 .quarter{
-  color: #eee;
-  background-color: #0e0e0e;
-  opacity: 0.75;
+  color: rgb(12, 12, 12);
+  background-color: rgba(255, 148, 122, 0.8);
+  opacity: 0.9;
   margin: 20px;
   height: 220px;
 
@@ -105,7 +105,9 @@
 .sub-title{
   font-weight: bolder;
   font-size: larger;
-  color: rgb(212, 255, 239);
+  font-size: 1.5rem;
+  color: rgb(17, 17, 17);
+  background-color: rgba(238, 238, 238, 0.5);
 }
 .close {
   float: right;
@@ -118,4 +120,43 @@
 }
 .close:hover{
   color: red;
+}
+.form-card{
+ opacity: 0.8;
+ background-color: #000;
+}
+.grey-text{
+  color:rgb(255, 255, 255) !important; 
+ 
+}
+.title-text{
+  
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  letter-spacing: 3.5px;
+  border-bottom: 1px solid gray;
+  color: #ffffff;
+  font-weight: 900;
+}
+label{
+  font-size: 1.5rem;
+}
+.hr{
+  background-color: gray;
+}
+.submit-btn{
+
+  background-color: #FF7B59 !important;
+  color: #000;
+  font-size: 1.5rem;
+}
+.save-image-btn{
+  background-color: rgba(173, 208, 255, 0.8) !important;
+  color: rgb(255, 255, 255);
+  font-size: 1.4rem !important;
+  border-radius: 30px;
+  
+}
+.save-image-btn:hover{
+  background-color: rgb(89, 255, 191) !important;
+  color: #000;
 }

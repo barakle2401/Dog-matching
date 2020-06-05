@@ -63,7 +63,7 @@ class ViewDog extends React.Component {
         return (
             <MDBRow className="justify-content-center dog-profile mt-5 mb-5">
                 <MDBCol xl="11" lg='12' md='12' sm="12">
-                    <MDBCard >
+                    <MDBCard className="view-dog-card" >
                         <MDBRow >
                             <MDBCol md="2"><h3 className="dog-name text-right" >{this.state.dogDetails.name} </h3></MDBCol>
                         </MDBRow>
@@ -127,13 +127,13 @@ class ViewDog extends React.Component {
                                 <MDBRow className="mt-1">
                                     <MDBCol className="text-center">
                                         <span className="font-weight-bold" >אנרגיה</span>
-                                        <MDBProgress material value={this.state.totalMatch.energy} height="20px">
+                                        <MDBProgress className="progress-color" material value={this.state.totalMatch.energy} height="20px">
                                             %  {this.state.totalMatch.energy}
                                         </MDBProgress>
                                     </MDBCol>
                                     <MDBCol className="text-center">
                                         <span className="font-weight-bold" >עצמאות</span>
-                                        <MDBProgress material value={this.state.totalMatch.independence} height="20px">
+                                        <MDBProgress className="progress-color" material value={this.state.totalMatch.independence} height="20px">
                                             %  {this.state.totalMatch.independence}
                                         </MDBProgress>
                                     </MDBCol>
@@ -143,13 +143,13 @@ class ViewDog extends React.Component {
                                 <MDBRow className="mt-2">
                                     <MDBCol className="text-center">
                                         <span className="font-weight-bold " >ביטחון  <br />עצמי</span>
-                                        <MDBProgress material value={this.state.totalMatch.confidence} height="20px">
+                                        <MDBProgress className="progress-color" material value={this.state.totalMatch.confidence} height="20px">
                                             %  {this.state.totalMatch.confidence}
                                         </MDBProgress>
                                     </MDBCol>
                                     <MDBCol className="text-center">
                                         <span className="font-weight-bold" >מסוגלות <br /> למלא פקודות</span>
-                                        <MDBProgress material value={this.state.totalMatch.focus} height="20px">
+                                        <MDBProgress className="progress-color" material value={this.state.totalMatch.focus} height="20px">
                                             %  {this.state.totalMatch.focus}
                                         </MDBProgress>
                                     </MDBCol>

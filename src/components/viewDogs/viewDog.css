@@ -52,3 +52,18 @@ dd {
 
 
 }
+.view-dog-card{
+  background-color: #1c2331 !important;
+  opacity: 0.78;
+  color: white;
+}
+.progress-bar {
+
+  background-color: #FF7B59 !important;
+  color: #1c2331 !important;
+  font-size: 1rem;
+  font-weight: 700;
+}
+.green-text{
+  color: greenyellow !important;
+}
