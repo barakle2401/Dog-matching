@@ -1,20 +1,20 @@
 import React, { Component } from "react";
 import firebase from "../../firebase";
 
-// import {
-//     storage
-// } from "../../firebase";
-
-// import Loader from "react-loader-spinner";
 import "./viewDog.css"
 import { MDBBtn, MDBProgress, MDBCard, MDBCardBody, MDBCardImage, MDBCardText, MDBRow, MDBCol } from 'mdbreact';
+
+/*CONSTANTS*/
+const THRESHOLD_VALUE_FOCUS = 0.7;
+const THRESHOLD_VALUE_INDEPENDENCE = 0.8;
+const THRESHOLD_VALUE_CONFIDENCE = 0.8;
 
 class ViewDog extends React.Component {
 
     constructor(props) {
 
         super(props);
-        console.log(props.location.state);
+        // console.log(props.location.state);
         this.state = { dogDetails: props.location.state.dogDetails, readyToDisplay: false }
 
     }
@@ -45,16 +45,59 @@ class ViewDog extends React.Component {
 
         }
     }
+
     calculateMatch = () => {
+
+        let totalMatch = {};
 
         //dogs match data
         const { energy, focus, confidence, independence } = this.state.dogDetails;
-        let totalMatch = {};
+        const userEnergy = parseFloat(this.state.userMatchPercents["energy"]);
+        const userFocus = parseFloat(this.state.userMatchPercents["focus"]);
+        const userIndependence = parseFloat(this.state.userMatchPercents["independence"]);
+        const userConfidence = parseFloat(this.state.userMatchPercents["independence"]);
 
-        totalMatch["energy"] = parseInt(100 * (1 - Math.abs(parseFloat(energy) - parseFloat(this.state.userMatchPercents["energy"])).toFixed(2)));
-        totalMatch["focus"] = parseInt(100 * (1 - Math.abs(parseFloat(focus) - parseFloat(this.state.userMatchPercents["focus"])).toFixed(2)));
-        totalMatch["confidence"] = parseInt(100 * (1 - Math.abs(parseFloat(confidence) - parseFloat(this.state.userMatchPercents["confidence"])).toFixed(2)));
-        totalMatch["independence"] = parseInt(100 * (1 - Math.abs(parseFloat(independence) - parseFloat(this.state.userMatchPercents["independence"])).toFixed(2)));
+
+
+
+
+
+        //On energy direct calculation
+        totalMatch["energy"] = parseInt(100 * (1 - Math.abs(parseFloat(energy) - userEnergy).toFixed(2)));
+
+        //Focus 
+        if (userFocus >= THRESHOLD_VALUE_FOCUS) {
+
+            totalMatch["focus"] = parseInt((100 * userFocus).toFixed(2));
+
+        } else {
+
+            //Direct calculation  
+            totalMatch["focus"] = parseInt(100 * (1 - Math.abs(parseFloat(focus) - userFocus).toFixed(2)));
+        }
+
+        //Independence 
+        if (userIndependence >= THRESHOLD_VALUE_INDEPENDENCE || independence >= THRESHOLD_VALUE_INDEPENDENCE) {
+
+            totalMatch["independence"] = parseInt((100 * Math.max(userIndependence, parseFloat(independence))).toFixed(2));
+
+        } else {
+
+            //Direct calculation   
+            totalMatch["independence"] = parseInt(100 * (1 - Math.abs(parseFloat(independence) - userIndependence).toFixed(2)))
+        }
+
+        //Confidence 
+        if (userConfidence >= THRESHOLD_VALUE_CONFIDENCE || confidence >= THRESHOLD_VALUE_CONFIDENCE) {
+
+            totalMatch["confidence"] = parseInt((100 * Math.max(userConfidence, parseFloat(confidence))).toFixed(2));
+
+        } else {
+
+            //Direct calculation   
+            totalMatch["confidence"] = parseInt(100 * (1 - Math.abs(parseFloat(confidence) - userConfidence).toFixed(2)))
+        }
+
 
         console.log(totalMatch);
         this.setState({ totalMatch: totalMatch, readyToDisplay: true });
