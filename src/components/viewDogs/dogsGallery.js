@@ -4,6 +4,11 @@ import Gallery from "./gallery";
 import { MDBRow, MDBContainer } from "mdbreact";
 import Loader from 'react-loader-spinner'
 import "./gallery.css"
+/*CONSTANTS*/
+const THRESHOLD_VALUE_FOCUS = 0.7;
+const THRESHOLD_VALUE_INDEPENDENCE = 0.8;
+const THRESHOLD_VALUE_CONFIDENCE = 0.8;
+
 class DogsGallery extends React.Component {
   constructor(props) {
     super(props);
@@ -27,12 +32,13 @@ class DogsGallery extends React.Component {
 
         let dogsInfo = this.calculateMatch();
         this.setState({ dogsInfo: dogsInfo, readyToDisplay: true });
+
       }
     }
   }
   getUserData = () => {
-    //fix here to real user id
-    let ref = firebase.database().ref("users/" + this.state.uid);
+
+    let ref = firebase.database().ref("users/" + this.state.uid + "/answers");
 
     ref.on("value", snapshot => {
       const state = snapshot.val();
@@ -46,32 +52,81 @@ class DogsGallery extends React.Component {
       this.setState({ dogsInfo: state });
     });
   };
-  // displayMatch = () => {
-  //   setTimeout(() => {
-  //     console.log(this.state);
-  //   }, 500);
-  // };
+
+  /*Loop over the dogs and calculate for each dog total match percent */
   calculateMatch = () => {
+
     let { dogsInfo, userData } = this.state;
 
     for (let i = 0; i < Object.keys(dogsInfo).length; i++) {
 
       let totalMatchPercent = this.matchAlgorithm(dogsInfo[i].confidence, dogsInfo[i].energy, dogsInfo[i].focus, dogsInfo[i].independence, userData);
-      console.log(totalMatchPercent);
+
+      // console.log(totalMatchPercent);
+
       dogsInfo[i].totalMatchPercent = (Math.round(totalMatchPercent * 100));
     }
 
     return dogsInfo;
   }
+
   matchAlgorithm(confidence, energy, focus, independence, userData) {
-    let confidencePercent = (1 - Math.abs(parseFloat(confidence) - parseFloat(userData["confidence"])).toFixed(2));
+
+    let confidencePercent = parseFloat(this.calculateConfidence(confidence, userData["confidence"]));
     let energyPercent = 1.5 * (1 - Math.abs(parseFloat(energy) - parseFloat(userData["energy"])).toFixed(2));
-    let independencePercent = (1 - Math.abs(parseFloat(independence) - parseFloat(userData["independence"])).toFixed(2));
-    let focusPercent = 0.5 * (1 - Math.abs(parseFloat(focus) - parseFloat(userData["focus"])).toFixed(2));
+    let independencePercent = parseFloat(this.calculateIndependence(independence, userData["independence"]));
+    let focusPercent = 0.5 * (parseFloat(this.calculateFocus(focus, userData["focus"])));
+
+
+
+
+
     let totalPercent = (confidencePercent + energyPercent + independencePercent + focusPercent) / 4;
 
 
     return totalPercent;
+  }
+  calculateIndependence(dogIndependence, userIndependence) {
+
+    //Independence 
+    if (userIndependence >= THRESHOLD_VALUE_INDEPENDENCE || dogIndependence >= THRESHOLD_VALUE_INDEPENDENCE) {
+
+      return Math.max(parseFloat(userIndependence), parseFloat(dogIndependence)).toFixed(2);
+
+    } else {
+
+      //Direct calculation   
+      return (1 - Math.abs(parseFloat(dogIndependence) - parseFloat(userIndependence)).toFixed(2))
+    }
+  }
+
+  calculateFocus(dogFocus, userFocus) {
+
+    //Focus 
+    if (userFocus >= THRESHOLD_VALUE_FOCUS) {
+
+      return parseFloat(userFocus);
+
+    } else {
+
+      //Direct calculation  
+      return (1 - Math.abs(parseFloat(dogFocus) - parseFloat(userFocus)).toFixed(2));
+    }
+  }
+  calculateConfidence(dogConfidence, userConfidence) {
+    //Confidence 
+    if (userConfidence >= THRESHOLD_VALUE_CONFIDENCE || dogConfidence >= THRESHOLD_VALUE_CONFIDENCE) {
+
+
+      return (Math.max(parseFloat(userConfidence), parseFloat(dogConfidence))).toFixed(2);
+
+    } else {
+
+      //Direct calculation   
+      return (1 - Math.abs(parseFloat(dogConfidence) - parseFloat(userConfidence)).toFixed(2));
+    }
+
+
   }
   render() {
     // console.log(this.state);
