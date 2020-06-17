@@ -117,17 +117,19 @@ class MainPage extends React.Component {
             </MDBModalBody>
 
           </MDBModal>
-        </MDBContainer>) :( <MDBContainer className="py-5">
+        </MDBContainer>) :( <MDBContainer className="main-container">
   
 
-     
-           <MDBRow className="title-row justify-content-center text-center mb-3">
+          <div className="main-div">
+           <MDBRow className="title-row justify-content-center text-center ">
  
-             <h1 id="title-main">Match Me a Friend </h1>
-        
+             {/* <h1 id="title-main">Match Me a Friend </h1>
+         */}
+              <img style={{width : '500px'}} src="https://i.ibb.co/VgdKhCQ/logo2.png"/>
+     
              </MDBRow>
          
-             <MDBRow className="buttons-div justify-content-center">
+             <MDBRow className="buttons-div justify-content-center ">
             
                <Link to="/login-form">
                  <MDBBtn className="quiz-button-start mt-5">
@@ -142,21 +144,29 @@ class MainPage extends React.Component {
                </Link>
              </MDBRow>{" "}
     
-   
-         <MDBFooter>
-           <MDBCol md="6 d-flex justify-content-center">
-             <MDBRow className="mt-5 how-it-works">
-               <a onClick={this.toggle}>
-                
-              <h4 > <MDBBadge pill className="badge-how-it-works" color="Light"> <MDBIcon className="info-icon mr-2" icon="info-circle">
+ 
+           <MDBCol md="12 d-flex justify-content-center ">
+             <MDBRow className="how-it-works">
+               <a>
+               <MDBBtn className="bone"  onClick={this.toggle}>
+               <div class="c1"></div>
+                <div class="c2"></div>
+                <div class="c3"></div>
+                <div class="c4"></div>
+                <div class="b1">
+                  <div class="b2">
+                    איך זה עובד  
+                   </div>
+                </div>
                
-               </MDBIcon>  איך זה עובד{"    "}   </MDBBadge> </h4>  
+               </MDBBtn>
+           
            
                </a>
              </MDBRow>
            </MDBCol>
-           <MDBCol md="6 d-flex justify-content-center bottom-buttons-section">
-             <MDBRow className="mt-5">
+           <MDBCol md="12 d-flex justify-content-center ">
+             <MDBRow className="">
                <a className="d-none">
                  <Link to="/login">
                    <MDBBtn className="login-button mt-5">היית פה? התחבר</MDBBtn>
@@ -165,13 +175,24 @@ class MainPage extends React.Component {
                <div >
                {(this.state.uid) ? ( <Link   to={{ pathname: "/dogs-gallery", state: { uid: this.state.uid, userName: this.state.userName } }} > <a>
                
-               <MDBBtn className="login-button" onClick={this.redirectToGallery}>צפייה בכלבים</MDBBtn>
-          
+               <MDBBtn className="bone" onClick={this.redirectToGallery}>
+               <div class="c1"></div>
+                <div class="c2"></div>
+                <div class="c3"></div>
+                <div class="c4"></div>
+                <div class="b1">
+                  <div class="b2">
+                  צפייה בכלבים
+                  </div>
+                </div>
+               
+               </MDBBtn>
+  
            </a></Link>):(<></>)}</div>
              
              </MDBRow>
            </MDBCol>
-         </MDBFooter>
+           </div>
        </MDBContainer>)
        }
        

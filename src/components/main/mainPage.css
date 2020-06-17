@@ -1,7 +1,7 @@
 @media(min-width : 600px){
   
 .main-page{
-  background-image: url("../images//compress/dogs2-min.jpg");
+  background-image: url("../images/compress/dogs2-min.jpg");
 
   /* Full height */
   height: 1000px;
@@ -11,22 +11,16 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
-.login-button {
-  background-color: #0bc0c7 !important;
-  width: 125px !important;
-  color: #ffffff;
-  font-weight: bold;
-  float: right;
-  
 
-  font-size: 13px;
-  border-radius: 83% 17% 84% 16% / 74% 13% 87% 26%;
-}
 .buttons-div {
   /* margin-top: 160px !important; */
   justify-content: center;
 }
 
+}
+
+.main-container{
+  padding-top:15rem !important;
 }
 /*end of min width */
 #title-main{
@@ -65,17 +59,7 @@
 
     margin-top: 15rem;
   }
-  .login-button {
-    background-color: #3d3131 !important;
-    width: 125px !important;
-    color: #ffffff;
-    font-weight: bold;
-    float: right;
-    
-  
-    font-size: 13px;
-    border-radius: 83% 17% 84% 16% / 74% 13% 87% 26%;
-  }
+
   .quarter{
 
     min-width: 350px !important;
@@ -94,36 +78,120 @@
   background-color: #c9c9c9;
 }
 
-.quiz-button-start:hover,
-.quiz-button-form:hover {
-  background-color: #6a7180 !important;
-}
 
-.quiz-button-start {
-  width: 125px !important;
 
-  float: left;
-
-  font-size: 13px;
-  border-radius: 40px;
-}
 
 .quiz-button-form {
-  background-color: #ff00b3 !important;
-  width: 125px !important;
+    font-size: 1rem;
+    background-image: linear-gradient(45deg, #FE6B8B  30%,  #FF8E53  90%)!important;
+    border: 0 ;
+    border-radius: 3;
+    box-shadow: '0 3px 5px 2px rgba(255, 105, 135, .3)';
+    color: 'white';
+    height: 48;
+    padding: '0 30px';
+    border-radius: 3;
+}
 
+.quiz-button-start{
+    font-size: 1rem;
+    background-image: linear-gradient(45deg, #2196F3  30%,  #21CBF3 90%)!important;
+    border: 0 ;
+    border-radius: 3;
+    box-shadow: '0 3px 5px 2px rgba(255, 105, 135, .3)';
+    color: 'white';
+    height: 48;
+    padding: '0 30px';
+    border-radius: 3;
+}
+.quiz-button-form:hover {
+  background-image: linear-gradient( #FF8E53    30%,#FE6B8B  90%)!important;
+  box-shadow: '0 3px 5px 2px rgba(255, 105, 135, .1)';
+  color:whitesmoke
+}
+.quiz-button-start:hover {
+  background-image: linear-gradient( #21CBF3     30%,#2196F3   90%)!important;
+  box-shadow: '0 3px 5px 2px rgba(255, 105, 135, .1)';
+  color:whitesmoke
+}
+
+
+.login-button {
+
+  background-image: linear-gradient( #AAFFA9    30%, #AAFFA9 10%,#11FFBD  90%)!important;
+  box-shadow: '0 3px 5px 2px rgba(255, 105, 135, .1)';
+  width: 125px !important;
+  color: gray;
+  font-weight: bold;
   float: right;
+  font-size: 1rem;
 
   font-size: 13px;
-  border-radius: 40px;
+  border-radius: 83% 17% 84% 16% / 74% 13% 87% 26%;
 }
-
-
-
 .login-button:hover {
-  background-color: #034d50 !important;
+  
+    
+    box-shadow: '0 3px 5px 2px rgba(255, 105, 135, .1)';
 }
-
+/*bone*/
+.bone{
+  background-color: transparent !important;
+  margin: 20px;
+  position: relative;
+  width: 150px;
+  height: 60px;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+}
+.c1, .c2, .c3, .c4{
+  background-color: #FF8E53 !important;
+  height: 30px;
+  width: 30px;
+  border: 1px solid #000;
+  border-radius: 50%;
+  position:absolute;
+}
+.c1{
+  left: 0;
+  top: 0;
+}
+.c2{
+  right: 0;
+  top: 0;
+}
+.c3{
+  left: 0;
+  bottom: 0;
+}
+.c4{
+  bottom: 0;
+  right: 0;
+}
+.b1 {
+  background-color: #FF8E53 !important;
+  height: 30px;
+  width: 120px;
+  position:absolute;  
+  left: 15px;
+  top: 15px;
+}
+.b2 {
+  position: absolute;
+  left: 15px;
+  top: 0;
+  width: 90px;
+  height: 30px;
+  line-height: 30px;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  text-align: center;
+  color: black;
+  font-size: 1rem;
+  font-weight: bold;
+}
+/*bone*/
 .modal-backdrop {
   position: fixed;
   top: 0;
