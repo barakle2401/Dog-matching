@@ -547,7 +547,7 @@ class NewDogForm extends React.Component {
                                 <textarea
                                   value={this.state.dogDesc}
                                   onChange={this.handleChange}
-                                  className="grey-text font-weight-light form-control"
+                                  className="dark-text font-weight-light form-control"
                                   id="dogDesc"
                                   rows="4"
                                 />

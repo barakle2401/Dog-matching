@@ -1,5 +1,19 @@
+.logo-div{
+  background-image: url('https://i.ibb.co/BwPvRZ0/logo-mobile.png');
+  background-position: center;
+  background-size: cover;
+  width: 500px;
+  height: 110px;
+}
+
 @media(min-width : 600px){
-  
+  .logo-div{
+    background-image: url('https://i.ibb.co/VgdKhCQ/logo2.png');
+   
+  }
+  /* .main-container{
+    background-color: #000 !important;
+  } */
 .main-page{
   background-image: url("../images/compress/dogs2-min.jpg");
 
@@ -16,8 +30,9 @@
   /* margin-top: 160px !important; */
   justify-content: center;
 }
-
+/*src="https://i.ibb.co/B6LShcM/logo-mobile.png" */
 }
+
 
 .main-container{
   padding-top:15rem !important;
@@ -35,12 +50,15 @@
  
 }
 @media (max-width : 600px){
+  .logo-div{
+    border: 1px solid #dee2e6!important;
+  }
   .main-page{
-    background-image: url("../images/compress/black-dog-min.jpg");
-    
+    /* background-image: url("../images/compress/black-dog-min.jpg"); */
+    background-color: #000;
     /* Full height */
     height: auto;
-  
+    height: 800px;
     /* Center and scale the image nicely */
     background-position:center;
     background-repeat: no-repeat;

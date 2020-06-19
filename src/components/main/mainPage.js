@@ -125,8 +125,8 @@ class MainPage extends React.Component {
  
              {/* <h1 id="title-main">Match Me a Friend </h1>
          */}
-              <img style={{width : '500px'}} src="https://i.ibb.co/VgdKhCQ/logo2.png"/>
-     
+              <div className="logo-div "  />
+               
              </MDBRow>
          
              <MDBRow className="buttons-div justify-content-center ">
