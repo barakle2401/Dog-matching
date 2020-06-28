@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import firebase from "../../firebase";
-
+import * as THRESHOLD_VALUES from "../../constants/threshold_values"
 import "./viewDog.css"
 import { MDBBtn, MDBProgress, MDBCard, MDBCardBody, MDBCardImage, MDBCardText, MDBRow, MDBCol } from 'mdbreact';
 
 /*CONSTANTS*/
-const THRESHOLD_VALUE_FOCUS = 0.7;
-const THRESHOLD_VALUE_INDEPENDENCE = 0.8;
-const THRESHOLD_VALUE_CONFIDENCE = 0.8;
+// const THRESHOLD_VALUE_FOCUS = 0.7;
+// const THRESHOLD_VALUE_INDEPENDENCE = 0.8;
+// const THRESHOLD_VALUE_CONFIDENCE = 0.8;
 
 class ViewDog extends React.Component {
 
@@ -46,6 +46,64 @@ class ViewDog extends React.Component {
         }
     }
 
+    // calculateMatch = () => {
+
+    //     let totalMatch = {};
+
+    //     //dogs match data
+    //     const { energy, focus, confidence, independence } = this.state.dogDetails;
+    //     const userEnergy = parseFloat(this.state.userMatchPercents["energy"]);
+    //     const userFocus = parseFloat(this.state.userMatchPercents["focus"]);
+    //     const userIndependence = parseFloat(this.state.userMatchPercents["independence"]);
+    //     const userConfidence = parseFloat(this.state.userMatchPercents["independence"]);
+
+
+
+
+
+
+    //     //On energy direct calculation
+    //     totalMatch["energy"] = parseInt(100 * (1 - Math.abs(parseFloat(energy) - userEnergy).toFixed(2)));
+
+    //     //Focus 
+    //     if (userFocus >= THRESHOLD_VALUES.FOCUS) {
+
+    //         totalMatch["focus"] = parseInt((100 * userFocus).toFixed(2));
+
+    //     } else {
+
+    //         //Direct calculation  
+    //         totalMatch["focus"] = parseInt(100 * (1 - Math.abs(parseFloat(focus) - userFocus).toFixed(2)));
+    //     }
+
+    //     //Independence 
+    //     if (userIndependence >= THRESHOLD_VALUES.INDEPENDENCE || independence >= THRESHOLD_VALUES.INDEPENDENCE) {
+
+    //         totalMatch["independence"] = parseInt((100 * Math.max(userIndependence, parseFloat(independence))).toFixed(2));
+
+    //     } else {
+
+    //         //Direct calculation   
+    //         totalMatch["independence"] = parseInt(100 * (1 - Math.abs(parseFloat(independence) - userIndependence).toFixed(2)))
+    //     }
+
+    //     //Confidence 
+    //     if (userConfidence >= THRESHOLD_VALUES.CONFIDENCE || confidence >= THRESHOLD_VALUES.CONFIDENCE) {
+
+    //         totalMatch["confidence"] = parseInt((100 * Math.max(userConfidence, parseFloat(confidence))).toFixed(2));
+
+    //     } else {
+
+    //         //Direct calculation   
+    //         totalMatch["confidence"] = parseInt(100 * (1 - Math.abs(parseFloat(confidence) - userConfidence).toFixed(2)))
+    //     }
+
+
+    //     console.log(totalMatch);
+    //     this.setState({ totalMatch: totalMatch, readyToDisplay: true });
+    // }
+
+    //Under tests...
     calculateMatch = () => {
 
         let totalMatch = {};
@@ -66,37 +124,25 @@ class ViewDog extends React.Component {
         totalMatch["energy"] = parseInt(100 * (1 - Math.abs(parseFloat(energy) - userEnergy).toFixed(2)));
 
         //Focus 
-        if (userFocus >= THRESHOLD_VALUE_FOCUS) {
 
-            totalMatch["focus"] = parseInt((100 * userFocus).toFixed(2));
 
-        } else {
+        //Direct calculation  
+        totalMatch["focus"] = parseInt(100 * (1 - Math.abs(parseFloat(focus) - userFocus).toFixed(2)));
 
-            //Direct calculation  
-            totalMatch["focus"] = parseInt(100 * (1 - Math.abs(parseFloat(focus) - userFocus).toFixed(2)));
-        }
 
         //Independence 
-        if (userIndependence >= THRESHOLD_VALUE_INDEPENDENCE || independence >= THRESHOLD_VALUE_INDEPENDENCE) {
 
-            totalMatch["independence"] = parseInt((100 * Math.max(userIndependence, parseFloat(independence))).toFixed(2));
 
-        } else {
+        //Direct calculation   
+        totalMatch["independence"] = parseInt(100 * (1 - Math.abs(parseFloat(independence) - userIndependence).toFixed(2)))
 
-            //Direct calculation   
-            totalMatch["independence"] = parseInt(100 * (1 - Math.abs(parseFloat(independence) - userIndependence).toFixed(2)))
-        }
 
         //Confidence 
-        if (userConfidence >= THRESHOLD_VALUE_CONFIDENCE || confidence >= THRESHOLD_VALUE_CONFIDENCE) {
 
-            totalMatch["confidence"] = parseInt((100 * Math.max(userConfidence, parseFloat(confidence))).toFixed(2));
 
-        } else {
+        //Direct calculation   
+        totalMatch["confidence"] = parseInt(100 * (1 - Math.abs(parseFloat(confidence) - userConfidence).toFixed(2)))
 
-            //Direct calculation   
-            totalMatch["confidence"] = parseInt(100 * (1 - Math.abs(parseFloat(confidence) - userConfidence).toFixed(2)))
-        }
 
 
         console.log(totalMatch);

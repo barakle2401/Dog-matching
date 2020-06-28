@@ -2,4 +2,14 @@ body, html {
   height: 100%;
   margin: 0;
   font-family:"DanaYadAlefAlefAlef", sans-serif;
+  background-color: black;
+  background-image: url("./components/images/compress/dogs2-min-cut.jpg");
+
+  /* Full height */
+  /* min-height: 900px; */
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }

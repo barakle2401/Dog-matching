@@ -1,6 +1,8 @@
 
+/* body{
 
-
+  min-height: 1000px;
+} */
 
 .dog-profile{
     direction: rtl !important;
@@ -54,7 +56,7 @@ dd {
 }
 .view-dog-card{
   background-color: #1c2331 !important;
-  opacity: 0.78;
+  opacity: 0.95;
   color: white;
 }
 .progress-bar {

@@ -1,14 +1,14 @@
 
 .main-quiz {
-  background-image: url("../images/compress/dogs2-min.jpg");
+  /* background-image: url("../images/compress/dogs2-min.jpg"); */
 
   /* Full height */
-  height: 1000px;
+ 
 
   /* Center and scale the image nicely */
-  background-position: center;
+  /* background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: cover; */
 }
 
 
@@ -30,7 +30,7 @@
 .quiz-content {
   margin: auto;
   justify-content: center;
-  margin-top: 10rem;
+
 }
 .quiz-card {
   background-color: #c9c9c9;

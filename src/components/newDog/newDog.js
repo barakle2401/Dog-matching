@@ -64,9 +64,10 @@ class NewDog extends React.Component {
       err => {
         //catches the errors
         console.log(err);
+        alert('Error Acquired, Please Try Again...')
       },
       () => {
-        // gets the functions from storage refences the image storage in firebase by the children
+        // gets the functions from storage references the image storage in firebase by the children
         // gets the download url then sets the image from firebase as the value for the imgUrl key:
         storage
           .ref("images")
@@ -78,7 +79,7 @@ class NewDog extends React.Component {
               categoriesInfo: categoriesInfo,
               imgUrl: fireBaseUrl
             }));
-            //  this.setState({ categoriesInfo: categoriesInfo, imageOnUpload: false });
+
           });
       }
     );

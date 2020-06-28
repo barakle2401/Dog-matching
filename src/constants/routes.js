@@ -1,3 +1,4 @@
+//routes
 export const MAIN_PAGE = "/";
 export const QUIZ = "/quiz";
 export const NEW_DOG_FORM = "/new-dog-form";

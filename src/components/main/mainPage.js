@@ -5,6 +5,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import firebase from "../../firebase";
 import "./mainPage.css"
+
+
 import {
   MDBContainer,
   MDBRow,
@@ -47,6 +49,7 @@ class MainPage extends React.Component {
    });
  
   }
+  
 
   redirectToGallery = () =>{
     console.log(this.state);
@@ -54,6 +57,7 @@ class MainPage extends React.Component {
 
 
   }
+
   toggle = () => {
     this.setState({
       modal: !this.state.modal
@@ -117,10 +121,10 @@ class MainPage extends React.Component {
             </MDBModalBody>
 
           </MDBModal>
-        </MDBContainer>) :( <MDBContainer className="main-container">
+        </MDBContainer>) :( <MDBContainer className="main-container ">
   
 
-          <div className="main-div">
+          <div className=" main-div">
            <MDBRow className="title-row justify-content-center text-center ">
  
              {/* <h1 id="title-main">Match Me a Friend </h1>
@@ -129,8 +133,8 @@ class MainPage extends React.Component {
                
              </MDBRow>
          
-             <MDBRow className="buttons-div justify-content-center ">
-            
+             <MDBRow className="buttons-div   justify-content-center ">
+           
                <Link to="/login-form">
                  <MDBBtn className="quiz-button-start mt-5">
              שאלון <br/> התאמה
@@ -148,18 +152,8 @@ class MainPage extends React.Component {
            <MDBCol md="12 d-flex justify-content-center ">
              <MDBRow className="how-it-works">
                <a>
-               <MDBBtn className="bone"  onClick={this.toggle}>
-               <div class="c1"></div>
-                <div class="c2"></div>
-                <div class="c3"></div>
-                <div class="c4"></div>
-                <div class="b1">
-                  <div class="b2">
-                    איך זה עובד  
-                   </div>
-                </div>
-               
-               </MDBBtn>
+               <MDBBtn  className="bubbly-button " onClick={this.toggle}>?  איך זה עובד  </MDBBtn>
+          
            
            
                </a>
@@ -175,16 +169,9 @@ class MainPage extends React.Component {
                <div >
                {(this.state.uid) ? ( <Link   to={{ pathname: "/dogs-gallery", state: { uid: this.state.uid, userName: this.state.userName } }} > <a>
                
-               <MDBBtn className="bone" onClick={this.redirectToGallery}>
-               <div class="c1"></div>
-                <div class="c2"></div>
-                <div class="c3"></div>
-                <div class="c4"></div>
-                <div class="b1">
-                  <div class="b2">
+               <MDBBtn className="bubbly-button" onClick={this.redirectToGallery}>
+               
                   צפייה בכלבים
-                  </div>
-                </div>
                
                </MDBBtn>
   

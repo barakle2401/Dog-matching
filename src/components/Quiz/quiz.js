@@ -1,6 +1,7 @@
 import React from "react";
 import "./style.css";
-import QuizData from "./quiz_data";
+import QuizData from "./quiz_data2";
+//import QuizData from "./quiz_data";
 import Login from "../login/login";
 import { Link } from "react-router-dom";
 import {
@@ -74,19 +75,16 @@ class Quiz extends React.Component {
       confidence: 0,
       focus: 0
     };
-
-    for (const i in answers) {
-      //console.log(`${answers[i]} : ${categories[i]}`);
+    for (let i in answers) {
       if (answers[i] === "first") {
         finalCategoriesAnswers[categories[i]] += 1;
       }
     }
-
     finalCategoriesAnswers["energy"] = (finalCategoriesAnswers["energy"] / 10).toFixed(2);
     finalCategoriesAnswers["confidence"] = (finalCategoriesAnswers["confidence"] / 6).toFixed(2);
     finalCategoriesAnswers["independence"] = (finalCategoriesAnswers["independence"] / 5).toFixed(2);
     finalCategoriesAnswers["focus"] = (finalCategoriesAnswers["focus"] / 3).toFixed(2);
-
+    console.log("final", finalCategoriesAnswers);
     this.setState({
       finalCategoriesAnswers: finalCategoriesAnswers,
       showPrevBtn: true,
