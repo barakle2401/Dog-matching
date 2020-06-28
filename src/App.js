@@ -9,7 +9,7 @@ import NewDogForm from "./components/newDog/new_dog_form";
 import ViewDog from "./components/viewDogs/viewDog";
 import * as ROUTES from "./constants/routes";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Header from "./components/header"
+
 
 
 class App extends Component {
@@ -17,7 +17,7 @@ class App extends Component {
     return (
       <div className="App">
 
-        <Header />
+
         <Router>
           <Switch>
             <Route exact path={ROUTES.MAIN_PAGE} component={MainPage} />

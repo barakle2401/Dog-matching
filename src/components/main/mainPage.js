@@ -5,8 +5,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import firebase from "../../firebase";
 import "./mainPage.css"
-
-
+import Header from "../header"
 import {
   MDBContainer,
   MDBRow,
@@ -67,6 +66,7 @@ class MainPage extends React.Component {
     //console.log(this.state.user);
     return (
       <div className="main-page">
+        <Header/>
        {
 
          this.state.modal ? ( <MDBContainer>

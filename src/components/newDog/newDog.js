@@ -115,7 +115,7 @@ class NewDog extends React.Component {
 
   render() {
     return (
-      <div className="ma">
+      <div className="border">
         {this.state.submittingForm ? (
           <div className="main-page">
             <MDBContainer className="py-5">

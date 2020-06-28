@@ -1,22 +1,18 @@
 .logo-div{
-  background-image: url('https://i.ibb.co/BwPvRZ0/logo-mobile.png');
+
+  background-image: url('https://www.coolgenerator.com/Data/Textdesign/202006/512d21f58581ce3fe3342b8187eecd88.png');
   background-position: center;
-  background-size: cover;
+  background-repeat: no-repeat;
   width: 600px;
   height: 110px;
+
 }
 
 @media(min-width : 600px){
   .logo-div{
-    background-image: url('https://www.coolgenerator.com/Data/Textdesign/202006/512d21f58581ce3fe3342b8187eecd88.png')
+    background-size: cover;
   }
-  /* .main-container{
-    background-color: #000 !important;
-  } */
-.main-page{
-  /* background-image: url("../images/compress/dogs2-min.jpg"); */
-
-}
+ 
 
 .buttons-div {
   /* margin-top: 160px !important; */
@@ -29,18 +25,8 @@
 
 @media (max-width : 600px){
   .logo-div{
-    border: 1px solid #dee2e6!important;
-  }
-  .main-page{
-    /* background-image: url("../images/compress/black-dog-min.jpg"); */
-    background-color: #000;
-    /* Full height */
-    height: auto;
-    height: 800px;
-    /* Center and scale the image nicely */
-    background-position:center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
+ 
   }
   .badge-how-it-works {
     color: rgb(255, 255, 255) !important;
