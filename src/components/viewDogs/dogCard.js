@@ -40,7 +40,10 @@ class DogCard extends React.Component {
             waves
           />
           <MDBCardBody className="card-body-dog ">
-            <MDBCardTitle className="text-right name-text"><span className="white-text font-weight-bold"> {this.props.details.name} , בן  {this.props.details.age}</span> </MDBCardTitle>
+            <MDBCardTitle className="text-right name-text"><span className="white-text font-weight-bold">
+              {this.props.details.name}  {this.props.details.sex == "זכר" ? <span> בן </span> : <span> בת </span>}
+
+              {this.props.details.age}</span> </MDBCardTitle>
             <MDBCardTitle className="text-right percent-text"> <MDBBadge pill className="mb-1 ml-1" color="default"> {this.props.details.totalMatchPercent + "%"} </MDBBadge> <span className=""> אחוזי התאמה </span> </MDBCardTitle>
             <MDBCardText>
               {this.props.details.desc}

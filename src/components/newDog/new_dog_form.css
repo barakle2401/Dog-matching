@@ -5,6 +5,13 @@
     direction: rtl !important;
  
 }
+.form-new-dog input, .form-new-dog textarea{
+   
+    font-weight: 600;
+    font-size: 1.3rem;
+    color: #000;
+
+}
 .modal-backdrop.show {
   opacity: .5;
   background-color: rgb(158, 124, 124) !important;
@@ -15,12 +22,12 @@
 
 }
 .form-card{
-  margin-top: 5rem;
-
+ 
+  margin:3rem 0;
 }
 .form-main-div {
     background-image: url("../images/compress/2758.jpg");
-    opacity: 0.9;
+    /* opacity: 0.95; */
     /* Full height */
     height: 100% !important;
     margin-top: -4em;

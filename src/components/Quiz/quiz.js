@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.css";
-import QuizData from "./quiz_data2";
-//import QuizData from "./quiz_data";
+//import QuizData from "./quiz_data2";
+import QuizData from "./quiz_data";
 import Login from "../login/login";
 import { Link } from "react-router-dom";
 import {

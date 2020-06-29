@@ -1,19 +1,34 @@
 /* Design inspiration:  https://dribbble.com/shots/1978243-Latest-News */
 
+
+
 .gallery-container{
 
   min-height: 100vh;
-	 background-image: url("../images/3718337.jpg");
+	 background-image: url("../images/compress/43978-min.jpg");
 
 	margin: 0px;
 	padding: 0 2rem 2rem;
   background-position: top;
   background-repeat: no-repeat;
-  background-size: cover;
+  
 
 }
-/* #b579d2 */
 
+/* #b579d2 */
+#title{
+
+  margin: auto;
+  color: rgba(255, 255, 255, 0.877) ;
+  font-size: 7rem;
+    
+  font-family: Arial, Helvetica, sans-serif;
+  border-bottom:3px solid rgba(255, 255, 255, 0.212);
+  border-radius: 20%;
+  padding: 0 3rem;
+  text-align: center;
+  text-shadow: 2px 2px 100px #fbff00;
+}
 
 .heading {
 	font-family: "Montserrat", Arial, sans-serif;
@@ -127,12 +142,12 @@
   position: relative;
   color: #fff;
 }
-@media (min-width: 768px) {
+/* @media (min-width: 768px) {
   .app-title {
     width: 20%;
     margin: 280px 0 0 0;
   }
-}
+} */
 .app-title h1 {
   font-size: 52px;
   margin: 0;
@@ -150,24 +165,24 @@
   text-align: center;
   transform: translate(-50%, -50%);
 }
-@media (min-width: 768px) {
+/* @media (min-width: 768px) {
   .app-title-content {
     width: auto;
     position: absolute;
     text-align: left;
   }
-}
+} */
 
 .app-card-dog-list::-webkit-scrollbar {
   display: none;
 }
-@media (min-width: 768px) {
+/* @media (min-width: 768px) {
   .app-card-dog-list {
     width: 80%;
     white-space: nowrap;
     margin-top: 0;
   }
-}
+} */
 .app-card-list .card-dog {
   margin: 60px 30px;
   display: inline-block;
@@ -187,11 +202,18 @@
   
 
 }
-#title{
 
-  margin: auto;
-  color: rgb(5, 5, 5,0.8) ;
-  font-size: 4rem!important;
-  font-family: "Comic Sans MS", cursive, sans-serif !important;
 
+/*responsive*/
+@media(max-width :600px){
+
+  .gallery-container{
+
+
+    background-size: cover;
+  }
+  #title{
+
+    font-size: 4rem ;
+  }
 }
