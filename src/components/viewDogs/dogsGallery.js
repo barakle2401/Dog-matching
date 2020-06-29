@@ -2,7 +2,7 @@ import React from "react";
 import firebase from "../../firebase";
 import Gallery from "./gallery";
 import { MDBRow, MDBContainer } from "mdbreact";
-import Loader from 'react-loader-spinner'
+import LoaderSpinner from "../loader/loader"
 import "./gallery.css"
 /*CONSTANTS*/
 const THRESHOLD_VALUE_FOCUS = 0.7;
@@ -77,11 +77,11 @@ class DogsGallery extends React.Component {
 
     if (dogAMatchPercent < dogBMatchPercent) {
 
-      return -1;
+      return 1;
     }
     if (dogAMatchPercent > dogBMatchPercent) {
 
-      return 1;
+      return -1;
     }
     return 0;
 
@@ -156,23 +156,7 @@ class DogsGallery extends React.Component {
         ) : (
 
             <MDBRow className="text-center justify-content-center">
-              <div className="loader-wrapper border-danger d-flex justify-content-center">
-
-
-
-                <div className="text-center ">
-                  <h1 className="loader-text" >Uploading Please Wait...     <Loader
-                    type="ThreeDots"
-                    color="#ff00b3 "
-                    height={150}
-                    width={250}
-                  /></h1>
-
-                </div>
-
-
-
-              </div>
+              <LoaderSpinner />
             </MDBRow>
 
           )

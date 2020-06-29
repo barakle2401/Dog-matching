@@ -4,7 +4,7 @@ import {
   storage
 } from "../../firebase";
 import SweetAlert from "sweetalert2-react";
-import Loader from "react-loader-spinner";
+import LoaderSpinner from "../loader/loader"
 import _ from "lodash";
 import { confirmAlert } from 'react-confirm-alert'; // Import
 import 'react-confirm-alert/src/react-confirm-alert.css';
@@ -198,23 +198,7 @@ class NewDogForm extends React.Component {
     return (
 
       <div className="form-main-div">
-        {this.state.submitting ? (<div className="loader-wrapper border-danger d-flex justify-content-center">
-         
-         
-              
-                <div className="text-center ">
-                  <h1 className="loader-text" >Uploading Please Wait...     <Loader
-                    type="ThreeDots"
-                    color="#ff00b3 "
-                    height={150}
-                    width={250}
-                  /></h1>
-             
-                </div>
-              
-           
-         
-        </div>) : (<div>
+        {this.state.submitting ? (<LoaderSpinner/>) : (<div>
           {this.state.modal ? (
             <MDBContainer>
 

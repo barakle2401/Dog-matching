@@ -1,0 +1,12 @@
+.loader-wrapper{
+
+    padding-top:15%;
+    height: 1500px;
+    
+  }
+  .loader-text{
+    color:#ff00b3;
+    background-color:rgba(0, 0, 0, 0.623);
+    border-radius: 5px;
+    padding: 2rem;
+  }

@@ -8,7 +8,7 @@ import firebase from "../../firebase";
 // import { Link } from "react-router-dom";
 import "firebase/auth";
 import { Redirect } from "react-router";
-import Loader from 'react-loader-spinner'
+import LoaderSpinner from "../loader/loader"
 class Login extends React.Component {
   constructor(props) {
     super(props);
@@ -63,34 +63,7 @@ class Login extends React.Component {
             to={{ pathname: "/dogs-gallery", state: { uid: this.state.uid, userName: this.state.userName } }}
           />
         ) : (
-            <MDBContainer className="py-5">
-              <MDBRow className="main-content">
-                <MDBCol md="6 d-flex justify-content-center">
-                  <MDBRow className="buttons-div">
-                    <h2>  מיד תוכל לצפות בתוצאות בהתאמות עבורך</h2>
-
-                  </MDBRow>
-                </MDBCol>
-
-              </MDBRow>
-              <MDBRow className="main-content">
-                <MDBCol md="6 d-flex justify-content-center">
-                  <MDBRow className="buttons-div">
-
-                    <Loader
-                      type="BallTriangle"
-                      color="#000000"
-                      height={150}
-                      width={150}
-
-
-                    />
-
-                  </MDBRow>
-                </MDBCol>
-
-              </MDBRow>
-            </MDBContainer>
+            <LoaderSpinner />
           )}
       </div>
     );
