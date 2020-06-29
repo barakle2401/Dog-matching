@@ -198,22 +198,22 @@ class NewDogForm extends React.Component {
     return (
 
       <div className="form-main-div">
-        {this.state.submitting ? (<div className="main-page">
-          <MDBContainer className="py-5">
-            <MDBRow className="main-content">
-              <MDBCol md="6 d-flex justify-content-center">
-                <MDBRow className="buttons-div">
-                  <h1>Uploading...</h1>
-                  <Loader
-                    type="BallTriangle"
-                    color="#000000"
+        {this.state.submitting ? (<div className="loader-wrapper border-danger d-flex justify-content-center">
+         
+         
+              
+                <div className="text-center ">
+                  <h1 className="loader-text" >Uploading Please Wait...     <Loader
+                    type="ThreeDots"
+                    color="#ff00b3 "
                     height={150}
-                    width={150}
-                  />
-                </MDBRow>
-              </MDBCol>
-            </MDBRow>
-          </MDBContainer>
+                    width={250}
+                  /></h1>
+             
+                </div>
+              
+           
+         
         </div>) : (<div>
           {this.state.modal ? (
             <MDBContainer>
@@ -580,7 +580,7 @@ class NewDogForm extends React.Component {
 
                                     <MDBInput
                                       type="file"
-
+                                      className="file-inpt"
                                       onChange={this.fileSelectedHandler}
                                     />
                                     <MDBBtn

@@ -122,7 +122,7 @@ class NewDog extends React.Component {
               <MDBRow className="main-content">
                 <MDBCol md="6 d-flex justify-content-center">
                   <MDBRow className="buttons-div">
-                    <h1>Uploading image...</h1>
+                    {/* <h1>Uploading image...</h1> */}
                     <Loader
                       type="BallTriangle"
                       color="#000000"
@@ -212,8 +212,9 @@ class NewDog extends React.Component {
                             </div>
                           </div>
                         ) : (
-                            <div className="text-center mt-3">
+                            <div className="text-center white-text mt-3">
                               <input
+                                style={{ color: "white !important" }}
                                 type="file"
                                 onChange={this.fileSelectedHandler}
                               />

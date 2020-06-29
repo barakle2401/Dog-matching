@@ -153,14 +153,29 @@ class DogsGallery extends React.Component {
           <Gallery dogsData={this.state.dogsInfo} />
 
 
-        ) : (<MDBRow className="text-center justify-content-center">
-          <Loader
-            type="BallTriangle"
-            color="#000000"
-            height={150}
-            width={150}
-          />
-        </MDBRow>)
+        ) : (
+
+            <MDBRow className="text-center justify-content-center">
+              <div className="loader-wrapper border-danger d-flex justify-content-center">
+
+
+
+                <div className="text-center ">
+                  <h1 className="loader-text" >Uploading Please Wait...     <Loader
+                    type="ThreeDots"
+                    color="#ff00b3 "
+                    height={150}
+                    width={250}
+                  /></h1>
+
+                </div>
+
+
+
+              </div>
+            </MDBRow>
+
+          )
         }
 
       </div>

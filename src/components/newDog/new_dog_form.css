@@ -169,3 +169,19 @@ label{
   background-color: rgb(89, 255, 191) !important;
   color: #000;
 }
+.file-inpt, .file-inpt:focus{
+
+  color: white !important;
+}
+.loader-wrapper{
+
+  padding-top:15%;
+  height: 1500px;
+  
+}
+.loader-text{
+  color:#ff00b3;
+  background-color:rgba(0, 0, 0, 0.623);
+  border-radius: 5px;
+  padding: 2rem;
+}
