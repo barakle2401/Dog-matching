@@ -62,8 +62,8 @@ class DogsGallery extends React.Component {
 
     for (let i = 0; i < Object.keys(dogsInfo).length; i++) {
 
-      //let totalMatchPercent = this.matchAlgorithmNew(dogsInfo[i].confidence, dogsInfo[i].energy, dogsInfo[i].focus, dogsInfo[i].independence, userData);
-      let totalMatchPercent = this.matchAlgorithm(dogsInfo[i].confidence, dogsInfo[i].energy, dogsInfo[i].focus, dogsInfo[i].independence, userData);
+      let totalMatchPercent = this.matchAlgorithmNew(dogsInfo[i].confidence, dogsInfo[i].energy, dogsInfo[i].focus, dogsInfo[i].independence, userData);
+      // let totalMatchPercent = this.matchAlgorithm(dogsInfo[i].confidence, dogsInfo[i].energy, dogsInfo[i].focus, dogsInfo[i].independence, userData);
 
       console.log("total percent:", (Math.round(totalMatchPercent * 100)));
 

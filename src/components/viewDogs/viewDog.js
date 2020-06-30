@@ -46,51 +46,6 @@ class ViewDog extends React.Component {
         }
     }
 
-    // calculateMatch = () => {
-
-    //     let totalMatch = {};
-
-    //     //dogs match data
-    //     const { energy, focus, confidence, independence } = this.state.dogDetails;
-    //     const userEnergy = parseFloat(this.state.userMatchPercents["energy"]);
-    //     const userFocus = parseFloat(this.state.userMatchPercents["focus"]);
-    //     const userIndependence = parseFloat(this.state.userMatchPercents["independence"]);
-    //     const userConfidence = parseFloat(this.state.userMatchPercents["confidence"]);
-
-
-
-
-    //     //console.log("dodgtails:", energy, focus, confidence, independence)
-    //     console.log("userEnergy", userEnergy, "userFocus", userFocus, "userConfidence", userConfidence, "userIndependence", userIndependence)
-    //     //On energy direct calculation
-
-    //     totalMatch["energy"] = parseInt(100 * (1 - Math.abs(parseFloat(energy) - parseFloat(userEnergy)).toFixed(2)))
-    //     //Focus 
-
-
-    //     //Direct calculation  
-    //     totalMatch["focus"] = parseInt(100 * (((parseFloat(focus) + parseFloat(userFocus)) / 2).toFixed(2)));
-
-
-    //     //Independence 
-
-
-    //     //Direct calculation   
-    //     totalMatch["independence"] = parseInt(100 * (((parseFloat(independence) + parseFloat(userIndependence)) / 2).toFixed(2)))
-
-
-    //     //Confidence 
-
-    //     //Direct calculation   
-    //     totalMatch["confidence"] = parseInt(100 * (((parseFloat(confidence) + parseFloat(userConfidence)) / 2).toFixed(2)));
-
-
-
-    //     console.log("totalmatch:", totalMatch);
-    //     this.setState({ totalMatch: totalMatch, readyToDisplay: true });
-    // }
-
-    // Under tests...
     calculateMatch = () => {
 
         let totalMatch = {};
@@ -105,36 +60,81 @@ class ViewDog extends React.Component {
 
 
 
-
-
+        //console.log("dodgtails:", energy, focus, confidence, independence)
+        console.log("userEnergy", userEnergy, "userFocus", userFocus, "userConfidence", userConfidence, "userIndependence", userIndependence)
         //On energy direct calculation
-        totalMatch["energy"] = parseInt(100 * (1 - Math.abs(parseFloat(energy) - userEnergy).toFixed(2)));
 
+        totalMatch["energy"] = parseInt(100 * (1 - Math.abs(parseFloat(energy) - parseFloat(userEnergy)).toFixed(2)))
         //Focus 
 
 
         //Direct calculation  
-        totalMatch["focus"] = parseInt(100 * (1 - Math.abs(parseFloat(focus) - userFocus).toFixed(2)));
+        totalMatch["focus"] = parseInt(100 * (((parseFloat(focus) + parseFloat(userFocus)) / 2).toFixed(2)));
 
 
         //Independence 
 
 
         //Direct calculation   
-        totalMatch["independence"] = parseInt(100 * (1 - Math.abs(parseFloat(independence) - userIndependence).toFixed(2)))
+        totalMatch["independence"] = parseInt(100 * (((parseFloat(independence) + parseFloat(userIndependence)) / 2).toFixed(2)))
 
 
         //Confidence 
 
-
         //Direct calculation   
-        totalMatch["confidence"] = parseInt(100 * (1 - Math.abs(parseFloat(confidence) - userConfidence).toFixed(2)))
+        totalMatch["confidence"] = parseInt(100 * (((parseFloat(confidence) + parseFloat(userConfidence)) / 2).toFixed(2)));
 
 
 
-        console.log(totalMatch);
+        console.log("totalmatch:", totalMatch);
         this.setState({ totalMatch: totalMatch, readyToDisplay: true });
     }
+
+    // Under tests...
+    // calculateMatch = () => {
+
+    //     let totalMatch = {};
+
+    //     //dogs match data
+    //     const { energy, focus, confidence, independence } = this.state.dogDetails;
+    //     const userEnergy = parseFloat(this.state.userMatchPercents["energy"]);
+    //     const userFocus = parseFloat(this.state.userMatchPercents["focus"]);
+    //     const userIndependence = parseFloat(this.state.userMatchPercents["independence"]);
+    //     const userConfidence = parseFloat(this.state.userMatchPercents["confidence"]);
+
+
+
+
+
+
+    //     //On energy direct calculation
+    //     totalMatch["energy"] = parseInt(100 * (1 - Math.abs(parseFloat(energy) - userEnergy).toFixed(2)));
+
+    //     //Focus 
+
+
+    //     //Direct calculation  
+    //     totalMatch["focus"] = parseInt(100 * (1 - Math.abs(parseFloat(focus) - userFocus).toFixed(2)));
+
+
+    //     //Independence 
+
+
+    //     //Direct calculation   
+    //     totalMatch["independence"] = parseInt(100 * (1 - Math.abs(parseFloat(independence) - userIndependence).toFixed(2)))
+
+
+    //     //Confidence 
+
+
+    //     //Direct calculation   
+    //     totalMatch["confidence"] = parseInt(100 * (1 - Math.abs(parseFloat(confidence) - userConfidence).toFixed(2)))
+
+
+
+    //     console.log(totalMatch);
+    //     this.setState({ totalMatch: totalMatch, readyToDisplay: true });
+    // }
     render() {
         return (
             <MDBRow className="justify-content-center dog-profile mt-5 mb-5">

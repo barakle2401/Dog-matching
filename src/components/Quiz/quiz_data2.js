@@ -102,7 +102,7 @@ const QuizData = [
     {
         id: 16,
         question: `אעדיף למלא הוראות מאשר לתת אותם`,
-        options: { first: ` נכון`, second: `  לא נכון` },
+        options: { first: ` לא נכון`, second: `   נכון` },
         category: "focus"
     },
     {

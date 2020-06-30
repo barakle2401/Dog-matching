@@ -185,8 +185,11 @@ class NewDogForm extends React.Component {
 
     const { name, age, contactPhone, contactName, energy, independence, focus, confidence, dogDesc } = this.state;
     //console.log(name, age, contactPhone, contactName, energy, independence, focus, confidence, dogDesc);
-    if (!name || !age || !contactPhone || !energy || !independence || !focus || !confidence || !dogDesc) {
+    if (!name || !age || !contactPhone || !energy || !independence || !focus || !confidence ) {
+       
+      console.log('Invalid submission')
       return false;
+
     }
 
 

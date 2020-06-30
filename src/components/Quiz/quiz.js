@@ -1,9 +1,10 @@
 import React from "react";
 import "./style.css";
-//import QuizData from "./quiz_data2";
-import QuizData from "./quiz_data";
+import QuizData from "./quiz_data2";
+//import QuizData from "./quiz_data";
 import Login from "../login/login";
 import { Link } from "react-router-dom";
+import * as CONSTANTS from "../../constants/threshold_values"
 import {
   MDBBtn,
   MDBCard,
@@ -61,7 +62,7 @@ class Quiz extends React.Component {
         showPrevBtn: true,
         showNextBtn: true,
 
-        progress: this.state.progress + 4.3
+        progress: this.state.progress + CONSTANTS.STEP_PERCENT
       });
     }
 
@@ -80,10 +81,10 @@ class Quiz extends React.Component {
         finalCategoriesAnswers[categories[i]] += 1;
       }
     }
-    finalCategoriesAnswers["energy"] = (finalCategoriesAnswers["energy"] / 10).toFixed(2);
-    finalCategoriesAnswers["confidence"] = (finalCategoriesAnswers["confidence"] / 6).toFixed(2);
-    finalCategoriesAnswers["independence"] = (finalCategoriesAnswers["independence"] / 5).toFixed(2);
-    finalCategoriesAnswers["focus"] = (finalCategoriesAnswers["focus"] / 3).toFixed(2);
+    finalCategoriesAnswers["energy"] = (finalCategoriesAnswers["energy"] / CONSTANTS.NUMBER_OF_ENERGY_QUESTION).toFixed(2);
+    finalCategoriesAnswers["confidence"] = (finalCategoriesAnswers["confidence"] / CONSTANTS.NUMBER_OF_CONFIDENCE_QUESTION).toFixed(2);
+    finalCategoriesAnswers["independence"] = (finalCategoriesAnswers["independence"] / CONSTANTS.NUMBER_OF_INDEPENDENCE_QUESTION).toFixed(2);
+    finalCategoriesAnswers["focus"] = (finalCategoriesAnswers["focus"] / CONSTANTS.NUMBER_OF_FOCUS_QUESTION).toFixed(2);
     console.log("final", finalCategoriesAnswers);
     this.setState({
       finalCategoriesAnswers: finalCategoriesAnswers,
@@ -111,7 +112,7 @@ class Quiz extends React.Component {
       currentQuestion: prevQuestion,
       showPrevBtn: showPrevBtn,
       showNextBtn: true,
-      progress: this.state.progress - 4.3
+      progress: this.state.progress - CONSTANTS.STEP_PERCENT
     });
     await this.loadQuiz();
   };
