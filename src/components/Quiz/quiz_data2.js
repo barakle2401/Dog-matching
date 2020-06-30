@@ -74,13 +74,13 @@ const QuizData = [
     },
     {
         id: 12,
-        question: `? אם היית צריכ/ה לבחור בין שני הכלבים הבאים, במי היית בוחר/ת   `,
+        question: ` אם היית צריכ/ה לבחור בין שני הכלבים הבאים, במי היית בוחר/ת   `,
         options: { first: `כלב שאוהב לשחק ולהשתולל בחוץ`, second: `כלב שאוהב לרבוץ בבית` },
         category: "energy"
     },
     {
         id: 13,
-        question: ` ? אם היית צריכ/ה לבחור בין שני הכלבים הבאים, במי היית בוחר/ת`,
+        question: `  אם היית צריכ/ה לבחור בין שני הכלבים הבאים, במי היית בוחר/ת`,
         options: {
             first: `אחד שיעשה איתי פעילות גופנית`,
             second: `אחד שיהיה חלק מהמשפחה`
@@ -89,7 +89,7 @@ const QuizData = [
     },
     {
         id: 14,
-        question: ` אם היית צריכ/ה לבחור בין שני הכלבים הבאים במי היית בוחר/ת?`,
+        question: ` אם היית צריכ/ה לבחור בין שני הכלבים הבאים במי היית בוחר/ת`,
         options: { first: `אחד שיבוא איתי לכל מקום`, second: `חבר נאמן עבורי` },
         category: "energy"
     },
@@ -126,7 +126,7 @@ const QuizData = [
     {
         id: 20,
         question: `חזרת תשוש/ה מהעבודה, והכלב בא עם כדור כדי שתשחק/י איתו`,
-        options: { first: `לא כרגע`, second: ` בטח שאשחק איתו` },
+        options: { first: ` בטח שאשחק איתו`, second: `לא כרגע` },
         category: "independence"
     },
     {
@@ -147,6 +147,32 @@ const QuizData = [
         question: `חבריי יגדירו אותי כאדם עקשן`,
         options: { first: ` נכון`, second: `לא נכון` },
         category: "focus"
+    },
+    {
+        id: 24,
+        question: `חבריי יגדירו אותו כאדם בעל משמעת עצמית גבוהה`,
+        options: { first: ` נכון`, second: `לא נכון` },
+        category: "focus"
+    },
+    {
+        id: 25,
+        question: `כשאני מתחיל/ה משימה, לא אפסיק עד שאסיים אותה בשלמותה`,
+        options: { first: ` נכון`, second: `לא נכון` },
+        category: "focus"
+    },
+    {
+        id: 26,
+        question: `אני אוהב/ת שדברים נעשים בדרך שלי`,
+        options: { first: ` נכון`, second: `לא נכון` },
+        category: "focus"
+    },
+
+    {
+        id: 27,
+        question: `ארצה ללמד את הכלב שלי פקודות גם אם המשמעות לכך שאעזר במדריך מקצועי`,
+        options: { first: ` נכון`, second: `לא נכון` },
+        category: "focus"
     }
+
 ];
 export default QuizData;

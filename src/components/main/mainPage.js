@@ -127,12 +127,16 @@ class MainPage extends React.Component {
           <div className=" main-div">
            <MDBRow className="title-row justify-content-center text-center ">
  
-             {/* <h1 id="title-main">Match Me a Friend </h1>
-         */}
-              <div className="logo-div "  />
                
+              <div className="logo-div "  />
+              
              </MDBRow>
-         
+             <div className="d-flex text-div  text-center justify-content-center flex-column p-3" > 
+             
+             <h1  className="">כלב הוא היצור היחיד בעולם<br/> שאוהב אותך יותר משהוא אוהב את עצמו</h1>
+              <p>ג'וש בילינגס</p>
+             </div>
+             
              <MDBRow className="buttons-div   justify-content-center ">
            
                <Link to="/login-form">

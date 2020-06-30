@@ -52,7 +52,7 @@
 }
 .main-div {
   
- 
+  
   max-width: 45rem;
   padding: 1rem;
   margin: auto;
@@ -280,4 +280,16 @@
   position: relative;
   transition: transform ease-in 0.1s, box-shadow ease-in 0.25s;
   box-shadow: 0 2px 25px rgba(255, 0, 130, 0.5) !important;
+}
+.text-div{
+  background-color: #8100eb41;
+  color: white;
+  border-radius: 20px;
+  
+
+  
+}
+.text-div h1{
+  font-size: 1.5rem;
+  letter-spacing: 1px;
 }

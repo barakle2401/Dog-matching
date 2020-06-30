@@ -55,55 +55,42 @@ class ViewDog extends React.Component {
     //     const userEnergy = parseFloat(this.state.userMatchPercents["energy"]);
     //     const userFocus = parseFloat(this.state.userMatchPercents["focus"]);
     //     const userIndependence = parseFloat(this.state.userMatchPercents["independence"]);
-    //     const userConfidence = parseFloat(this.state.userMatchPercents["independence"]);
+    //     const userConfidence = parseFloat(this.state.userMatchPercents["confidence"]);
 
 
 
 
-
-
+    //     //console.log("dodgtails:", energy, focus, confidence, independence)
+    //     console.log("userEnergy", userEnergy, "userFocus", userFocus, "userConfidence", userConfidence, "userIndependence", userIndependence)
     //     //On energy direct calculation
-    //     totalMatch["energy"] = parseInt(100 * (1 - Math.abs(parseFloat(energy) - userEnergy).toFixed(2)));
 
+    //     totalMatch["energy"] = parseInt(100 * (1 - Math.abs(parseFloat(energy) - parseFloat(userEnergy)).toFixed(2)))
     //     //Focus 
-    //     if (userFocus >= THRESHOLD_VALUES.FOCUS) {
 
-    //         totalMatch["focus"] = parseInt((100 * userFocus).toFixed(2));
 
-    //     } else {
+    //     //Direct calculation  
+    //     totalMatch["focus"] = parseInt(100 * (((parseFloat(focus) + parseFloat(userFocus)) / 2).toFixed(2)));
 
-    //         //Direct calculation  
-    //         totalMatch["focus"] = parseInt(100 * (1 - Math.abs(parseFloat(focus) - userFocus).toFixed(2)));
-    //     }
 
     //     //Independence 
-    //     if (userIndependence >= THRESHOLD_VALUES.INDEPENDENCE || independence >= THRESHOLD_VALUES.INDEPENDENCE) {
 
-    //         totalMatch["independence"] = parseInt((100 * Math.max(userIndependence, parseFloat(independence))).toFixed(2));
 
-    //     } else {
+    //     //Direct calculation   
+    //     totalMatch["independence"] = parseInt(100 * (((parseFloat(independence) + parseFloat(userIndependence)) / 2).toFixed(2)))
 
-    //         //Direct calculation   
-    //         totalMatch["independence"] = parseInt(100 * (1 - Math.abs(parseFloat(independence) - userIndependence).toFixed(2)))
-    //     }
 
     //     //Confidence 
-    //     if (userConfidence >= THRESHOLD_VALUES.CONFIDENCE || confidence >= THRESHOLD_VALUES.CONFIDENCE) {
 
-    //         totalMatch["confidence"] = parseInt((100 * Math.max(userConfidence, parseFloat(confidence))).toFixed(2));
-
-    //     } else {
-
-    //         //Direct calculation   
-    //         totalMatch["confidence"] = parseInt(100 * (1 - Math.abs(parseFloat(confidence) - userConfidence).toFixed(2)))
-    //     }
+    //     //Direct calculation   
+    //     totalMatch["confidence"] = parseInt(100 * (((parseFloat(confidence) + parseFloat(userConfidence)) / 2).toFixed(2)));
 
 
-    //     console.log(totalMatch);
+
+    //     console.log("totalmatch:", totalMatch);
     //     this.setState({ totalMatch: totalMatch, readyToDisplay: true });
     // }
 
-    //Under tests...
+    // Under tests...
     calculateMatch = () => {
 
         let totalMatch = {};
@@ -113,7 +100,7 @@ class ViewDog extends React.Component {
         const userEnergy = parseFloat(this.state.userMatchPercents["energy"]);
         const userFocus = parseFloat(this.state.userMatchPercents["focus"]);
         const userIndependence = parseFloat(this.state.userMatchPercents["independence"]);
-        const userConfidence = parseFloat(this.state.userMatchPercents["independence"]);
+        const userConfidence = parseFloat(this.state.userMatchPercents["confidence"]);
 
 
 

@@ -8,13 +8,46 @@ import DogsGallery from "./components/viewDogs/dogsGallery";
 import NewDogForm from "./components/newDog/new_dog_form";
 import ViewDog from "./components/viewDogs/viewDog";
 import * as ROUTES from "./constants/routes";
+import Loader from 'react-loader-spinner'
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 
 
 class App extends Component {
+
+  state = {
+    loading: true
+  };
+  componentDidMount() {
+    // this simulates an async action, after which the component will render the content
+    demoAsyncCall().then(() => this.setState({ loading: false }));
+  }
+
   render() {
+    const { loading } = this.state;
+    if (loading) { // if component doesn't have to wait for an async action, remove this block 
+
+      return (
+
+        <div className="d-flex justify-content-center">
+          <div className="loader-wrapper-main">
+            <Loader
+
+              type="Puff"
+              color="#ff00b3"
+              height={170}
+              width={200}
+              timeout={3000} //3 secs
+
+            />
+          </div>
+        </div>
+      )
+
+      // render null when app is not ready
+    }
     return (
+
       <div className="App">
 
 
@@ -35,5 +68,7 @@ class App extends Component {
     );
   }
 }
-
+function demoAsyncCall() {
+  return new Promise((resolve) => setTimeout(() => resolve(), 2500));
+}
 export default App;

@@ -3,6 +3,7 @@ import firebase from "../../firebase";
 import Gallery from "./gallery";
 import { MDBRow, MDBContainer } from "mdbreact";
 import LoaderSpinner from "../loader/loader"
+import * as THRESHOLD_VALUES from "../../constants/threshold_values"
 import "./gallery.css"
 /*CONSTANTS*/
 const THRESHOLD_VALUE_FOCUS = 0.7;
@@ -61,9 +62,10 @@ class DogsGallery extends React.Component {
 
     for (let i = 0; i < Object.keys(dogsInfo).length; i++) {
 
+      //let totalMatchPercent = this.matchAlgorithmNew(dogsInfo[i].confidence, dogsInfo[i].energy, dogsInfo[i].focus, dogsInfo[i].independence, userData);
       let totalMatchPercent = this.matchAlgorithm(dogsInfo[i].confidence, dogsInfo[i].energy, dogsInfo[i].focus, dogsInfo[i].independence, userData);
 
-      // console.log(totalMatchPercent);
+      console.log("total percent:", (Math.round(totalMatchPercent * 100)));
 
       dogsInfo[i].totalMatchPercent = (Math.round(totalMatchPercent * 100));
     }
@@ -72,6 +74,7 @@ class DogsGallery extends React.Component {
     return dogsInfo.sort(this.compare);
   }
   compare = (dogA, dogB) => {
+
     let dogAMatchPercent = parseFloat(dogA.totalMatchPercent);
     let dogBMatchPercent = parseFloat(dogB.totalMatchPercent);
 
@@ -83,9 +86,44 @@ class DogsGallery extends React.Component {
 
       return -1;
     }
-    return 0;
 
   }
+
+  matchAlgorithmNew(confidence, energy, focus, independence, userData) {
+
+    let confidencePercent = parseFloat(this.calculateConfidenceNew(confidence, userData["confidence"]));
+    let energyPercent = 1.5 * (1 - Math.abs(parseFloat(energy) - parseFloat(userData["energy"])).toFixed(2));
+    let independencePercent = parseFloat(this.calculateIndependenceNew(independence, userData["independence"]));
+    let focusPercent = 0.5 * (parseFloat(this.calculateFocusNew(focus, userData["focus"])));
+
+
+
+
+    let totalPercent = (confidencePercent + energyPercent + independencePercent + focusPercent) / 4;
+
+    console.log("userData:", userData)
+    // console.log(confidence, energy, focus, independence)
+    // console.log("confidencePercent:", confidencePercent, "energyPercent:", energyPercent, "independencePercent:", independencePercent, "focusPercent:", focusPercent)
+
+    return totalPercent;
+  }
+  calculateIndependenceNew(dogIndependence, userIndependence) {
+
+    //Direct calculation   
+    return ((parseFloat(dogIndependence) + parseFloat(userIndependence)) / 2).toFixed(2)
+
+  }
+
+  calculateFocusNew(dogFocus, userFocus) {
+
+    return ((parseFloat(dogFocus) + parseFloat(userFocus)) / 2).toFixed(2)
+
+  }
+  calculateConfidenceNew(dogConfidence, userConfidence) {
+    //Confidence 
+    return ((parseFloat(dogConfidence) + parseFloat(userConfidence)) / 2).toFixed(2)
+  }
+
 
   matchAlgorithm(confidence, energy, focus, independence, userData) {
 
@@ -106,42 +144,28 @@ class DogsGallery extends React.Component {
   calculateIndependence(dogIndependence, userIndependence) {
 
     //Independence 
-    if (userIndependence >= THRESHOLD_VALUE_INDEPENDENCE || dogIndependence >= THRESHOLD_VALUE_INDEPENDENCE) {
 
-      return Math.max(parseFloat(userIndependence), parseFloat(dogIndependence)).toFixed(2);
 
-    } else {
+    //Direct calculation   
+    return (1 - Math.abs(parseFloat(dogIndependence) - parseFloat(userIndependence)).toFixed(2))
 
-      //Direct calculation   
-      return (1 - Math.abs(parseFloat(dogIndependence) - parseFloat(userIndependence)).toFixed(2))
-    }
   }
 
   calculateFocus(dogFocus, userFocus) {
 
     //Focus 
-    if (userFocus >= THRESHOLD_VALUE_FOCUS) {
 
-      return parseFloat(userFocus);
 
-    } else {
+    //Direct calculation  
+    return (1 - Math.abs(parseFloat(dogFocus) - parseFloat(userFocus)).toFixed(2));
 
-      //Direct calculation  
-      return (1 - Math.abs(parseFloat(dogFocus) - parseFloat(userFocus)).toFixed(2));
-    }
   }
   calculateConfidence(dogConfidence, userConfidence) {
     //Confidence 
-    if (userConfidence >= THRESHOLD_VALUE_CONFIDENCE || dogConfidence >= THRESHOLD_VALUE_CONFIDENCE) {
 
+    //Direct calculation   
+    return (1 - Math.abs(parseFloat(dogConfidence) - parseFloat(userConfidence)).toFixed(2));
 
-      return (Math.max(parseFloat(userConfidence), parseFloat(dogConfidence))).toFixed(2);
-
-    } else {
-
-      //Direct calculation   
-      return (1 - Math.abs(parseFloat(dogConfidence) - parseFloat(userConfidence)).toFixed(2));
-    }
 
 
   }

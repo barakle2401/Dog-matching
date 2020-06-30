@@ -13,3 +13,17 @@ body, html {
   background-repeat: no-repeat;
   background-size: cover;
 }
+@media(max-width:600px){
+
+
+  body{
+
+    min-height: 850px;
+  }
+}
+
+.loader-wrapper-main{
+
+   /* margin-top: 20rem; */
+   padding-top: 15rem;
+}

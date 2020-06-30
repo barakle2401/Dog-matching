@@ -8,19 +8,19 @@ const QuizData = [
   {
     id: 1,
     question: ` אעדיף בעל חיים שלא דורש הרבה תשומת לב `,
-    options: { first: "מסכימ/ה", second: "לא מסכימ/ה" },
+    options: { first: "לא מסכימ/ה", second: " מסכימ/ה" },
     category: "independence"
   },
   {
     id: 2,
     question: ` לעיתים קרובות אצא מהבית ליותר מ-7 שעות בזמן שהכלב לבד`,
-    options: { first: `נכון`, second: `לא נכון` },
+    options: { first: `לא נכון`, second: ` נכון` },
     category: "independence"
   },
   {
     id: 3,
     question: ` יהיה לי קשה עם כלב שמתבייש או מפחד ממפגש עם אנשים חדשים`,
-    options: { first: `כן`, second: `לא` },
+    options: { first: `לא`, second: `כן` },
     category: "confidence"
   },
   {
@@ -32,13 +32,13 @@ const QuizData = [
   {
     id: 5,
     question: ` חברים מתארים אותי כאדם אמפתי`,
-    options: { first: `לא מסכים`, second: `מסכים` },
+    options: { first: ` מסכים`, second: `לא מסכים` },
     category: "confidence"
   },
   {
     id: 6,
     question: `בדרך כלל אשים לב לשינוי במצב הרוח של חבר קרוב`,
-    options: { first: `לא נכון`, second: `נכון` },
+    options: { first: ` נכון`, second: `לא נכון` },
     category: "confidence"
   },
   {
@@ -50,7 +50,7 @@ const QuizData = [
   {
     id: 8,
     question: `חבריי יגדירו אותי כאדם ששם לב לפרטים קטנים`,
-    options: { first: `לא מסכים`, second: ` מסכים` },
+    options: { first: `מסכים`, second: ` לא מסכים` },
     category: "confidence"
   },
   {
@@ -74,13 +74,13 @@ const QuizData = [
   },
   {
     id: 12,
-    question: `? אם היית צריכ/ה לבחור בין שני הכלבים הבאים, במי היית בוחר/ת   `,
+    question: ` אם היית צריכ/ה לבחור בין שני הכלבים הבאים, במי היית בוחר/ת   `,
     options: { first: `כלב שאוהב לשחק ולהשתולל בחוץ`, second: `כלב שאוהב לרבוץ בבית` },
     category: "energy"
   },
   {
     id: 13,
-    question: ` ? אם היית צריכ/ה לבחור בין שני הכלבים הבאים, במי היית בוחר/ת`,
+    question: `  אם היית צריכ/ה לבחור בין שני הכלבים הבאים, במי היית בוחר/ת`,
     options: {
       first: `אחד שיעשה איתי פעילות גופנית`,
       second: `אחד שיהיה חלק מהמשפחה`
@@ -89,7 +89,7 @@ const QuizData = [
   },
   {
     id: 14,
-    question: ` ? אם היית צריכ/ה לבחור בין שני הכלבים הבאים, במי היית בוחר/ת`,
+    question: ` אם היית צריכ/ה לבחור בין שני הכלבים הבאים במי היית בוחר/ת`,
     options: { first: `אחד שיבוא איתי לכל מקום`, second: `חבר נאמן עבורי` },
     category: "energy"
   },
@@ -102,50 +102,50 @@ const QuizData = [
   {
     id: 16,
     question: `אעדיף למלא הוראות מאשר לתת אותם`,
-    options: { first: `לא נכון`, second: `  נכון` },
+    options: { first: ` נכון`, second: `  לא נכון` },
     category: "focus"
   },
   {
     id: 17,
     question: `אעדיף כלב שילקק אותי ויתכרבל איתי`,
-    options: { first: `לא מסכימ/ה`, second: `מסכימ/ה` },
+    options: { first: ` מסכימ/ה`, second: `לא מסכימ/ה` },
     category: "independence"
   },
   {
     id: 18,
     question: `מה מתאר אותך יותר טוב`,
-    options: { first: `חסר/ת סבלנות`, second: ` ספונטני/ת` },
+    options: { first: ` ספונטי/ת`, second: `חסר/ת סבלנות` },
     category: "confidence"
   },
   {
     id: 19,
     question: `מה מתאר אותך יותר טוב`,
-    options: { first: `קשוח/ה`, second: `רגיש/ה` },
+    options: { first: `רגיש/ה`, second: `קשוח/ה` },
     category: "confidence"
   },
   {
     id: 20,
     question: `חזרת תשוש/ה מהעבודה, והכלב בא עם כדור כדי שתשחק/י איתו`,
-    options: { first: `בטח שאשחק איתו`, second: `לא כרגע` },
+    options: { first: `לא כרגע`, second: ` בטח שאשחק איתו` },
     category: "independence"
   },
   {
     id: 21,
     question: `אעדיף כלב שאוהב לקבל יחס מאשר כלב שיודע לדאוג לעצמו`,
-    options: { first: `לא מסכימ/ה`, second: `מסכימ/ה` },
+    options: { first: `מסכימ/ה`, second: `לא מסכימ/ה` },
     category: "independence"
   },
   {
     id: 22,
     question: `חשוב לי מאוד שהכלב ישמע לפקודות שלי`,
-    options: { first: `לא נכון`, second: `  נכון` },
+    options: { first: ` נכון`, second: `  לא נכון` },
     category: "focus"
   },
 
   {
     id: 23,
     question: `חבריי יגדירו אותי כאדם עקשן`,
-    options: { first: `לא נכון`, second: `נכון` },
+    options: { first: ` נכון`, second: `לא נכון` },
     category: "focus"
   }
 ];
