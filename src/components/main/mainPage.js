@@ -121,10 +121,10 @@ class MainPage extends React.Component {
             </MDBModalBody>
 
           </MDBModal>
-        </MDBContainer>) :( <MDBContainer className="main-container ">
+        </MDBContainer>) :( <MDBContainer className="main-container pb-5 ">
   
 
-          <div className=" main-div">
+          <div className=" main-div ">
            <MDBRow className="title-row justify-content-center text-center ">
  
                
@@ -140,13 +140,13 @@ class MainPage extends React.Component {
              <MDBRow className="buttons-div   justify-content-center ">
            
                <Link to="/login-form">
-                 <MDBBtn className="quiz-button-start mt-5">
+                 <MDBBtn className="quiz-button-start">
              שאלון <br/> התאמה
                   </MDBBtn>
                </Link>
 
                <Link to="/new-dog-form">
-                 <MDBBtn className="quiz-button-form mt-5">
+                 <MDBBtn className="quiz-button-form ">
                  הוספת  <br/>כלב
                  </MDBBtn>
                </Link>

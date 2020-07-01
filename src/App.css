@@ -3,27 +3,27 @@ body, html {
   margin: 0;
   font-family:"DanaYadAlefAlefAlef", sans-serif;
   background-color: black;
-  background-image: url("./components/images/compress/dogs2-min-cut.jpg");
+  background-image: url("./components/images/compress/dogs2-min.jpg");
 
   /* Full height */
-  /* min-height: 900px; */
+   height: 1000px;
 
   /* Center and scale the image nicely */
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
-@media(max-width:600px){
+/* @media(max-width:600){
 
 
   body{
 
-    min-height: 850px;
+    background-position: initial;
   }
-}
+} */
 
 .loader-wrapper-main{
 
-   /* margin-top: 20rem; */
-   padding-top: 15rem;
+   margin-top: 20rem;
+   /* padding-top: 15rem; */
 }
