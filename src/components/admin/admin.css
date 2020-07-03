@@ -1,0 +1,7 @@
+.admin-container{
+
+    direction: rtl;
+}
+p.rtl {
+    direction: rtl !important;
+  }

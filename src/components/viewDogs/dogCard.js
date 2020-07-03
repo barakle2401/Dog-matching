@@ -1,8 +1,9 @@
 import React from "react";
 import "./dogCard.css";
+import firebase from "../../firebase";
 import ViewDog from "./viewDog";
 import { Link } from "react-router-dom";
-import firebase from "../../firebase";
+
 import {
   MDBBtn,
   MDBCard,
@@ -31,15 +32,15 @@ class DogCard extends React.Component {
   }
   render() {
     return (
-      <MDBCol className="m-1 mt-4 mb-4 card-container ">
+      <MDBCol className=" mt-4 mb-4 card-container">
         <MDBCard className="dog-card rounded mb-0" >
           <MDBCardImage
-            style={{ height: "18rem", width: "100%" }}
+
             className="img-fluid dog-image"
             src={this.props.details.imgUrl}
             waves
           />
-          <MDBCardBody className="card-body-dog ">
+          <MDBCardBody className="card-body-dog  rounded mt-1">
             <MDBCardTitle className="text-right name-text"><span className="white-text font-weight-bold">
               {this.props.details.name}  {this.props.details.sex == "זכר" ? <span> בן </span> : <span> בת </span>}
 

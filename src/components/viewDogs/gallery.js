@@ -18,7 +18,7 @@ class Gallery extends React.Component {
 
   render() {
     return (
-      <div className="justify-content-center gallery-container ">
+      <div className="justify-content-center gallery-container p-xl-2">
 
         <MDBRow className="match-title text-center mb-3 ">
 
@@ -31,6 +31,7 @@ class Gallery extends React.Component {
           {Object.keys(this.state.dogsData).map(key => (
             <DogCard details={this.state.dogsData[key]} />
           ))}
+          <div className="w-100 d-block d-sm-none" />
         </MDBRow>
       </div>
     );

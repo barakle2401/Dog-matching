@@ -8,7 +8,9 @@ import DogsGallery from "./components/viewDogs/dogsGallery";
 import NewDogForm from "./components/newDog/new_dog_form";
 import ViewDog from "./components/viewDogs/viewDog";
 import * as ROUTES from "./constants/routes";
-import Loader from 'react-loader-spinner'
+import Loader from 'react-loader-spinner';
+import Admin from "./components/admin/admin"
+import EditDog from "./components/admin/edit_dog"
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 
@@ -25,27 +27,27 @@ class App extends Component {
 
   render() {
     const { loading } = this.state;
-    if (loading) { // if component doesn't have to wait for an async action, remove this block 
+    // if (loading) { // if component doesn't have to wait for an async action, remove this block 
 
-      return (
+    //   return (
 
-        <div className="d-flex justify-content-center">
-          <div className="loader-wrapper-main">
-            <Loader
+    //     <div className="d-flex justify-content-center">
+    //       <div className="loader-wrapper-main">
+    //         <Loader
 
-              type="Puff"
-              color="#ff00b3"
-              height={170}
-              width={200}
-              timeout={3000} //3 secs
+    //           type="Puff"
+    //           color="#ff00b3"
+    //           height={170}
+    //           width={200}
+    //           timeout={3000} //3 secs
 
-            />
-          </div>
-        </div>
-      )
+    //         />
+    //       </div>
+    //     </div>
+    //   )
 
-      // render null when app is not ready
-    }
+    //   // render null when app is not ready
+    // }
     return (
 
       <div className="App">
@@ -60,6 +62,8 @@ class App extends Component {
             <Route path={ROUTES.LOGIN_FORM} component={LoginForm} />
             <Route path={ROUTES.DOGS_GALLERY} exact component={DogsGallery} />
             <Route path={ROUTES.VIEW_DOG} exact component={ViewDog} />
+            <Route path={ROUTES.ADMIN} exact component={Admin} />
+            <Route path={ROUTES.EDIT_DOG} exact component={EditDog} />
           </Switch>
         </Router>
 

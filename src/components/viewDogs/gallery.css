@@ -7,8 +7,8 @@
   min-height: 100vh;
 	 background-image: url("../images/compress/43978-min.jpg");
 
-	margin: 0px;
-	padding: 0 2rem 2rem;
+
+
   background-position: top;
   background-repeat: no-repeat;
   
@@ -48,10 +48,28 @@
 }
 .dog-card {
  
-  width: 17rem !important;
+  width: 22rem !important;
   margin: auto !important;
   background-color: transparent !important;
 }
+.dog-image{
+  border-radius: 2%;
+  height: 24rem !important;
+  width: "100%";
+}
+@media(max-width : 600px){
+ 
+  .dog-card {
+ 
+    width: 22rem !important;
+
+  }
+  .dog-image{
+  
+    height: 28rem !important;
+  }
+}
+
 
 .card-dog {
   width: 280px;

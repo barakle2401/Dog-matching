@@ -1,7 +1,7 @@
 .card-container{
 
     direction: rtl !important;
-     
+    
 } 
 .button-primary{
     float: right;
@@ -16,7 +16,4 @@
 }
 .percent-text{
     font-size: 18px;
-}
-.dog-image{
-    border-radius: 2%;
 }
