@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import firebase from "../../firebase";
+import { confirmAlert } from 'react-confirm-alert';
 import {
     BrowserRouter as Router,
     Link,
@@ -30,6 +31,28 @@ function EditDog(props) {
     //     dogData();
     // }, [])
 
+    // const handleSubmit = () => {
+
+
+    // }
+
+    const handleSubmit = useCallback(() => {
+        return (
+            confirmAlert({
+                title: 'השינויים נשמרו בהצלחה',
+                message: 'תודה',
+                buttons: [
+                    {
+                        label: 'OK',
+                        onClick: () => window.location = "/"
+                    }
+                ]
+            })
+
+        )
+
+
+    })
     console.log(dog)
     console.log(dogId)
     return (
@@ -102,12 +125,12 @@ function EditDog(props) {
                 </div>
                 <div className="row p-3 ">
                     <div className="col-xl-3 col-sm-12 text-center">
-                    <span className="">Image Url</span>
+                        <span className="">Image Url</span>
                         <input className="form-control " value={dog.imgUrl} />
                     </div>
                 </div>
                 <div className="d-flex justify-content-center">
-                    <MDBBtn color="elegant">Submit</MDBBtn>
+                    <MDBBtn color="elegant" onClick={handleSubmit}>Submit</MDBBtn>
                 </div>
             </MDBCard>
 
